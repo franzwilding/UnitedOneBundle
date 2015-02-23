@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="">
+<head>
+
+  {# You can override the title block, or let United generate the title from the service definition. #}
+  <title>{% block title %}TITLE{% endblock %}</title>
+
+  {# You can override, extend or modify the html head section in a controller. #}
+  {% block head %}
+    {{ include('@UnitedOne/head.html.twig') }}
+  {% endblock %}
+</head>
+<body>
+
+  {# You can override or remove the header block in a controller. #}
+  {% block header %}
+    <section class="united-one-header">
+      {{ include('@UnitedOne/header.html.twig') }}
+    </section>
+  {% endblock %}
+
+  {# You can override or remove the navigation block in a controller. #}
+  {% block navigation %}
+    <section class="united-one-navigation">
+      {{ include('@UnitedOne/navigation.html.twig') }}
+    </section>
+  {% endblock %}
+
+  {# The only element, that mendatory to implement, is the content block. #}
+  <section class="united-content">
+    {% block content %}{% endblock %}
+  </section>
+
+  {# You can override, extend or modify the javasvripts_head block. #}
+  {% block javascripts_footer %}
+    {{ include('@UnitedOne/footer.javascripts.html.twig') }}
+  {% endblock %}
+</body>
+</html>

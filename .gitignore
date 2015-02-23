@@ -1,0 +1,6 @@
+.DS_Store
+
+Resources/public/vendor/semantic-ui/*.*
+Resources/public/vendor/semantic-ui/*/*
+!Resources/public/vendor/semantic-ui/dist/semantic.min.css
+!Resources/public/vendor/semantic-ui/dist/semantic.min.js
