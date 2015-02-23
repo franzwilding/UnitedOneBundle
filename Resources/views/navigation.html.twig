@@ -1,1 +1,9 @@
-TODO: NAVIGATION
+<nav>
+  <ul>
+    {% for item in united_structure() %}
+      <li{% if item.current %} class="active"{% endif %}>
+        <a href="{{ path(item.route) }}">{{ item }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
