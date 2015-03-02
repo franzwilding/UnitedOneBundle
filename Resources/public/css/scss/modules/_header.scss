@@ -10,11 +10,10 @@
   -webkit-transition: left 0.4s;
 
   .breadcrumb {
-    -webkit-transition: margin-left 0.5s, opacity 0.2s ease-out;
+    -webkit-transition: margin-left 0.4s, opacity 0.7s ease-out;
   }
 
   .toggle-sidebar {
-
     margin: 0;
     padding: 0;
     border: none;
@@ -25,6 +24,21 @@
 
     svg {
       vertical-align: middle;
+
+      rect.rect-1 {
+        transform-origin: 8px 12px;
+        -webkit-transition: transform 0.5s, fill 0.5s ease-out;
+      }
+
+      rect.rect-2 {
+        -webkit-transform-origin: 50% 50%;
+        -webkit-transition: transform 0.2s ease-in-out;
+      }
+
+      rect.rect-3 {
+        transform-origin: 8px 18px;
+        -webkit-transition: transform 0.5s, fill 0.5s ease-out;
+      }
     }
 
     .text {
@@ -45,10 +59,31 @@
 
   &.open {
     left: 200px;
+    position: fixed;
+
+    .toggle-sidebar {
+      svg {
+
+        rect.rect-1 {
+          -webkit-transform: rotate(45deg);
+          fill: #FE6760;
+        }
+
+        rect.rect-2 {
+          -webkit-transform: scale(0,0);
+        }
+
+        rect.rect-3 {
+          -webkit-transform: rotate(-45deg);
+          fill: #FE6760;
+        }
+      }
+    }
 
     .breadcrumb {
       margin-left: -300px;
       opacity: 0;
+      -webkit-transition: margin-left 0.5s, opacity 0.2s ease-out;
     }
   }
 }

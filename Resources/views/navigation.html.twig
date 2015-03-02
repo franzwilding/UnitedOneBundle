@@ -1,5 +1,5 @@
 <nav>
-  <ul class="ui vertical text menu">
+  <ul class="ui large vertical text menu">
     {% for item in united_structure() %}
       <li class="item {% if item.current %} active{% endif %}">
         <a href="{{ path(item.route) }}">
