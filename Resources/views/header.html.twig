@@ -1,1 +1,15 @@
-<p class="united-one-breadcrumb">{{ united_structure_item() }}</p>
+<button class="toggle-sidebar">
+  <svg width="20px" height="14px" viewBox="0 0 20 14">
+    <g fill="#737373">
+      <rect x="0" y="0" width="20" height="2"></rect>
+      <rect x="0" y="6" width="20" height="2"></rect>
+      <rect x="0" y="12" width="20" height="2"></rect>
+    </g>
+  </svg>
+  <span class="text">Navigation</span>
+</button>
+
+<p class="ui large breadcrumb">
+  {# TODO: render parents #}
+  <span class="active section">{{ united_structure_item() }}</span>
+</p>

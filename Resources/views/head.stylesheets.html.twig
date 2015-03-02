@@ -1,3 +1,8 @@
-{% stylesheets '@UnitedOneBundle/Resources/public/vendor/semantic-ui/dist/semantic.css' filter='cssrewrite' %}
+{% stylesheets filter='cssrewrite'
+  'bundles/unitedone/vendor/semantic-ui/dist/semantic.css'
+  'bundles/unitedone/css/*.css'
+%}
 <link rel="stylesheet" href="{{ asset_url }}" />
 {% endstylesheets %}
+
+{% stylesheets output='css/one.css.map' '@UnitedOneBundle/Resources/public/css/one.css.map' %}{% endstylesheets %}

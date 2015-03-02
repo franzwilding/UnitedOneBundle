@@ -1,0 +1,54 @@
+/**
+ * Main Header.
+ */
+.united-one-header {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  z-index: 1000;
+
+  -webkit-transition: left 0.4s;
+
+  .breadcrumb {
+    -webkit-transition: margin-left 0.5s, opacity 0.2s ease-out;
+  }
+
+  .toggle-sidebar {
+
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+
+    svg {
+      vertical-align: middle;
+    }
+
+    .text {
+      position: absolute;
+      left: -9999px;
+      top: -999px;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .breadcrumb {
+    margin: 0;
+    vertical-align: middle;
+  }
+
+  &.open {
+    left: 200px;
+
+    .breadcrumb {
+      margin-left: -300px;
+      opacity: 0;
+    }
+  }
+}

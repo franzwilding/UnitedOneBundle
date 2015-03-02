@@ -21,15 +21,21 @@
 
   {# You can override or remove the navigation block in a controller. #}
   {% block navigation %}
-    <section class="united-one-navigation">
+    <section class="united-one-navigation ui sidebar">
       {{ include('@UnitedOne/navigation.html.twig') }}
     </section>
   {% endblock %}
 
-  {# The only element, that mendatory to implement, is the content block. #}
-  <section class="united-content">
-    {% block content %}{% endblock %}
-  </section>
+  {% block content_wrapper %}
+    {# The only element, mendatory to implement, is the content block. #}
+    <div class="pusher">
+      <section class="united-content">
+        <div class="united-content-inner">
+          {% block content %}{% endblock %}
+        </div>
+      </section>
+    </div>
+  {% endblock %}
 
   {# You can override, extend or modify the javasvripts_head block. #}
   {% block javascripts_footer %}

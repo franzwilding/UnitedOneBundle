@@ -1,0 +1,15 @@
+/**
+ * Main Content.
+ */
+.united-content {
+  position: relative;
+  margin: 65px 35px 35px 35px;
+  padding-top: 50px;
+  width: auto;
+  border-top: 1px solid #ccc;
+
+  .united-content-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
