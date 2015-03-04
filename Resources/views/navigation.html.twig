@@ -1,11 +1,11 @@
 <nav>
   <ul class="ui large vertical text menu">
     {% for item in united_structure() %}
-      <li class="item {% if item.current %} active{% endif %}">
-        <a href="{{ path(item.route) }}">
-          <i class="home icon"></i>
-          {{ item }}
-        </a>
+      <li class="item {% if item.subRoute %} active{% endif %}">
+        {% if item.route != null %}<a href="{{ path(item.route) }}">{% endif %}
+          {% if item.config.icon %}<i class="{{ item.config.icon }} icon"></i>{% endif %}
+          {{ item|trans }}
+          {% if item.route %}</a>{% endif %}
       </li>
     {% endfor %}
   </ul>

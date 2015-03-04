@@ -73,3 +73,11 @@ UnitedOne.modules.select = {
     ;
   }
 };
+
+UnitedOne.modules.cards = {
+  ready: function(){
+    $('.card .dimmable.image').dimmer({
+      on: 'hover'
+    });
+  }
+};

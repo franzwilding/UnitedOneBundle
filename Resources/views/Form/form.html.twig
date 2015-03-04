@@ -1,0 +1,14 @@
+{% extends united_theme('layout.html.twig') %}
+{% form_theme form 'UnitedOneBundle:Form:form.theme.html.twig' %}
+
+{% block content %}
+
+  <div class="ui segment">
+
+    <h1>{{ united_structure_item().subRoute|trans }}</h1>
+    <div class="ui divider"></div>
+
+    {{ form(form) }}
+  </div>
+
+{% endblock %}

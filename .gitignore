@@ -1,5 +1,6 @@
 .DS_Store
 
+Resources/public/css/scss/.sass-cache/*
 Resources/public/vendor/semantic-ui/*.*
 Resources/public/vendor/semantic-ui/*/*
 !Resources/public/vendor/semantic-ui/dist/semantic.min.css

@@ -12,9 +12,11 @@
 <p class="ui large breadcrumb">
   {# TODO: render parents #}
 
-  <a class="section" href="">Parent</a>
-  <span class="divider"> / </span>
-  <a class="section" href="">Parent</a>
-  <span class="divider"> / </span>
-  <span class="active section">{{ united_structure_item() }}</span>
+  {% if  united_structure_item().route == united_structure_item().subRoute %}
+    <span class="active section" >{{ united_structure_item()|trans }}</span>
+  {% else %}
+    <a class="section" href="{{ path(united_structure_item().route) }}">{{ united_structure_item()|trans }}</a>
+    <span class="divider"> / </span>
+    <span class="active section" >{{ united_structure_item().subRoute|trans }}</span>
+  {% endif %}
 </p>

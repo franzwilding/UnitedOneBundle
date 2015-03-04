@@ -1,15 +1,19 @@
 /**
  * Main Content.
  */
+
+.pusher {
+  padding: $space + $padding $space - $padding $space - $padding;
+}
+
 .united-content {
   position: relative;
-  margin: 65px 35px 35px 35px;
-  padding-top: 50px;
+  padding-top: $space;
   width: auto;
   border-top: 1px solid #ccc;
 
   .united-content-inner {
-    max-width: 1400px;
+    max-width: $max-width;
     margin: 0 auto;
   }
 }

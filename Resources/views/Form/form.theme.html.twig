@@ -1,0 +1,39 @@
+{% extends "form_div_layout.html.twig" %}
+
+{% block form_start -%}
+  {% set attr = attr|merge({class: (attr.class|default('') ~ ' ui form')|trim}) %}
+  {{- parent() -}}
+{%- endblock form_start %}
+
+{%- block form_row -%}
+  <div class="field">
+    {{- form_label(form) -}}
+    {{- form_errors(form) -}}
+    {{- form_widget(form) -}}
+  </div>
+{%- endblock form_row -%}
+
+{%- block submit_widget -%}
+  {%- set attr = attr|merge({'class': 'ui primary button'}) -%}
+  {{- parent() -}}
+{%- endblock submit_widget -%}
+
+{%- block submit_or_delete_widget -%}
+  {{ block('submit_widget') }}
+
+  {% if form.parent.vars.data.id %}
+    <a class="red ui button" href="delete">{% trans %}Delete{% endtrans %}</a>
+  {% endif %}
+{%- endblock submit_or_delete_widget -%}
+
+{%- block delete_widget -%}
+  {%- set attr = attr|merge({'class': 'ui red button'}) -%}
+  {%- set type = type|default('submit') -%}
+  {{ block('button_widget') }}
+  <a class="basic ui button" href="../">{% trans %}Cancel{% endtrans %}</a>
+{%- endblock delete_widget -%}
+
+{%- block reset_widget -%}
+  {%- set attr = attr|merge({'class': 'ui button'}) -%}
+  {{- parent() -}}
+{%- endblock reset_widget -%}
