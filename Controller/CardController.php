@@ -2,7 +2,7 @@
 
 namespace United\OneBundle\Controller;
 
-use Symfony\Component\Form\FormTypeInterface;
+use Symfony\Component\Form\Form;
 use United\CoreBundle\Controller\AjaxCRUDController;
 
 use United\OneBundle\Form\DeleteFormType;
@@ -19,11 +19,12 @@ abstract class CardController extends AjaxCRUDController {
    * $action can be: index|create|update|delete.
    *
    * @param string $action
-   * @return string|FormTypeInterface
+   * @param null|object $entity
+   * @return string|Form
    */
-  protected function getFormForAction($action) {
+  protected function getFormForAction($action, $entity = null) {
     if($action == 'delete') {
-      return new DeleteFormType();
+      return $this->createForm(new DeleteFormType(), $entity);
     }
 
     return NULL;
