@@ -10,13 +10,16 @@
 </button>
 
 <p class="ui large breadcrumb">
-  {# TODO: render parents #}
+  {% for parent in united_structure_parents() %}
+    <a class="section" href="{{ parent.path }}">{{ (parent.item ~ '.index')|trans }}</a>
+    <span class="divider"> / </span>
+  {% endfor %}
 
   {% if  united_structure_item().route == united_structure_item().subRoute %}
-    <span class="active section" >{{ united_structure_item()|trans }}</span>
+    <span class="active section" >{{ (united_structure_item() ~ '.index')|trans }}</span>
   {% else %}
-    <a class="section" href="{{ path(united_structure_item().route) }}">{{ united_structure_item()|trans }}</a>
+    <a class="section" href="{{ path(united_structure_item().route) }}">{{ (united_structure_item() ~ '.index')|trans }}</a>
     <span class="divider"> / </span>
-    <span class="active section" >{{ united_structure_item().subRoute|trans }}</span>
+    <span class="active section" >{{ united_structure_item().subRouteName|trans }}</span>
   {% endif %}
 </p>
