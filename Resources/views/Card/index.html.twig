@@ -1,45 +1,16 @@
 {% extends united_theme('layout.html.twig') %}
 {% block content %}
 
-  <form class="ui form">
-    <div class="fields">
-
-      <div class="one wide field">
-        <a class="ui inverted green icon button" href="create">
-          <i class="add icon"></i>
-        </a>
-      </div>
-
-      <div class="eleven wide field">
-        <!--div class="ui icon input">
-          <input type="text" placeholder="Suchbegriff eingeben, um Ergebnis zu filtern">
-          <i class="search icon"></i>
-        </div-->
-      </div>
-
-      <div class="four wide field">
-
-        <!--div class="ui selection dropdown">
-          <input type="hidden" name="gender">
-          <i class="dropdown icon"></i>
-          <div class="default text">Gender</div>
-          <div class="menu">
-            <div class="item" data-value="male" data-text="Male">
-              <i class="male icon"></i>
-              Male
-            </div>
-            <div class="item" data-value="female" data-text="Female">
-              <i class="female icon"></i>
-              Female
-            </div>
-          </div>
-        </div-->
-
-      </div>
-    </div>
-  </form>
-
   <div class="ui four stackable doubling cards">
+    <a href="create" class="single button card">
+      <div class="container">
+        <div class="content">
+          <div class="center">
+            <div class="ui positive small labeled icon button"><i class="icon add"></i> {% trans %}Hinzufügen{% endtrans %}</div>
+          </div>
+        </div>
+      </div>
+    </a>
     {% for entity in entities %}
       {% include cardTemplate with {'entity': entity} %}
     {% endfor %}

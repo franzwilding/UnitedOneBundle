@@ -8,4 +8,5 @@ $max-width:             1260px;
 $animation-fast:        0.4s;
 $animation-slow:        0.7s;
 
+@import "elements/**/*";
 @import "modules/**/*";

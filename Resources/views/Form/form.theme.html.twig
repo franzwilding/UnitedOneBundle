@@ -38,3 +38,17 @@
   {%- set attr = attr|merge({'class': 'ui button'}) -%}
   {{- parent() -}}
 {%- endblock reset_widget -%}
+
+{%- block choice_widget_expanded -%}
+  {% set attr = attr|merge({'class': 'grouped fields'}) %}
+  <div {{ block('widget_container_attributes') }}>
+    {%- for child in form %}
+      <div class="field">
+        <div class="ui checkbox">
+          {{- form_widget(child) -}}
+          {{- form_label(child) -}}
+        </div>
+      </div>
+    {% endfor -%}
+  </div>
+{%- endblock choice_widget_expanded -%}
