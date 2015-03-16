@@ -4,7 +4,7 @@ namespace United\OneBundle\Controller;
 
 /**
  * Class CardController
- * Defines an CRUD Controller that displays cards for the index action.
+ * Defines a CRUD Controller that displays cards for the index action.
  * @package United\OneBundle\Controller
  */
 abstract class CardController extends CRUDBaseController {
@@ -26,6 +26,8 @@ abstract class CardController extends CRUDBaseController {
   }
 
   protected function alterContextForAction($action, &$context) {
+    parent::alterContextForAction($action, $context);
+
     if($action == 'index') {
       $context['cardTemplate'] = $this->getTemplateForAction('card');
     }

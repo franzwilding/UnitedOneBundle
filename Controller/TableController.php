@@ -4,7 +4,7 @@ namespace United\OneBundle\Controller;
 
 /**
  * Class TableController
- * Defines an CRUD Controller that displays a table for the index action.
+ * Defines a CRUD Controller that displays a table for the index action.
  * @package United\OneBundle\Controller
  */
 abstract class TableController extends CRUDBaseController {
@@ -26,6 +26,8 @@ abstract class TableController extends CRUDBaseController {
   }
 
   protected function alterContextForAction($action, &$context) {
+    parent::alterContextForAction($action, $context);
+
     if($action == 'index') {
       $context['rowTemplate'] = $this->getTemplateForAction('row');
       $context['descriptionTemplate'] = $this->getTemplateForAction('description');

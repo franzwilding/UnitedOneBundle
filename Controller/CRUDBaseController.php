@@ -3,8 +3,8 @@
 namespace United\OneBundle\Controller;
 
 use Symfony\Component\Form\Form;
-use United\CoreBundle\Controller\AjaxCRUDController;
 
+use United\CoreBundle\Controller\CRUDController;
 use United\OneBundle\Form\DeleteFormType;
 
 /**
@@ -12,7 +12,7 @@ use United\OneBundle\Form\DeleteFormType;
  * Defines the base CRUD Controller for United One.
  * @package United\OneBundle\Controller
  */
-abstract class CRUDBaseController extends AjaxCRUDController {
+abstract class CRUDBaseController extends CRUDController {
 
   /**
    * Returns the form the given action. For the base implementation,
@@ -28,6 +28,24 @@ abstract class CRUDBaseController extends AjaxCRUDController {
     }
 
     return NULL;
+  }
+
+  /**
+   * This method can alter the context for each action, that is passed to the
+   * twig template.
+   *
+   * @param string $action
+   * @param array $context
+   * @return array
+   */
+  protected function alterContextForAction($action, &$context) {
+    parent::alterContextForAction($action, $context);
+
+    if($this->container->get('request')->query->get('embed')) {
+      $context['layout'] = 'layout-embed.html.twig';
+    } else {
+      $context['layout'] = 'layout.html.twig';
+    }
   }
 
   /**

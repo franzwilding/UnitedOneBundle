@@ -1,0 +1,10 @@
+<div class="item{% if entity.id == current.id %} active{% endif %}">
+  <a href="{{ entity.id }}"><b>{{ entity }}</b></a>
+  {% if entity.children is defined and entity.children|length > 0 %}
+    <div class="menu">
+      {% for child in entity.children %}
+        {% include itemTemplate with { entity: child, current: current, itemTemplate: itemTemplate } %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>

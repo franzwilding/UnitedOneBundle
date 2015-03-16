@@ -1,0 +1,37 @@
+{% extends united_theme(layout) %}
+
+{% block breadcrumb_item %}{{ entity }}{% endblock breadcrumb_item %}
+{% block content %}
+
+  <div class="ui sixteen column stackable grid">
+
+    <div class="five wide column">
+      <div class="ui vertical menu">
+        {% for child in entities %}
+          {% include itemTemplate with { entity: child, current: entity, itemTemplate: itemTemplate } %}
+        {% endfor %}
+        <a href="{{ united_structure_item_url('create') }}" class="item">
+          <i class="icon add"></i> {% trans %}Add collection{% endtrans %}
+        </a>
+      </div>
+    </div>
+
+    <div class="eleven wide column">
+      <h2>{{ entity }}
+        <a href="{{ united_structure_item_url('update', null, { id: entity.id }) }}" class="ui black basic small labled icon button">
+          <i class="pencil icon"></i>
+          {% trans %}Edit{% endtrans %}
+        </a>
+      </h2>
+      <div class="ui divider"></div>
+
+      {% for child in united_structure_item().children %}
+        {{ render(url(child.route, {
+          (united_structure_item().paramName): entity.id,
+          embed:true
+        })) }}
+      {% endfor %}
+
+    </div>
+  </div>
+{% endblock %}
