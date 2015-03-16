@@ -3,6 +3,7 @@
 namespace United\OneBundle\Controller;
 
 use GuzzleHttp\Message\Response;
+use United\CoreBundle\Controller\ControllerViewInterface;
 use United\CoreBundle\Model\EntityInterface;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -14,7 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
  * another controller.
  * @package United\OneBundle\Controller
  */
-abstract class CollectionController extends CRUDBaseController {
+abstract class CollectionController extends CRUDBaseController implements ControllerViewInterface {
 
   /**
    * Returns the template for the given action. For the base implementation,
@@ -83,5 +84,9 @@ abstract class CollectionController extends CRUDBaseController {
     $context = array('entity' => $entity, 'entities' => $entities);
     $this->alterContextForAction('view', $context);
     return $this->render($this->getTemplateForAction('view'), $context);
+  }
+
+  public function viewEntity($id) {
+    return $this->findEntityById($id);
   }
 }

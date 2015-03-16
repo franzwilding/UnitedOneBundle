@@ -21,6 +21,8 @@
     width: $space;
     height: $space;
     line-height: $space;
+    position: relative;
+    z-index: 50;
 
     svg {
       vertical-align: middle;

@@ -33,6 +33,15 @@
           {% for parent in united_structure_parents() %}
             <a class="section" href="{{ united_structure_item_url('', parent) }}">{{ (parent ~ '.index')|trans }}</a>
             <span class="divider"> / </span>
+
+            {% if united_controller_view(parent) %}
+              {% set parent_entity = united_controller_view_entity(parent) %}
+              {% if parent_entity %}
+                <a class="section" href="{{ united_structure_item_url('view', parent, { id: parent_entity.id }) }}">{{ parent_entity }}</a>
+                <span class="divider"> / </span>
+              {% endif %}
+            {% endif %}
+
           {% endfor %}
 
           {% if  united_structure_item().route == united_structure_item().subRoute %}
@@ -55,9 +64,9 @@
           {% for item in united_structure() %}
             <li class="item {% if item.activeTrail %} active{% endif %}">
               {% if item.route != null %}<a href="{{ united_structure_item_url('', item) }}">{% endif %}
-                {% if item.config.icon %}<i class="{{ item.config.icon }} icon"></i>{% endif %}
-                {{ (item ~ '.menu')|trans }}
-                {% if item.route %}</a>{% endif %}
+              {% if item.config.icon is defined %}<i class="{{ item.config.icon }} icon"></i>{% endif %}
+              {{ (item ~ '.menu')|trans }}
+              {% if item.route %}</a>{% endif %}
             </li>
           {% endfor %}
         </ul>
