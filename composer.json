@@ -1,0 +1,20 @@
+{
+  "name": "franzwilding/united-one-bundle",
+  "type": "symfony-bundle",
+  "description": "Symfony UnitedOneBundle CMS Theme",
+  "keywords": ["CMS", "Content Management", "Theme"],
+  "homepage": "https://github.com/franzwilding/UnitedOneBundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Franz Wilding",
+      "email": "franz@2robots.at"
+    }
+  ],
+  "require": {
+    "franzwilding/united-one-bundle": "dev-master"
+  },
+  "autoload": {
+    "psr-4": { "United\\OneBundle\\": "" }
+  }
+}
