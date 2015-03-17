@@ -81,3 +81,11 @@ UnitedOne.modules.cards = {
     });
   }
 };
+
+UnitedOne.modules.stickyCollections = {
+    ready: function(){
+        $('.united-one-collection-container').each(function(){
+            $('.ui.sticky', $(this)).sticky({ context: $(this)});
+        });
+    }
+};
