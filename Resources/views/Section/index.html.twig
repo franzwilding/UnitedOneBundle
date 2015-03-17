@@ -1,0 +1,10 @@
+{% extends united_theme(layout) %}
+{% block content %}
+
+    <div class="ui four column doubling stackable grid">
+        {% for child in united_structure_item().children %}
+            {% include sectionTemplate with {'item': child} %}
+        {% endfor %}
+    </div>
+
+{% endblock %}
