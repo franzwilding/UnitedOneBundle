@@ -12,7 +12,7 @@
     }
   ],
   "require": {
-    "franzwilding/united-one-bundle": "dev-master"
+    "franzwilding/united-core-bundle": "dev-master"
   },
   "autoload": {
     "psr-4": { "United\\OneBundle\\": "" }
