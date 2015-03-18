@@ -2,25 +2,26 @@
 {% form_theme form 'UnitedOneBundle:Form:form.theme.html.twig' %}
 
 {% block breadcrumb_item %}
-  {% if entity and entity.__toString %}
-    {{ united_structure_item().subRouteName|trans({'%entity%': entity}) }}
-  {% else %}
-    {{ united_structure_item().subRouteName|trans }}
-  {% endif %}
+    {% if entity and entity.__toString %}
+        {{ united_structure_item().subRouteName|trans({'%entity%': entity}) }}
+    {% else %}
+        {{ united_structure_item().subRouteName|trans }}
+    {% endif %}
 {% endblock breadcrumb_item %}
 {% block content %}
 
-  <div class="ui segment">
-    <h1>
-      {% if entity and entity.__toString %}
-        {{ united_structure_item().subRouteName|trans({'%entity%': entity}) }}
-      {% else %}
-        {{ united_structure_item().subRouteName|trans }}
-      {% endif %}
-    </h1>
-    <div class="ui divider"></div>
+    <div class="ui segment">
+        <h1>
+            {% if entity and entity.__toString %}
+                {{ united_structure_item().subRouteName|trans({'%entity%': entity}) }}
+            {% else %}
+                {{ united_structure_item().subRouteName|trans }}
+            {% endif %}
+        </h1>
 
-    {{ form(form) }}
-  </div>
+        <div class="ui divider"></div>
+
+        {{ form(form) }}
+    </div>
 
 {% endblock %}

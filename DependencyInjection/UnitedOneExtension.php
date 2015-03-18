@@ -14,12 +14,12 @@ use Symfony\Component\DependencyInjection\Loader;
  */
 class UnitedOneExtension extends Extension
 {
-  /**
-   * {@inheritdoc}
-   */
-  public function load(array $configs, ContainerBuilder $container)
-  {
-    $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-    $loader->load('services.yml');
-  }
+    /**
+     * {@inheritdoc}
+     */
+    public function load(array $configs, ContainerBuilder $container)
+    {
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader->load('services.yml');
+    }
 }

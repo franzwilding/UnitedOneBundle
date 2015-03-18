@@ -2,7 +2,8 @@
 
 namespace United\OneBundle\Controller;
 
-class SectionController extends PlainBaseController {
+class SectionController extends PlainBaseController
+{
 
     /**
      * Returns the template for the given action. For the base implementation,
@@ -13,13 +14,14 @@ class SectionController extends PlainBaseController {
      */
     protected function getTemplateForAction($action)
     {
-        if($action == 'section') {
+        if ($action == 'section') {
             return 'UnitedOneBundle:Section:section.html.twig';
         }
         return 'UnitedOneBundle:Section:index.html.twig';
     }
 
-    protected function alterContextForAction($action, &$context) {
+    protected function alterContextForAction($action, &$context)
+    {
         parent::alterContextForAction($action, $context);
         $context['sectionTemplate'] = $this->getTemplateForAction('section');
     }

@@ -16,11 +16,13 @@
         </div>
 
         <h2>{{ entity }}
-            <a href="{{ united_structure_item_url('update', null, { id: entity.id }) }}" class="ui black basic small labled icon button">
+            <a href="{{ united_structure_item_url('update', null, { id: entity.id }) }}"
+               class="ui black basic small labled icon button">
                 <i class="pencil icon"></i>
                 {% trans %}Edit{% endtrans %}
             </a>
         </h2>
+
         <div class="ui divider"></div>
 
         {% for child in united_structure_item().children %}

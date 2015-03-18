@@ -1,54 +1,54 @@
 {% extends "form_div_layout.html.twig" %}
 
 {% block form_start -%}
-  {% set attr = attr|merge({class: (attr.class|default('') ~ ' ui form')|trim}) %}
-  {{- parent() -}}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' ui form')|trim}) %}
+    {{- parent() -}}
 {%- endblock form_start %}
 
 {%- block form_row -%}
-  <div class="field">
-    {{- form_label(form) -}}
-    {{- form_errors(form) -}}
-    {{- form_widget(form) -}}
-  </div>
+    <div class="field">
+        {{- form_label(form) -}}
+        {{- form_errors(form) -}}
+        {{- form_widget(form) -}}
+    </div>
 {%- endblock form_row -%}
 
 {%- block submit_widget -%}
-  {%- set attr = attr|merge({'class': 'ui primary button'}) -%}
-  {{- parent() -}}
+    {%- set attr = attr|merge({'class': 'ui primary button'}) -%}
+    {{- parent() -}}
 {%- endblock submit_widget -%}
 
 {%- block submit_or_delete_widget -%}
-  {{ block('submit_widget') }}
+    {{ block('submit_widget') }}
 
-  {% if form.parent.vars.data.id %}
-    <a class="red ui button" href="{{ united_structure_item_url('delete') }}">{% trans %}Delete{% endtrans %}</a>
-  {% endif %}
-  <a class="basic ui button" href="{{ united_structure_item_url() }}">{% trans %}Cancel{% endtrans %}</a>
+    {% if form.parent.vars.data.id %}
+        <a class="red ui button" href="{{ united_structure_item_url('delete') }}">{% trans %}Delete{% endtrans %}</a>
+    {% endif %}
+    <a class="basic ui button" href="{{ united_structure_item_url() }}">{% trans %}Cancel{% endtrans %}</a>
 {%- endblock submit_or_delete_widget -%}
 
 {%- block delete_widget -%}
-  {%- set attr = attr|merge({'class': 'ui red button'}) -%}
-  {%- set type = type|default('submit') -%}
-  {{ block('button_widget') }}
-  <a class="basic ui button" href="{{ united_structure_item_url() }}">{% trans %}Cancel{% endtrans %}</a>
+    {%- set attr = attr|merge({'class': 'ui red button'}) -%}
+    {%- set type = type|default('submit') -%}
+    {{ block('button_widget') }}
+    <a class="basic ui button" href="{{ united_structure_item_url() }}">{% trans %}Cancel{% endtrans %}</a>
 {%- endblock delete_widget -%}
 
 {%- block reset_widget -%}
-  {%- set attr = attr|merge({'class': 'ui button'}) -%}
-  {{- parent() -}}
+    {%- set attr = attr|merge({'class': 'ui button'}) -%}
+    {{- parent() -}}
 {%- endblock reset_widget -%}
 
 {%- block choice_widget_expanded -%}
-  {% set attr = attr|merge({'class': 'grouped fields'}) %}
-  <div {{ block('widget_container_attributes') }}>
-    {%- for child in form %}
-      <div class="field">
-        <div class="ui checkbox">
-          {{- form_widget(child) -}}
-          {{- form_label(child) -}}
-        </div>
-      </div>
-    {% endfor -%}
-  </div>
+    {% set attr = attr|merge({'class': 'grouped fields'}) %}
+    <div {{ block('widget_container_attributes') }}>
+        {%- for child in form %}
+            <div class="field">
+                <div class="ui checkbox">
+                    {{- form_widget(child) -}}
+                    {{- form_label(child) -}}
+                </div>
+            </div>
+        {% endfor -%}
+    </div>
 {%- endblock choice_widget_expanded -%}

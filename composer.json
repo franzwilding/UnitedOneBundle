@@ -2,7 +2,11 @@
   "name": "franzwilding/united-one-bundle",
   "type": "symfony-bundle",
   "description": "Symfony UnitedOneBundle CMS Theme",
-  "keywords": ["CMS", "Content Management", "Theme"],
+  "keywords": [
+    "CMS",
+    "Content Management",
+    "Theme"
+  ],
   "homepage": "https://github.com/franzwilding/UnitedOneBundle",
   "license": "MIT",
   "authors": [
@@ -15,6 +19,6 @@
     "franzwilding/united-core-bundle": "dev-master"
   },
   "autoload": {
-    "psr-4": { "United\\OneBundle\\": "" }
+    "psr-4": {"United\\OneBundle\\": ""}
   }
 }

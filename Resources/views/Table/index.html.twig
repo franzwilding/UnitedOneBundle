@@ -1,37 +1,37 @@
 {% extends united_theme(layout) %}
 {% block content %}
 
-  <div class="ui stackable grid">
-  {% if descriptionTemplate %}
+    <div class="ui stackable grid">
+    {% if descriptionTemplate %}
     <div class="six wide column">
-      {% include descriptionTemplate with {'entities': entities} %}
+        {% include descriptionTemplate with {'entities': entities} %}
     </div>
     <div class="ten wide column">
-  {% else %}
-    <div class="sixteen wide column">
-  {% endif %}
-      <table class="ui unstackable table">
-        <tbody>
-          {% if entities|length > 0 %}
-            {% for entity in entities %}
-              {% include rowTemplate with {'entity': entity} %}
-            {% endfor %}
-          {% else %}
-            <tr colspan="2">
-              <td>No entries found.</td>
-            </tr>
-          {% endif %}
-        </tbody>
-        <tfoot>
-          <tr>
-            <th colspan="2">
-              <a href="create" class="ui right floated small labeled positive icon button">
-                <i class="add icon"></i>Add
-              </a>
-            </th>
-          </tr>
-        </tfoot>
-      </table>
+        {% else %}
+        <div class="sixteen wide column">
+            {% endif %}
+            <table class="ui unstackable table">
+                <tbody>
+                {% if entities|length > 0 %}
+                    {% for entity in entities %}
+                        {% include rowTemplate with {'entity': entity} %}
+                    {% endfor %}
+                {% else %}
+                    <tr colspan="2">
+                        <td>No entries found.</td>
+                    </tr>
+                {% endif %}
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th colspan="2">
+                        <a href="create" class="ui right floated small labeled positive icon button">
+                            <i class="add icon"></i>Add
+                        </a>
+                    </th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
-  </div>
 {% endblock %}
