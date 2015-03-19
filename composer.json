@@ -16,6 +16,7 @@
     }
   ],
   "require": {
+    "twig/extensions": "~1.0",
     "franzwilding/united-core-bundle": "dev-master"
   },
   "autoload": {
