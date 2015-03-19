@@ -1,5 +1,7 @@
 .DS_Store
-
+/vendor/*
+/Tests/tests/cache/*
+/Tests/tests/log/*
 Resources/public/css/scss/.sass-cache/*
 Resources/public/vendor/semantic-ui/*.*
 Resources/public/vendor/semantic-ui/*/*
