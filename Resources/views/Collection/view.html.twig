@@ -1,4 +1,4 @@
-{% extends united_theme(layout) %}
+{% extends united.theme(layout) %}
 
 {% block breadcrumb_item %}{{ entity }}{% endblock breadcrumb_item %}
 {% block content %}
@@ -9,14 +9,14 @@
                 {% for child in entities %}
                     {% include itemTemplate with { entity: child, current: entity, itemTemplate: itemTemplate } %}
                 {% endfor %}
-                <a href="{{ united_structure_item_url('create') }}" class="item">
+                <a href="{{ united.url('create') }}" class="item">
                     <i class="icon add"></i> {% trans %}Add collection{% endtrans %}
                 </a>
             </div>
         </div>
 
         <h2>{{ entity }}
-            <a href="{{ united_structure_item_url('update', null, { id: entity.id }) }}"
+            <a href="{{ united.url('update', null, { id: entity.id }) }}"
                class="ui black basic small labled icon button">
                 <i class="pencil icon"></i>
                 {% trans %}Edit{% endtrans %}
@@ -25,9 +25,9 @@
 
         <div class="ui divider"></div>
 
-        {% for child in united_structure_item().children %}
+        {% for child in united.item.children %}
             {{ render(url(child.route, {
-                (united_structure_item().paramName): entity.id,
+                (united.item.paramName): entity.id,
                 embed:true
             })) }}
         {% endfor %}

@@ -1,7 +1,7 @@
 <tr>
     <td>{{ entity }}</td>
     <td class="right aligned">
-        <a href="{{ entity.id }}/update" class="ui black basic small labled icon button">
+        <a href="{{ united.url('update', null, { id: entity.id }) }}" class="ui black basic small labled icon button">
             <i class="pencil icon"></i>
             {% trans %}Edit{% endtrans %}
         </a>

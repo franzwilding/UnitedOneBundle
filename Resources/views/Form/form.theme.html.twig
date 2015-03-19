@@ -22,16 +22,16 @@
     {{ block('submit_widget') }}
 
     {% if form.parent.vars.data.id %}
-        <a class="red ui button" href="{{ united_structure_item_url('delete') }}">{% trans %}Delete{% endtrans %}</a>
+        <a class="red ui button" href="{{ united.url('delete') }}">{% trans %}Delete{% endtrans %}</a>
     {% endif %}
-    <a class="basic ui button" href="{{ united_structure_item_url() }}">{% trans %}Cancel{% endtrans %}</a>
+    <a class="basic ui button" href="{{ united.url }}">{% trans %}Cancel{% endtrans %}</a>
 {%- endblock submit_or_delete_widget -%}
 
 {%- block delete_widget -%}
     {%- set attr = attr|merge({'class': 'ui red button'}) -%}
     {%- set type = type|default('submit') -%}
     {{ block('button_widget') }}
-    <a class="basic ui button" href="{{ united_structure_item_url() }}">{% trans %}Cancel{% endtrans %}</a>
+    <a class="basic ui button" href="{{ united.url }}">{% trans %}Cancel{% endtrans %}</a>
 {%- endblock delete_widget -%}
 
 {%- block reset_widget -%}

@@ -30,29 +30,29 @@
 
         {% block breadcrumb %}
             <p class="ui large breadcrumb">
-                {% for parent in united_structure_parents() %}
+                {% for parent in united.item.parents %}
                     <a class="section"
-                       href="{{ united_structure_item_url('', parent) }}">{{ (parent ~ '.index')|trans }}</a>
+                       href="{{ united.url('', parent) }}">{{ (parent ~ '.index')|trans }}</a>
                     <span class="divider"> / </span>
 
                     {% if united_controller_view(parent) %}
                         {% set parent_entity = united_controller_view_entity(parent) %}
                         {% if parent_entity %}
                             <a class="section"
-                               href="{{ united_structure_item_url('view', parent, { id: parent_entity.id }) }}">{{ parent_entity }}</a>
+                               href="{{ united.url('view', parent, { id: parent_entity.id }) }}">{{ parent_entity }}</a>
                             <span class="divider"> / </span>
                         {% endif %}
                     {% endif %}
 
                 {% endfor %}
 
-                {% if  united_structure_item().route == united_structure_item().subRoute %}
-                    <span class="active section">{{ (united_structure_item() ~ '.index')|trans }}</span>
+                {% if  united.item.route == united.item.subRoute %}
+                    <span class="active section">{{ (united.item ~ '.index')|trans }}</span>
                 {% else %}
                     <a class="section"
-                       href="{{ united_structure_item_url('') }}">{{ (united_structure_item() ~ '.index')|trans }}</a>
+                       href="{{ united.url }}">{{ (united.item ~ '.index')|trans }}</a>
                     <span class="divider"> / </span>
-                    <span class="active section">{% block breadcrumb_item %}{{ united_structure_item().subRouteName|trans }}{% endblock breadcrumb_item %}</span>
+                    <span class="active section">{% block breadcrumb_item %}{{ united.item.subRouteName|trans }}{% endblock breadcrumb_item %}</span>
                 {% endif %}
             </p>
         {% endblock breadcrumb %}
@@ -64,9 +64,9 @@
     <section class="united-one-navigation ui sidebar">
         <nav>
             <ul class="ui large vertical text menu">
-                {% for item in united_structure() %}
+                {% for item in united.tree %}
                     <li class="item {% if item.activeTrail %} active{% endif %}">
-                        {% if item.route != null %}<a href="{{ united_structure_item_url('', item) }}">{% endif %}
+                        {% if item.route != null %}<a href="{{ united.url('', item) }}">{% endif %}
                             {% if item.config.icon is defined %}<i class="{{ item.config.icon }} icon"></i>{% endif %}
                             {{ (item ~ '.menu')|trans }}
                             {% if item.route %}</a>{% endif %}
