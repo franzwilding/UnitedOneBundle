@@ -27,16 +27,15 @@ class PlainBaseControllerTest extends UnitedControllerTestCase
         $this->container->enterScope('request');
         $this->container->set('request', $request, 'request');
 
-        // Check index template rendering
-        $this->assertEquals('<h1>PlainControllerIndex: </h1>', $this->getActionContent('index'));
+        // Check index template rendering: no embed layout
+        $context = json_decode($this->getActionContent('index'), true);
+        $this->assertArrayHasKey('layout', $context);
+        $this->assertEquals('layout.html.twig', $context['layout']);
 
-        // Check layout altering by embed query param
-        $this->getControllerActionResponse('index');
-        $this->assertEquals('layout.html.twig', $this->controller->context['layout']);
-
+        // Check embed layout
         $request->query->add(array('embed' => true));
-        $this->getControllerActionResponse('index');
-        $this->assertEquals('layout-embed.html.twig', $this->controller->context['layout']);
+        $context = json_decode($this->getActionContent('index'), true);
+        $this->assertEquals('layout-embed.html.twig', $context['layout']);
 
         // Check controller routes
         $this->checkControllerRoutes(array(
