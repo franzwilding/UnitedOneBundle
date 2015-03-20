@@ -23,9 +23,6 @@ abstract class TableController extends CRUDBaseController
             case 'index':
                 return 'UnitedOneBundle:Table:index.html.twig';
                 break;
-            case 'ajax':
-                return 'UnitedOneBundle:Table:ajax.html.twig';
-                break;
             case 'row':
                 return 'UnitedOneBundle:Table:row.html.twig';
                 break;

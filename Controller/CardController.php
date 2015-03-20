@@ -23,9 +23,6 @@ abstract class CardController extends CRUDBaseController
             case 'index':
                 return 'UnitedOneBundle:Card:index.html.twig';
                 break;
-            case 'ajax':
-                return 'UnitedOneBundle:Card:ajax.html.twig';
-                break;
             case 'card':
                 return 'UnitedOneBundle:Card:card.html.twig';
                 break;
