@@ -1,0 +1,18 @@
+
+services:
+
+  security.access.united.functional.test.voter:
+    class:  United\OneBundle\Tests\tests\TestVoter
+    public: false
+    tags:
+       - { name: security.voter }
+
+  united.functional.anon.plaincontrollertest:
+    class: United\OneBundle\Tests\Mock\PlainBaseControllerMock
+    tags:
+      - { name: united.controller, path: 'plancontrollertest', group: 'functional.anon' }
+
+  united.functional.auth.plaincontrollertest:
+    class: United\OneBundle\Tests\Mock\PlainBaseControllerMock
+    tags:
+      - { name: united.controller, path: 'plancontrollertest', group: 'functional.auth' }

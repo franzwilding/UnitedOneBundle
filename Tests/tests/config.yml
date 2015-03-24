@@ -25,3 +25,30 @@ doctrine:
     orm:
         auto_generate_proxy_classes: true
         auto_mapping: true
+
+united_core:
+  config:
+    functional.auth: { theme: @UnitedOne, secure: true }
+
+security:
+
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+
+    providers:
+        in_memory:
+            memory:
+                users:
+                    admin:
+                        password: admin
+                        roles: 'ROLE_ADMIN'
+
+    firewalls:
+
+        united_one_secure_area_test:
+            pattern:      ^/functional/auth
+            anonymous:    ~
+            http_basic:   ~
+
+        default:
+            anonymous: ~
