@@ -1,0 +1,10 @@
+
+united_functional_anon:
+  resource: .
+  type: united.functional.anon
+  prefix: /functional/anon
+
+united_functional_auth:
+  resource: .
+  type: united.functional.auth
+  prefix: /functional/auth

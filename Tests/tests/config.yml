@@ -1,22 +1,30 @@
+imports:
+    - { resource: "@UnitedOneBundle/Tests/tests/services.yml" }
+
 framework:
-    secret: 'ThisIsNoSecret'
-    templating:
-        engines: ['twig']
     router:
         resource: "%kernel.root_dir%/routing.yml"
-        strict_requirements: ~
+        strict_requirements: true
+    profiler: { only_exceptions: false }
+    test: ~
+    session:
+        storage_id: session.storage.mock_file
+    profiler:
+        collect: false
+    translator:      { fallbacks: [en] }
+    secret:          "ThisIsNoSecret"
     form:            ~
-    csrf_protection: false
+    csrf_protection: ~
     validation:      { enable_annotations: true }
     templating:
         engines: ['twig']
+        #assets_version: SomeVersionScheme
     default_locale:  en
     trusted_hosts:   ~
     trusted_proxies: ~
-    session:
-        handler_id:  ~
     fragments:       ~
     http_method_override: true
+
 doctrine:
     dbal:
         driver:   pdo_sqlite
