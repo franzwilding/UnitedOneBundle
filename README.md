@@ -4,13 +4,20 @@
 
 Default theme for the Symfony2 Content Management System United CMS. 
 
-## Components
+# Installation
 
-### [UnitedCore](https://github.com/franzwilding/UnitedCoreBundle)
-UnitedCore is the core bundle of United CMS. It provides core services, a router and a base controller. 
+1. Install symfony
 
-### UnitedOne *(not implemented yet)*
-UnitedOne will be the default theme for United. You can use UnitedOne out of the box, extend it to meat your needs or even replace it completely by your own theme.
+    composer create-project symfony/framework-standard-edition
+    
+    
+2. Install UnitedCore and a theme (UnitedOne, the default theme, requires UnitedCore so we don't need to)
 
-### [UnitedDemo](https://github.com/franzwilding/UnitedDemoBundle)
-UnitedDemo will be a working demonstration bundle for United CMS. 
+    composer require franzwilding/united-one-bundle
+    
+3. Register United bundles 
+
+    new United\CoreBundle\UnitedCoreBundle(),
+    new United\OneBundle\UnitedOneBundle(), 
+
+4. **Check out the Getting started tutorial (Comming soon)**
