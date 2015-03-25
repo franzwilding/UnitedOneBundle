@@ -33,6 +33,12 @@ doctrine:
     orm:
         auto_generate_proxy_classes: true
         auto_mapping: true
+        mappings:
+            UnitedOneBundle:
+                type: annotation
+                prefix: United\OneBundle\Tests\tests\Entities
+                dir: Tests/tests/Entities/cache
+
 
 united_core:
   config:

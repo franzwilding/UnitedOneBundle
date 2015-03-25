@@ -10,7 +10,9 @@ class TestVoter implements VoterInterface {
 
     private $attributes = array(
         'access',
+        'update',
         'view',
+        'delete',
     );
     private $classes = array(
         'United\CoreBundle\Model\EntityInterface',
