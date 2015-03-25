@@ -3,7 +3,7 @@
 <head>
 
     {# You can override the title block, or let United generate the title from the service definition. #}
-    <title>{% block title %}TITLE{% endblock %}</title>
+    <title>{% block title %}{{ (united.item.group ~ '.title')|trans }}{% endblock %}</title>
 
     {# You can override, extend or modify the html head section in a controller. #}
     {% block head %}
