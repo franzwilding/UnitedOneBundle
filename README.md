@@ -6,18 +6,17 @@ Default theme for the Symfony2 Content Management System United CMS.
 
 # Installation
 
-1. Install symfony
-
+Install symfony
+    
     composer create-project symfony/framework-standard-edition
+        
+Install UnitedCore and a theme (UnitedOne, the default theme, requires UnitedCore so we don't need to)
     
-    
-2. Install UnitedCore and a theme (UnitedOne, the default theme, requires UnitedCore so we don't need to)
-
     composer require franzwilding/united-one-bundle
     
-3. Register United bundles 
-
+Register United bundles 
+    
     new United\CoreBundle\UnitedCoreBundle(),
     new United\OneBundle\UnitedOneBundle(), 
 
-4. **Check out the Getting started tutorial (Comming soon)**
+**Check out the Getting started tutorial (Comming soon)**
