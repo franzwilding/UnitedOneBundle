@@ -89,3 +89,21 @@ UnitedOne.modules.stickyCollections = {
         });
     }
 };
+
+UnitedOne.modules.editor = {
+    ready: function() {
+
+        $('.united-editor').each(function(){
+            var textarea = $(this);
+            var container = $('<div />', {class: 'united-editor-container ui textarea'});
+            container.html(textarea.val());
+            container.insertAfter(textarea);
+            textarea.hide();
+            var editor = new MediumEditor(container);
+
+            container.on('input', function() {
+                textarea.val(container.html());
+            });
+        });
+    }
+};
