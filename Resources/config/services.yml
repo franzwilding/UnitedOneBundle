@@ -23,3 +23,9 @@ services:
         class: United\OneBundle\Form\Type\EditorType
         tags:
             - { name: form.type, alias: united_editor }
+
+    united.one.form.type.united_entity_browser:
+        class: United\OneBundle\Form\Type\EntityBrowserType
+        arguments: [ @doctrine ]
+        tags:
+            - { name: form.type, alias: united_entity_browser }

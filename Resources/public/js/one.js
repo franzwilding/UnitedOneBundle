@@ -107,3 +107,53 @@ UnitedOne.modules.editor = {
         });
     }
 };
+
+UnitedOne.modules.entityBrowser = {
+    ready: function() {
+        $('.united-entity-browser').each(function(){
+
+            var container = $(this);
+
+            // add modal dom element
+            var modal       = $('<div />', {class: 'ui fullscreen modal'});
+            modal.append($('<i />', {class: 'close icon'}));
+            modal.append($('<div />', {class: 'header', text: 'Select Entity'}));
+
+            var m_content   = $('<div />', {class: 'content'});
+            modal.append(m_content);
+
+            var m_actions   = $('<div />', {class: 'actions'});
+            m_actions.append($('<button />', {class: 'ui cancel button', text: 'Cancel'}));
+            m_actions.append($('<button />', {class: 'ui positive button', text: 'Ok'}));
+            modal.append(m_actions);
+
+            // remove item action
+            $('.ui.label .delete', container).click(function(){
+                $(this).parent().remove();
+            });
+
+            // open select browser action
+            $('.select-entity', container).click(function(){
+                container.addClass('loading');
+
+                // TODO: get browser via ajax request
+                setTimeout(function(){
+                    container.removeClass('loading');
+                    modal.modal({
+                        onDeny    : function(){
+
+                            // do nothing, since we don't want to save the changes.
+
+                        },
+                        onApprove : function() {
+
+                            // TODO: render the selected entities as hidden input fields
+                        }
+                    }).modal('show');
+                }, 300);
+
+                return false;
+            });
+        });
+    }
+};

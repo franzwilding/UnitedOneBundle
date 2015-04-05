@@ -52,3 +52,23 @@
         {% endfor -%}
     </div>
 {%- endblock choice_widget_expanded -%}
+
+{%- block united_entity_browser_widget -%}
+    <div class="ui segment united-entity-browser">
+
+        <button
+                class="ui small labeled positive icon button select-entity"
+                data-form-full-name="{{ form.vars.full_name }}"
+                data-form-multiple="{{ form.vars.multiple }}">
+            <i class="add icon"></i>Select
+        </button>
+
+        {% for entity in data %}
+            <div class="ui label">
+                <input type="hidden" name="{{ form.vars.full_name }}" value="{{ entity.id }}" />
+                {{ entity }}
+                <i class="delete icon"></i>
+            </div>
+        {% endfor %}
+    </div>
+{%- endblock -%}
