@@ -55,7 +55,7 @@ class TagsType extends CollectionType
             'type'              => new TagType($data_class),
             'allow_add'         => true,
             'allow_delete'      => true,
-            'by_reference'      => false,
+            'by_reference'      => true,
             'select_options'    => $options,
         ));
     }

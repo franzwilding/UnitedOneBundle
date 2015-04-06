@@ -66,14 +66,12 @@
         </select>
 
         <div class="labels">
-        {% for entity in data %}
-            {% if entity %}
-                <div class="ui label">
-                    <input type="hidden" name="{{ form.vars.full_name }}[{{ entity.id }}][name]" value="{{ entity.name }}" />
-                    {{ entity }}
-                    <i class="delete icon"></i>
-                </div>
-            {% endif %}
+        {% for child in form.children %}
+            <div class="ui label">
+                <input type="hidden" name="{{ child.vars.full_name }}[name]" value="{{ child.vars.data }}" />
+                {{ child.vars.data }}
+                <i class="delete icon"></i>
+            </div>
         {% endfor %}
         </div>
     </div>

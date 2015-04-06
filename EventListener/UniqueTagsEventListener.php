@@ -32,7 +32,11 @@ class UniqueTagsEventListener implements EventSubscriberInterface
 
     public function postSubmit(FormEvent $event)
     {
+        $form = $event->getForm();
+        $data = $event->getData();
 
+        $entity = $data->getOwner();
+        //print_r($data->getValues());
     }
 
     /**
