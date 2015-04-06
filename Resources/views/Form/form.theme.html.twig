@@ -53,8 +53,34 @@
     </div>
 {%- endblock choice_widget_expanded -%}
 
+{%- block united_tags_widget -%}
+    <div class="ui segment united-tags"{% if form.vars.prototype is defined %} data-full-name="{{ form.vars.full_name }}"{% endif %}>
+
+        {{ dump(form) }}
+
+        <select{% if form.vars.prototype is defined %} class="search"{% endif %}>
+            <option value="">{{ form.vars.name }}</option>
+            {% for option in form.vars.select_options %}
+                <option value="{{ option.id }}">{{ option }}</option>
+            {% endfor %}
+        </select>
+
+        <div class="labels">
+        {% for entity in data %}
+            {% if entity %}
+                <div class="ui label">
+                    <input type="hidden" name="{{ form.vars.full_name }}[{{ entity.id }}][name]" value="{{ entity.name }}" />
+                    {{ entity }}
+                    <i class="delete icon"></i>
+                </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+{%- endblock -%}
+
 {%- block united_entity_browser_widget -%}
-    <div class="ui segment united-entity-browser">
+    <!--div class="ui segment united-entity-browser">
 
         <button
                 class="ui small labeled positive icon button select-entity"
@@ -70,5 +96,5 @@
                 <i class="delete icon"></i>
             </div>
         {% endfor %}
-    </div>
+    </div-->
 {%- endblock -%}
