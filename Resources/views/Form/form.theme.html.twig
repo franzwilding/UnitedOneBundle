@@ -55,13 +55,10 @@
 
 {%- block united_tags_widget -%}
     <div class="ui segment united-tags"{% if form.vars.prototype is defined %} data-full-name="{{ form.vars.full_name }}"{% endif %}>
-
-        {{ dump(form) }}
-
         <select{% if form.vars.prototype is defined %} class="search"{% endif %}>
             <option value="">{{ form.vars.name }}</option>
-            {% for option in form.vars.select_options %}
-                <option value="{{ option.id }}">{{ option }}</option>
+            {% for key, option in form.vars.select_options %}
+                <option value="{{ key }}">{{ option }}</option>
             {% endfor %}
         </select>
 

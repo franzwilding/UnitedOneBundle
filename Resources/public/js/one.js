@@ -145,7 +145,8 @@ UnitedOne.modules.tags = {
         };
 
         var $label = $('<div />', {class: 'ui label', text: this.lastItem.text});
-        $label.append($('<input />', {type: 'hidden', name: full_name + '[' + this.lastItem.value + '][name]', value: this.lastItem.text}));
+        $label.append($('<input />', {type: 'hidden', name: full_name + '[' + labels.children().length + '][id]', value: this.lastItem.value}));
+        $label.append($('<input />', {type: 'hidden', name: full_name + '[' + labels.children().length + '][name]', value: this.lastItem.text}));
         var $del = $('<i />', {class: 'delete icon'});
         $label.append($del);
         labels.append($label);

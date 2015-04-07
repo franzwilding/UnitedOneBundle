@@ -11,6 +11,7 @@
 
 namespace United\OneBundle\EventListener;
 
+use Doctrine\ORM\PersistentCollection;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -18,25 +19,44 @@ use Symfony\Component\Form\FormEvents;
 class UniqueTagsEventListener implements EventSubscriberInterface
 {
 
-    public function __construct()
+    private $options;
+    private $existing_ids;
+
+    public function __construct($options)
     {
+        $this->options = $options;
+        $this->existing_ids = array();
     }
 
     public function preSubmit(FormEvent $event)
     {
-        $form = $event->getForm();
-        $data = $event->getData();
-
-        // TODO: prevent symfony from trying to save existing tags again and don't just remove existing tags
+        // If existing entities are added, we need to save the array position for them.
+        if(is_array($event->getData())) {
+            foreach ($event->getData() as $key => $data) {
+                if (array_key_exists('id', $data)) {
+                    $this->existing_ids[$key] = $data['id'];
+                }
+            }
+        }
     }
 
     public function postSubmit(FormEvent $event)
     {
-        $form = $event->getForm();
-        $data = $event->getData();
+        /**
+         * @var PersistentCollection $collection
+         */
+        $collection = $event->getData();
 
-        $entity = $data->getOwner();
-        //print_r($data->getValues());
+        /**
+         * To avoid creating of the same entity again, we need to replace the new entity with an existing one.
+         */
+        foreach($collection as $key => $item)
+        {
+            if(array_key_exists($key, $this->existing_ids)) {
+                $collection->remove($key);
+                $collection->add($this->options[$this->existing_ids[$key]]);
+            }
+        }
     }
 
     /**
