@@ -4,19 +4,19 @@ services:
     twig.extension.text:
         class: Twig_Extensions_Extension_Text
         tags:
-        - { name: twig.extension }
+            - { name: twig.extension }
 
     # Custom form type: Render a delete submit button
     united.one.form.type.delete:
         class: United\OneBundle\Form\Type\DeleteType
         tags:
-        - { name: form.type, alias: delete }
+            - { name: form.type, alias: delete }
 
     # Custom form type: Render a delete button next to the submit button
     united.one.form.type.submit_or_delete:
         class: United\OneBundle\Form\Type\SubmitOrDeleteType
         tags:
-        - { name: form.type, alias: submit_or_delete }
+            - { name: form.type, alias: submit_or_delete }
 
     # Custom form type: Render jquery medium wysiwyg editor
     united.one.form.type.united_editor:

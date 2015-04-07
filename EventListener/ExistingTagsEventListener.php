@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the Symfony package.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace United\OneBundle\EventListener;
 
 use Doctrine\ORM\PersistentCollection;
@@ -16,12 +7,15 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
-class UniqueTagsEventListener implements EventSubscriberInterface
+class ExistingTagsEventListener implements EventSubscriberInterface
 {
 
     private $options;
     private $existing_ids;
 
+    /**
+     * @param array $options
+     */
     public function __construct($options)
     {
         $this->options = $options;

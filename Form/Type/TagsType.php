@@ -4,8 +4,7 @@ namespace United\OneBundle\Form\Type;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Symfony\Component\Config\Definition\Exception\Exception;
-use Symfony\Component\OptionsResolver\Options;
-use United\OneBundle\EventListener\UniqueTagsEventListener;
+use United\OneBundle\EventListener\ExistingTagsEventListener;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -20,6 +19,9 @@ class TagsType extends CollectionType
      */
     protected $registry;
 
+    /**
+     * @param ManagerRegistry $registry
+     */
     public function __construct(ManagerRegistry $registry)
     {
         $this->registry = $registry;
@@ -27,6 +29,7 @@ class TagsType extends CollectionType
 
     /**
      * Returns select_options from $options array or use entity manager to get all entities for tag_data_class.
+     *
      * @param $options
      * @return array
      */
@@ -40,6 +43,9 @@ class TagsType extends CollectionType
         return $em->getRepository($options['tag_data_class'])->findAll();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         parent::buildView($view, $form, $options);
@@ -58,7 +64,7 @@ class TagsType extends CollectionType
         $options['type'] = new TagType($options['tag_data_class']);
 
         parent::buildForm($builder, $options);
-        $builder->addEventSubscriber(new UniqueTagsEventListener($this->getAllSelectOptions($options)));
+        $builder->addEventSubscriber(new ExistingTagsEventListener($this->getAllSelectOptions($options)));
     }
 
     /**
