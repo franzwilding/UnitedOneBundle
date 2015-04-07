@@ -49,23 +49,33 @@ UnitedOne.modules.toggleSidebar = {
     toggler: $('.toggle-sidebar'),
     header: $('.united-one-header'),
 
+    /**
+     * Returns semantic-ui sidebar settings
+     */
+    settings: function(){
+        var t = this;
+        return {
+            transition: 'overlay',
+            dimPage: false,
+            pushable: false,
+            onChange: function () {
+                t.header.toggleClass('open');
+            }
+        }
+    },
+
     ready: function () {
         var t = this;
 
         t.toggler.click(function () {
-            t.sidebar.sidebar('setting', {
-                transition: 'overlay',
-                dimPage: false,
-                pushable: false,
-                onChange: function () {
-                    t.header.toggleClass('open');
-                }
-
-            }).sidebar('toggle');
+            t.sidebar.sidebar('setting', t.settings()).sidebar('toggle');
         });
     }
 };
 
+/**
+ * Transforms all .ui.dropdown elements.
+ */
 UnitedOne.modules.select = {
     ready: function () {
         $('.ui.dropdown')
@@ -74,6 +84,20 @@ UnitedOne.modules.select = {
     }
 };
 
+/**
+ * Transforms all checkbox elements.
+ */
+UnitedOne.modules.checkbox = {
+    ready: function () {
+        $('.ui.checkbox').
+            checkbox()
+        ;
+    }
+};
+
+/**
+ * Create dimmer functionality for image cards.
+ */
 UnitedOne.modules.cards = {
     ready: function () {
         $('.card .dimmable.image').dimmer({
@@ -82,6 +106,9 @@ UnitedOne.modules.cards = {
     }
 };
 
+/**
+ * Make collection container sticky.
+ */
 UnitedOne.modules.stickyCollections = {
     ready: function () {
         $('.united-one-collection-container').each(function () {
@@ -99,7 +126,9 @@ UnitedOne.modules.editor = {
      * @returns {{}} - editor options.
      */
     editorOptions: function(){
-        return {}
+        return {
+            imageDragging: false
+        }
     },
 
     /**
@@ -137,6 +166,16 @@ UnitedOne.modules.tags = {
 
     lastItem: null,
 
+    /**
+     * Callback, when an user selects a tag. Creates a tag element with hidden input for id and name.
+     *
+     * @param value
+     * @param text
+     * @param $choice
+     * @param select
+     * @param full_name
+     * @param labels
+     */
     onChange: function(value, text, $choice, select, full_name, labels){
         this.lastItem = {
             value: value,
@@ -160,6 +199,13 @@ UnitedOne.modules.tags = {
         select.parent().dropdown('clear');
     },
 
+    /**
+     * Callback, when an user creates a new tag. Callback, when an user selects a tag. Creates a tag element with hidden input name.
+     * @param select
+     * @param labels
+     * @param full_name
+     * @param value
+     */
     createElement: function(select, labels, full_name, value){
 
         // if we create an new element
@@ -219,9 +265,9 @@ UnitedOne.modules.tags = {
     }
 };
 
-UnitedOne.modules.entityBrowser = {
+/*UnitedOne.modules.entityBrowser = {
     ready: function() {
-        /*$('.united-entity-browser').each(function(){
+        $('.united-entity-browser').each(function(){
 
             var container = $(this);
 
@@ -267,6 +313,6 @@ UnitedOne.modules.entityBrowser = {
 
                 return false;
             });
-        });*/
+        });
     }
-};
+};*/
