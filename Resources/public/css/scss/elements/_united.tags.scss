@@ -5,7 +5,14 @@
     display: inline-block;
   }
 
+  .search.ui.dropdown {
+    margin-right: 10px;
+    margin-bottom: 4px;
+  }
+
   .labels {
-    margin-left: 5px;
+    .ui.label {
+      margin-top: 6px;
+    }
   }
 }

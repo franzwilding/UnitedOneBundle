@@ -28,19 +28,44 @@ class ExistingTagsEventListenerTest extends TypeTestCase
     public function testProcessingExistingTags()
     {
 
-        // holds the real tag entities
-        $collection = new ArrayCollection();
-
         // holds post vars, so ExistingTagsEventListener can alter $collection
-        $options = array();
+        $post_data = array(
+            0 => array('id' => 0, 'name' => 'Existing Tag 0'),
+            1 => array('id' => 1, 'name' => 'Existing Tag 1'),
+            2 => array('name' => 'New Tag 2'),
+            3 => array('name' => 'New Tag 3'),
+            4 => array('name' => 'New Tag 4'),
+            5 => array('id' => 5, 'name' => 'Existing Tag 5'),
+        );
+
+        // holds the real tag entities
+        $collection = new ArrayCollection($post_data);
+
+        // must hold all replacement tags
+        $options = array(
+            0 => array('id' => 0, 'name' => 'Replaced Tag 0'),
+            1 => array('id' => 1, 'name' => 'Replaced Tag 1'),
+            5 => array('id' => 5, 'name' => 'Replaced Tag 5'),
+        );
 
         $form = $this->factory->create(new DeleteType());
-        $event = new FormEvent($form, $collection);
+
         $listener = new ExistingTagsEventListener($options);
+
+        $event = new FormEvent($form, $post_data);
         $listener->preSubmit($event);
+
+        $event = new FormEvent($form, $collection);
         $listener->postSubmit($event);
 
-        //TODO: Check, that ExistingTagsEventListener will replace existing tags from collection with existing ones instead of creating them again,
+        // The final collection should have the elements with id 0, 4 and 8 replaced
+        $this->assertCount(6, $collection);
+        $this->assertTrue($collection->contains(array('name' => 'New Tag 2')));
+        $this->assertTrue($collection->contains(array('name' => 'New Tag 3')));
+        $this->assertTrue($collection->contains(array('name' => 'New Tag 4')));
+        $this->assertTrue($collection->contains(array('id' => 0, 'name' => 'Replaced Tag 0')));
+        $this->assertTrue($collection->contains(array('id' => 1, 'name' => 'Replaced Tag 1')));
+        $this->assertTrue($collection->contains(array('id' => 5, 'name' => 'Replaced Tag 5')));
     }
 
 }
