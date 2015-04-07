@@ -3,6 +3,7 @@
 namespace United\OneBundle\Tests\Form\Type;
 
 use appTestDebugProjectContainer;
+use Doctrine\ORM\Tools\SchemaTool;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use United\OneBundle\Form\Type\DeleteType;
 use United\OneBundle\Form\Type\TagsType;
@@ -63,5 +64,14 @@ class TagsTypeTest extends KernelTestCase
     {
         self::bootKernel();
         $this->container = static::$kernel->getContainer();
+        $em = static::$kernel->getContainer()->get('doctrine')->getManager();
+        $schemaTool = new SchemaTool($em);
+        $metadata = array(
+            $em->getClassMetadata('United\OneBundle\Tests\tests\Entities\Mock'),
+        );
+
+        // Drop and recreate tables for all entities
+        $schemaTool->dropSchema($metadata);
+        $schemaTool->createSchema($metadata);
     }
 }
