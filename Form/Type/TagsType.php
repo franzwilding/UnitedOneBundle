@@ -3,6 +3,8 @@
 namespace United\OneBundle\Form\Type;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Symfony\Component\Config\Definition\Exception\Exception;
+use Symfony\Component\OptionsResolver\Options;
 use United\OneBundle\EventListener\UniqueTagsEventListener;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -23,22 +25,25 @@ class TagsType extends CollectionType
         $this->registry = $registry;
     }
 
-    public function getDataClass()
+    /**
+     * Returns select_options from $options array or use entity manager to get all entities for tag_data_class.
+     * @param $options
+     * @return array
+     */
+    public function getAllSelectOptions($options)
     {
-        return 'Food\Bundle\AdminBundle\Entity\Category';
-    }
+        if($options['select_options']) {
+            return $options['select_options'];
+        }
 
-    public function getAllOptions()
-    {
-        $em = $this->registry->getManagerForClass($this->getDataClass());
-        return $em->getRepository($this->getDataClass())->findAll();
+        $em = $this->registry->getManagerForClass($options['tag_data_class']);
+        return $em->getRepository($options['tag_data_class'])->findAll();
     }
 
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         parent::buildView($view, $form, $options);
-
-        $view->vars['select_options'] = $options['select_options'];
+        $view->vars['select_options'] = $this->getAllSelectOptions($options);
     }
 
     /**
@@ -46,8 +51,14 @@ class TagsType extends CollectionType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        if(!$options['tag_data_class']) {
+            throw new Exception('united_tags attribute: "tag_data_class" can\'t be null!');
+        }
+
+        $options['type'] = new TagType($options['tag_data_class']);
+
         parent::buildForm($builder, $options);
-        $builder->addEventSubscriber(new UniqueTagsEventListener($this->getAllOptions()));
+        $builder->addEventSubscriber(new UniqueTagsEventListener($this->getAllSelectOptions($options)));
     }
 
     /**
@@ -56,12 +67,13 @@ class TagsType extends CollectionType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         parent::setDefaultOptions($resolver);
+
         $resolver->setDefaults(array(
-            'type'              => new TagType($this->getDataClass()),
             'allow_add'         => true,
             'allow_delete'      => true,
             'by_reference'      => true,
-            'select_options'    => $this->getAllOptions(),
+            'select_options'    => null,
+            'tag_data_class'    => null,
         ));
     }
 
