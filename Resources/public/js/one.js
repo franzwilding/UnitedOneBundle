@@ -265,6 +265,35 @@ UnitedOne.modules.tags = {
     }
 };
 
+/**
+ * Renders button to add and remove prototype rows
+ */
+UnitedOne.modules.collectionPrototype = {
+
+    onAdd: function($container, prototype){
+        $container.append(prototype);
+    },
+
+    ready: function(){
+
+        var t = this;
+
+        $('.united-prototype-widget').each(function(){
+            var $button = $('<button />', {class: 'ui positive button', text: 'Add'});
+            var $container = $('<div />');
+            var prototype = $(this).data('prototype');
+
+            $(this).prepend($button);
+            $(this).append($container);
+
+            $button.click(function(){
+                t.onAdd($container, prototype);
+                return false;
+            });
+        });
+    }
+};
+
 /*UnitedOne.modules.entityBrowser = {
     ready: function() {
         $('.united-entity-browser').each(function(){

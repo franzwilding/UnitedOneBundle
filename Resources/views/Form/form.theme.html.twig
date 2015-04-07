@@ -12,6 +12,14 @@
     </div>
 {%- endblock form_row -%}
 
+{%- block collection_widget -%}
+    {% if prototype is defined %}
+        {%- set attr = attr|merge({'class': 'ui segment united-prototype-widget', 'data-prototype': form_row(prototype) }) -%}
+    {% endif %}
+    {{- form_label(form) -}}
+    {{- block('form_widget') -}}
+{%- endblock collection_widget -%}
+
 {%- block form_widget_simple -%}
     {%- set type = type|default('text') -%}
     {% if type != 'hidden' %}
