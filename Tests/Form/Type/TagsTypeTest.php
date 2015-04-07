@@ -70,7 +70,7 @@ class TagsTypeTest extends KernelTestCase
             $em->getClassMetadata('United\OneBundle\Tests\tests\Entities\Mock'),
         );
 
-        // Drop and recreate tables for all entities
+        // Drop and recreate tables for Mock entity
         $schemaTool->dropSchema($metadata);
         $schemaTool->createSchema($metadata);
     }
