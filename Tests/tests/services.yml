@@ -80,3 +80,26 @@ services:
         class: United\OneBundle\Tests\Mock\PlainBaseControllerMock
         tags:
             - { name: united.controller, parent: 'united.functional.auth.sectioncontrollertest', path: 'sub2', namespace: 'functional.auth' }
+
+
+    united.functional.anon.collectioncontrollertest:
+        class: United\OneBundle\Tests\Mock\CollectionControllerMock
+        tags:
+            - { name: united.controller, path: 'collectioncontrollertest', namespace: 'functional.anon' }
+
+    united.functional.anon.collectioncontrollertest.c1:
+        class: United\OneBundle\Tests\Mock\TableControllerMock
+        tags:
+            - { name: united.controller, parent: 'united.functional.anon.collectioncontrollertest', path: 'c1', namespace: 'functional.anon' }
+
+
+
+    united.functional.auth.collectioncontrollertest:
+        class: United\OneBundle\Tests\Mock\CollectionControllerMock
+        tags:
+            - { name: united.controller, path: 'collectioncontrollertest', namespace: 'functional.auth' }
+
+    united.functional.auth.collectioncontrollertest.c1:
+        class: United\OneBundle\Tests\Mock\TableControllerMock
+        tags:
+            - { name: united.controller, parent: 'united.functional.auth.collectioncontrollertest', path: 'c1', namespace: 'functional.auth' }
