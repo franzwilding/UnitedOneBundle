@@ -20,6 +20,15 @@ abstract class TableController extends CRUDBaseController
     }
 
     /**
+     * Returns the template for the description action.
+     * @return string the twig template to render
+     */
+    protected function templateForDescriptionAction()
+    {
+        return null;
+    }
+
+    /**
      * Returns the template for the row action.
      * @return string the twig template to render
      */
