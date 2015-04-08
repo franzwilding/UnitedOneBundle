@@ -10,19 +10,19 @@ services:
     united.functional.anon.plaincontrollertest:
         class: United\OneBundle\Tests\Mock\PlainBaseControllerMock
         tags:
-            - { name: united.controller, path: 'plancontrollertest', group: 'functional.anon' }
+            - { name: united.controller, path: 'plancontrollertest', namespace: 'functional.anon' }
 
     united.functional.auth.plaincontrollertest:
         class: United\OneBundle\Tests\Mock\PlainBaseControllerMock
         tags:
-            - { name: united.controller, path: 'plancontrollertest', group: 'functional.auth' }
+            - { name: united.controller, path: 'plancontrollertest', namespace: 'functional.auth' }
 
     united.functional.anon.cardcontrollertest:
         class: United\OneBundle\Tests\Mock\CardControllerMock
         tags:
-            - { name: united.controller, path: 'cardcontrollertest', group: 'functional.anon' }
+            - { name: united.controller, path: 'cardcontrollertest', namespace: 'functional.anon' }
 
     united.functional.auth.cardcontrollertest:
         class: United\OneBundle\Tests\Mock\CardControllerMock
         tags:
-            - { name: united.controller, path: 'cardcontrollertest', group: 'functional.auth' }
+            - { name: united.controller, path: 'cardcontrollertest', namespace: 'functional.auth' }
