@@ -26,3 +26,13 @@ services:
         class: United\OneBundle\Tests\Mock\CardControllerMock
         tags:
             - { name: united.controller, path: 'cardcontrollertest', namespace: 'functional.auth' }
+
+    united.functional.anon.tablecontrollertest:
+            class: United\OneBundle\Tests\Mock\TableControllerMock
+            tags:
+                - { name: united.controller, path: 'tablecontrollertest', namespace: 'functional.anon' }
+
+    united.functional.auth.tablecontrollertest:
+        class: United\OneBundle\Tests\Mock\TableControllerMock
+        tags:
+            - { name: united.controller, path: 'tablecontrollertest', namespace: 'functional.auth' }
