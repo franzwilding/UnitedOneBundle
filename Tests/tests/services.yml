@@ -36,3 +36,47 @@ services:
         class: United\OneBundle\Tests\Mock\TableControllerMock
         tags:
             - { name: united.controller, path: 'tablecontrollertest', namespace: 'functional.auth' }
+
+
+
+    united.functional.anon.sectioncontrollertest:
+        class: United\OneBundle\Tests\Mock\SectionControllerMock
+        tags:
+            - { name: united.controller, path: 'sectioncontrollertest', namespace: 'functional.anon' }
+
+    united.functional.anon.sectioncontrollertest.sub1:
+        class: United\OneBundle\Tests\Mock\SectionControllerMock
+        tags:
+            - { name: united.controller, parent: 'united.functional.anon.sectioncontrollertest', path: 'sub1', namespace: 'functional.anon' }
+
+    united.functional.anon.sectioncontrollertest.sub1.sub1:
+        class: United\OneBundle\Tests\Mock\PlainBaseControllerMock
+        tags:
+            - { name: united.controller, parent: 'united.functional.anon.sectioncontrollertest.sub1', path: 'sub1', namespace: 'functional.anon' }
+
+    united.functional.anon.sectioncontrollertest.sub2:
+        class: United\OneBundle\Tests\Mock\PlainBaseControllerMock
+        tags:
+            - { name: united.controller, parent: 'united.functional.anon.sectioncontrollertest', path: 'sub2', namespace: 'functional.anon' }
+
+
+
+    united.functional.auth.sectioncontrollertest:
+        class: United\OneBundle\Tests\Mock\SectionControllerMock
+        tags:
+            - { name: united.controller, path: 'sectioncontrollertest', namespace: 'functional.auth' }
+
+    united.functional.auth.sectioncontrollertest.sub1:
+        class: United\OneBundle\Tests\Mock\SectionControllerMock
+        tags:
+            - { name: united.controller, parent: 'united.functional.auth.sectioncontrollertest', path: 'sub1', namespace: 'functional.auth' }
+
+    united.functional.auth.sectioncontrollertest.sub1.sub1:
+        class: United\OneBundle\Tests\Mock\PlainBaseControllerMock
+        tags:
+            - { name: united.controller, parent: 'united.functional.auth.sectioncontrollertest.sub1', path: 'sub1', namespace: 'functional.auth' }
+
+    united.functional.auth.sectioncontrollertest.sub2:
+        class: United\OneBundle\Tests\Mock\PlainBaseControllerMock
+        tags:
+            - { name: united.controller, parent: 'united.functional.auth.sectioncontrollertest', path: 'sub2', namespace: 'functional.auth' }

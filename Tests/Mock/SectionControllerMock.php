@@ -7,20 +7,19 @@ use United\OneBundle\Controller\SectionController;
 
 class SectionControllerMock extends SectionController
 {
-
     /**
-     * Returns the entity repository for the CRUD operations.
+     * This method can alter the context for each action, that is passed to the
+     * twig template.
      *
-     * @return EntityRepository
+     * @param string $action
+     * @param array $context
+     * @return array
      */
-    protected function getEntityRepository() {}
-
-    /**
-     * Returns a new entity.
-     *
-     * @return object
-     */
-    protected function createNewEntity() {}
+    protected function alterContextForAction($action, &$context)
+    {
+        parent::alterContextForAction($action, $context);
+        $context['layout'] = 'layout-embed.html.twig';
+    }
 
     /**
      * Calls any internal function.
