@@ -11,25 +11,21 @@ abstract class TableController extends CRUDBaseController
 {
 
     /**
-     * Returns the template for the given action. For the base implementation,
-     * $action can be: index|create|update|delete.
-     *
-     * @param string $action the action to get the twig template for
+     * Returns the template for the index action.
      * @return string the twig template to render
      */
-    protected function getTemplateForAction($action)
+    protected function templateForIndexAction()
     {
-        switch ($action) {
-            case 'index':
-                return 'UnitedOneBundle:Table:index.html.twig';
-                break;
-            case 'row':
-                return 'UnitedOneBundle:Table:row.html.twig';
-                break;
-            default:
-                return parent::getTemplateForAction($action);
-                break;
-        }
+        return 'UnitedOneBundle:Table:index.html.twig';
+    }
+
+    /**
+     * Returns the template for the row action.
+     * @return string the twig template to render
+     */
+    protected function templateForRowAction()
+    {
+        return 'UnitedOneBundle:Table:row.html.twig';
     }
 
     protected function alterContextForAction($action, &$context)

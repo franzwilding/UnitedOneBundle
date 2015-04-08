@@ -11,25 +11,21 @@ abstract class CardController extends CRUDBaseController
 {
 
     /**
-     * Returns the template for the given action. For the base implementation,
-     * $action can be: index|create|update|delete.
-     *
-     * @param string $action the action to get the twig template for
+     * Returns the template for the index action.
      * @return string the twig template to render
      */
-    protected function getTemplateForAction($action)
+    protected function templateForIndexAction()
     {
-        switch ($action) {
-            case 'index':
-                return 'UnitedOneBundle:Card:index.html.twig';
-                break;
-            case 'card':
-                return 'UnitedOneBundle:Card:card.html.twig';
-                break;
-            default:
-                return parent::getTemplateForAction($action);
-                break;
-        }
+        return 'UnitedOneBundle:Card:index.html.twig';
+    }
+
+    /**
+     * Returns the template for the card action.
+     * @return string the twig template to render
+     */
+    protected function templateForCardAction()
+    {
+        return 'UnitedOneBundle:Card:card.html.twig';
     }
 
     protected function alterContextForAction($action, &$context)

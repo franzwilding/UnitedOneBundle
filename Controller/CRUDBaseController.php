@@ -16,20 +16,14 @@ abstract class CRUDBaseController extends CRUDController
 {
 
     /**
-     * Returns the form the given action. For the base implementation,
-     * $action can be: index|create|update|delete.
+     * Returns the form for the delete action.
      *
-     * @param string $action
      * @param null|object $entity
      * @return string|Form
      */
-    protected function getFormForAction($action, $entity = null)
+    protected function formForDeleteAction($entity = null)
     {
-        if ($action == 'delete') {
-            return $this->createForm(new DeleteFormType(), $entity);
-        }
-
-        return NULL;
+        return $this->createForm(new DeleteFormType(), $entity);
     }
 
     /**
@@ -52,27 +46,30 @@ abstract class CRUDBaseController extends CRUDController
     }
 
     /**
-     * Returns the template for the given action. For the base implementation,
-     * $action can be: index|create|update|delete.
-     *
-     * @param string $action the action to get the twig template for
+     * Returns the template for the create action.
      * @return string the twig template to render
      */
-    protected function getTemplateForAction($action)
+    protected function templateForCreateAction()
     {
-        switch ($action) {
-            case 'create':
-                return 'UnitedOneBundle:Form:form.html.twig';
-                break;
-            case 'update':
-                return 'UnitedOneBundle:Form:form.html.twig';
-                break;
-            case 'delete':
-                return 'UnitedOneBundle:Form:form.html.twig';
-                break;
-            default:
-                return NULL;
-                break;
-        }
+        return 'UnitedOneBundle:Form:form.html.twig';
+    }
+
+    /**
+     * Returns the template for the update action.
+     * @return string the twig template to render
+     */
+    protected function templateForUpdateAction()
+    {
+        return 'UnitedOneBundle:Form:form.html.twig';
+
+    }
+
+    /**
+     * Returns the template for the delete action.
+     * @return string the twig template to render
+     */
+    protected function templateForDeleteAction()
+    {
+        return 'UnitedOneBundle:Form:form.html.twig';
     }
 }

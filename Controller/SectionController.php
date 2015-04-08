@@ -6,18 +6,21 @@ class SectionController extends PlainBaseController
 {
 
     /**
-     * Returns the template for the given action. For the base implementation,
-     * $action can be: index|create|update|delete.
-     *
-     * @param string $action the action to get the twig template for
+     * Returns the template for the index action.
      * @return string the twig template to render
      */
-    protected function getTemplateForAction($action)
+    protected function templateForIndexAction()
     {
-        if ($action == 'section') {
-            return 'UnitedOneBundle:Section:section.html.twig';
-        }
         return 'UnitedOneBundle:Section:index.html.twig';
+    }
+
+    /**
+     * Returns the template for the section action.
+     * @return string the twig template to render
+     */
+    protected function templateForSectionAction()
+    {
+        return 'UnitedOneBundle:Section:section.html.twig';
     }
 
     protected function alterContextForAction($action, &$context)
