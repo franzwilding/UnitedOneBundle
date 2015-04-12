@@ -1,14 +1,13 @@
- /*
- * # Semantic UI - 1.11.4
- * https://github.com/Semantic-Org/Semantic-UI
- * http://www.semantic-ui.com/
+/*!
+ * # Semantic UI 1.11.6 - Sidebar
+ * http://github.com/semantic-org/semantic-ui/
  *
- * Copyright 2014 Contributors
+ *
+ * Copyright 2014 Contributorss
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
-
 
 
 /*******************************
@@ -135,7 +134,7 @@ body.pushable {
   z-index: 2;
 }
 body.pushable > .pusher {
-  background: #f9f9f9;
+  background: #f2f2f2;
 }
 .pushable > .pusher {
   background: inherit;
@@ -206,11 +205,11 @@ body.pushable > .pusher {
 /* Shadow Direction */
 .ui.left.visible.sidebar,
 .ui.right.visible.sidebar {
-  box-shadow: 0px 0px 20px rgba(39, 41, 43, 0.15);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 .ui.top.visible.sidebar,
 .ui.bottom.visible.sidebar {
-  box-shadow: 0px 0px 20px rgba(39, 41, 43, 0.15);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Visible On Load */

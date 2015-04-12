@@ -1,21 +1,20 @@
- /*
- * # Semantic UI - 1.11.4
- * https://github.com/Semantic-Org/Semantic-UI
- * http://www.semantic-ui.com/
+/*!
+ * # Semantic UI 1.11.6 - Site
+ * http://github.com/semantic-org/semantic-ui/
+ *
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
-@import 'https://fonts.googleapis.com/css?family=Open+Sans:400italic,400|Oswald:400,700:400,700,400italic,700italic&subset=latin';
-
 
 
 /*******************************
              Page
 *******************************/
 
+@import 'https://fonts.googleapis.com/css?family=Fira+Sans:500,700,500italic,700italic:400,700,400italic,700italic&subset=latin';
 html,
 body {
   height: 100%;
@@ -26,12 +25,12 @@ html {
 body {
   margin: 0px;
   padding: 0px;
-  min-width: 281px;
-  background: #f9f9f9;
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  min-width: 320px;
+  background: #f2f2f2;
+  font-family: 'Fira Sans', sans-serif;
   font-size: 13px;
   line-height: 1.33;
-  color: #212121;
+  color: #666666;
   font-smoothing: antialiased;
 }
 
@@ -45,7 +44,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   line-height: 1.33em;
   margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
   margin: calc(2rem -  0.165em ) 0em 1rem;
@@ -67,6 +66,20 @@ h4 {
 }
 h5 {
   font-size: 1.25rem;
+}
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child {
+  margin-top: 0em;
+}
+h1:last-child,
+h2:last-child,
+h3:last-child,
+h4:last-child,
+h5:last-child {
+  margin-bottom: 0em;
 }
 
 
@@ -90,11 +103,11 @@ p:last-child {
 --------------------*/
 
 a {
-  color: #009fda;
+  color: #51bdf3;
   text-decoration: none;
 }
 a:hover {
-  color: #00b2f3;
+  color: #69c6f5;
 }
 
 
@@ -105,15 +118,15 @@ a:hover {
 
 /* Site */
 ::-webkit-selection {
-  background-color: #009fda;
+  background-color: #51bdf3;
   color: #ffffff;
 }
 ::-moz-selection {
-  background-color: #009fda;
+  background-color: #51bdf3;
   color: #ffffff;
 }
 ::selection {
-  background-color: #009fda;
+  background-color: #51bdf3;
   color: #ffffff;
 }
 
@@ -121,17 +134,17 @@ a:hover {
 textarea::-webkit-selection,
 input::-webkit-selection {
   background-color: rgba(100, 100, 100, 0.4);
-  color: #212121;
+  color: #666666;
 }
 textarea::-moz-selection,
 input::-moz-selection {
   background-color: rgba(100, 100, 100, 0.4);
-  color: #212121;
+  color: #666666;
 }
 textarea::selection,
 input::selection {
   background-color: rgba(100, 100, 100, 0.4);
-  color: #212121;
+  color: #666666;
 }
 
 

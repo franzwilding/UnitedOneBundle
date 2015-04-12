@@ -1,14 +1,13 @@
- /*
- * # Semantic UI - 1.11.4
- * https://github.com/Semantic-Org/Semantic-UI
- * http://www.semantic-ui.com/
+/*!
+ * # Semantic UI 1.11.6 - Feed
+ * http://github.com/semantic-org/semantic-ui/
  *
- * Copyright 2014 Contributors
+ *
+ * Copyright 2014 Contributorss
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
-
 
 
 /*******************************
@@ -112,7 +111,7 @@
   margin: 0em;
   font-size: 1em;
   font-weight: bold;
-  color: #212121;
+  color: #666666;
 }
 
 /* Summary Image */
@@ -167,7 +166,7 @@
   margin: 0.5em 0em 0em;
   background: none;
   padding: 0em;
-  color: #212121;
+  color: #666666;
 }
 
 /* Images */

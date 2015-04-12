@@ -63,7 +63,7 @@
 {% block navigation %}
     <section class="united-one-navigation ui sidebar">
         <nav>
-            <ul class="ui large vertical text menu">
+            <ul class="ui large inverted vertical text menu">
                 {% for item in united.tree %}
                     <li class="item {% if item.activeTrail %} active{% endif %}">
                         {% if item.route != null %}<a href="{{ united.url('', item) }}">{% endif %}

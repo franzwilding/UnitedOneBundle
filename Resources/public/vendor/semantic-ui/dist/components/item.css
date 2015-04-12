@@ -1,14 +1,13 @@
- /*
- * # Semantic UI - 1.11.4
- * https://github.com/Semantic-Org/Semantic-UI
- * http://www.semantic-ui.com/
+/*!
+ * # Semantic UI 1.11.6 - Item
+ * http://github.com/semantic-org/semantic-ui/
  *
- * Copyright 2014 Contributors
+ *
+ * Copyright 2014 Contributorss
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
-
 
 
 /*******************************
@@ -129,9 +128,9 @@
   padding-left: 1.5em;
 }
 .ui.items > .item > .content > .header {
-  display: inline-block;
+  display: block;
   margin: -0.165em 0em 0em;
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -157,14 +156,13 @@
 ---------------*/
 
 .ui.items > .item .content img {
-  display: inline-block;
   vertical-align: middle;
-  width: 2em;
+  width: '';
 }
 .ui.items > .item img.avatar,
 .ui.items > .item .avatar img {
-  width: 2em;
-  height: 2em;
+  width: '';
+  height: '';
   border-radius: 500rem;
 }
 
@@ -177,7 +175,7 @@
   max-width: 550px;
   font-size: 1em;
   line-height: 1.33;
-  color: #212121;
+  color: #666666;
 }
 
 /*--------------
@@ -231,7 +229,7 @@
   color: rgba(0, 0, 0, 0.85);
 }
 .ui.items > .item > .content > a.header:hover {
-  color: #00b2f3;
+  color: #69c6f5;
 }
 
 /* Meta */
@@ -239,7 +237,7 @@
   color: rgba(0, 0, 0, 0.4);
 }
 .ui.items > .item .meta > a:not(.ui):hover {
-  color: #212121;
+  color: #666666;
 }
 
 /*--------------
@@ -262,7 +260,7 @@
   color: #ffb70a;
 }
 .ui.items > .item > .content .active.favorite.icon {
-  color: #ffb70a;
+  color: #ffe623;
 }
 
 /*-----Like----- */
@@ -400,7 +398,7 @@
 --------------------*/
 
 .ui.divided.items > .item {
-  border-top: 1px solid rgba(39, 41, 43, 0.15);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   margin: 0em;
   padding: 1em 0em;
 }
@@ -434,7 +432,7 @@
 }
 .ui.items a.item:hover .content .header,
 .ui.link.items > .item:hover .content .header {
-  color: #00b2f3;
+  color: #69c6f5;
 }
 
 /*--------------

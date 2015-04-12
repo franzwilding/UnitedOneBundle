@@ -55,9 +55,9 @@ UnitedOne.modules.toggleSidebar = {
     settings: function(){
         var t = this;
         return {
-            transition: 'overlay',
+            transition: 'push',
             dimPage: false,
-            pushable: false,
+            pushable: true,
             onChange: function () {
                 t.header.toggleClass('open');
             }

@@ -1,14 +1,13 @@
- /*
- * # Semantic UI - 1.11.4
- * https://github.com/Semantic-Org/Semantic-UI
- * http://www.semantic-ui.com/
+/*!
+ * # Semantic UI 1.11.6 - Step
+ * http://github.com/semantic-org/semantic-ui/
+ *
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
-
 
 
 /*******************************
@@ -22,8 +21,8 @@
   margin: 0em 0em;
   padding: 0.9285em 1.5em 0.9285em 2.25em;
   background: #ffffff;
-  color: #212121;
-  box-shadow: 0px 0px 0px 1px #d4d4d5;
+  color: #666666;
+  box-shadow: 0px 0px 0px 1px #f2f2f2;
   border-radius: 0em;
 }
 .ui.steps .step:after {
@@ -36,8 +35,8 @@
   background-color: #ffffff;
   width: 1.5em;
   height: 1.5em;
-  border-bottom: 1px solid rgba(39, 41, 43, 0.15);
-  border-right: 1px solid rgba(39, 41, 43, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
       -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
           transform: translateY(-50%) translateX(50%) rotate(-45deg);
@@ -87,7 +86,7 @@
 
 /* Title */
 .ui.steps .step .title {
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-size: 1.0714em;
   font-weight: bold;
 }
@@ -96,7 +95,7 @@
 .ui.steps .step .description {
   font-weight: normal;
   font-size: 0.9285em;
-  color: #212121;
+  color: #666666;
 }
 .ui.steps .step .title ~ .description {
   margin-top: 0.1em;
@@ -241,7 +240,7 @@
   background: #f0f0f0;
 }
 .ui.steps .step.active .title {
-  color: #009fda;
+  color: #51bdf3;
 }
 .ui.ordered.steps .step.active:before,
 .ui.steps .active.step .icon {
@@ -255,13 +254,13 @@
 .ui.steps a.active.step:hover {
   cursor: pointer;
   background: #ececec;
-  color: #212121;
+  color: #666666;
 }
 
 /* Completed */
 .ui.steps .step.completed > .icon:before,
 .ui.ordered.steps .step.completed:before {
-  color: #4caf50;
+  color: #9ae26d;
 }
 
 /* Disabled */

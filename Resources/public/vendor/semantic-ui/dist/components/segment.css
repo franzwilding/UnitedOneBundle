@@ -1,14 +1,13 @@
- /*
- * # Semantic UI - 1.11.4
- * https://github.com/Semantic-Org/Semantic-UI
- * http://www.semantic-ui.com/
+/*!
+ * # Semantic UI 1.11.6 - Segment
+ * http://github.com/semantic-org/semantic-ui/
+ *
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
-
 
 
 /*******************************
@@ -18,7 +17,7 @@
 .ui.segment {
   position: relative;
   background-color: #ffffff;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   margin: 1rem 0em;
   padding: 1em 1em;
   border-radius: 2px;
@@ -46,7 +45,7 @@
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  box-shadow: 0px -1px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui[class*="vertical segment"]:last-child {
   box-shadow: none;
@@ -60,7 +59,7 @@
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  box-shadow: 1px 0px 0px rgba(39, 41, 43, 0.15);
+  box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 
 /*-------------------
@@ -106,7 +105,7 @@
 .ui.basic.table.segment {
   background: #ffffff;
   border: none;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .ui[class*="very basic"].table.segment {
   padding: 1em 1em;
@@ -124,7 +123,7 @@
 
 .ui.piled.segment {
   margin: 3em 0em;
-  box-shadow: 0px 0px 1px 1px rgba(39, 41, 43, 0.15);
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
   z-index: auto;
 }
 .ui.piled.segment:first-child {
@@ -143,7 +142,7 @@
   left: 0px;
   position: absolute;
   width: 100%;
-  box-shadow: 0px 0px 1px 1px rgba(39, 41, 43, 0.15);
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
 }
 .ui.piled.segment:after {
   -webkit-transform: rotate(1.2deg);
@@ -189,7 +188,7 @@
   position: absolute;
   bottom: -3px;
   left: 0%;
-  border-top: 1px solid rgba(39, 41, 43, 0.15);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   background-color: rgba(0, 0, 0, 0.03);
   width: 100%;
   height: 6px;
@@ -209,7 +208,7 @@
 .ui.stacked.inverted.segment:after,
 .ui.stacked.inverted.segment:before {
   background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(39, 41, 43, 0.3);
+  border-top: 1px solid $blue;
 }
 
 /*-------------------
@@ -237,7 +236,7 @@
 --------------------*/
 
 .ui.raised.segment {
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -350,13 +349,13 @@
 --------------------*/
 
 .ui.black.segment:not(.inverted) {
-  border-top: 2px solid #1b1c1d;
+  border-top: 2px solid #576573;
 }
 .ui.blue.segment:not(.inverted) {
-  border-top: 2px solid #2196f3;
+  border-top: 2px solid #51bdf3;
 }
 .ui.green.segment:not(.inverted) {
-  border-top: 2px solid #4caf50;
+  border-top: 2px solid #9ae26d;
 }
 .ui.orange.segment:not(.inverted) {
   border-top: 2px solid #ff9800;
@@ -368,13 +367,13 @@
   border-top: 2px solid #9c27b0;
 }
 .ui.red.segment:not(.inverted) {
-  border-top: 2px solid #f44336;
+  border-top: 2px solid #f86769;
 }
 .ui.teal.segment:not(.inverted) {
   border-top: 2px solid #1de9b6;
 }
 .ui.yellow.segment:not(.inverted) {
-  border-top: 2px solid #ffeb3b;
+  border-top: 2px solid #fbee73;
 }
 .ui.black.segment:not(.inverted):not(.attached) {
   border-top-left-radius: 2px !important;
@@ -419,15 +418,15 @@
 
 .ui.inverted.segment,
 .ui.inverted.black.segment {
-  background-color: #1b1c1d !important;
+  background-color: #576573 !important;
   color: #ffffff !important;
 }
 .ui.inverted.blue.segment {
-  background-color: #2196f3 !important;
+  background-color: #51bdf3 !important;
   color: #ffffff !important;
 }
 .ui.inverted.green.segment {
-  background-color: #4caf50 !important;
+  background-color: #9ae26d !important;
   color: #ffffff !important;
 }
 .ui.inverted.orange.segment {
@@ -443,7 +442,7 @@
   color: #ffffff !important;
 }
 .ui.inverted.red.segment {
-  background-color: #f44336 !important;
+  background-color: #f86769 !important;
   color: #ffffff !important;
 }
 .ui.inverted.teal.segment {
@@ -451,7 +450,7 @@
   color: #ffffff !important;
 }
 .ui.inverted.yellow.segment {
-  background-color: #ffeb3b !important;
+  background-color: #fbee73 !important;
   color: #ffffff !important;
 }
 
@@ -492,14 +491,14 @@
   box-shadow: none;
 }
 .ui.inverted.segment .segment {
-  color: #212121;
+  color: #666666;
 }
 .ui.inverted.segment .inverted.segment {
   color: #ffffff;
 }
 .ui.inverted.segment,
 .ui.primary.inverted.segment {
-  background-color: #1b1c1d;
+  background-color: #576573;
   color: #ffffff;
 }
 .ui.inverted.block.segment,
@@ -513,11 +512,11 @@
 
 .ui.secondary.segment {
   background: #faf9fa;
-  color: #212121;
+  color: #666666;
 }
 .ui.tertiary.segment {
   background: #ebebeb;
-  color: #212121;
+  color: #666666;
 }
 .ui.secondary.inverted.segment {
   background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
@@ -527,7 +526,7 @@
 .ui.tertiary.inverted.segment {
   background: -webkit-linear-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
   background: linear-gradient(rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
-  color: #f0f0f0;
+  color: #f2f2f2;
 }
 
 /*-------------------
@@ -544,7 +543,7 @@
   max-width: calc(100% +  2px );
   border-radius: 0px;
   box-shadow: none;
-  border: 1px solid #d4d4d5;
+  border: 1px solid #f2f2f2;
 }
 .ui.segment.attached + .ui.segment.attached:not(.top) {
   border-top: none;
@@ -579,6 +578,15 @@
        Groups
 --------------------*/
 
+.ui.segments {
+  margin: 1rem 0em;
+}
+.ui.segments:first-child {
+  margin-top: 0em;
+}
+.ui.segments:last-child {
+  margin-bottom: 0em;
+}
 .ui.segments > .segment {
   top: 0px;
   bottom: 0px;
@@ -589,7 +597,7 @@
   max-width: calc(100% +  2px );
   border-radius: 0px;
   box-shadow: none;
-  border: 1px solid #d4d4d5;
+  border: 1px solid #f2f2f2;
 }
 .ui.segments > .segment:not(:first-child) {
   border-top: none;
@@ -601,7 +609,6 @@
   bottom: 0px;
   margin-bottom: 0em;
   top: 0px;
-  margin-top: 1rem;
   border-radius: 2px 2px 0em 0em;
 }
 

@@ -1,14 +1,13 @@
- /*
- * # Semantic UI - 1.11.4
- * https://github.com/Semantic-Org/Semantic-UI
- * http://www.semantic-ui.com/
+/*!
+ * # Semantic UI 1.11.6 - Button
+ * http://github.com/semantic-org/semantic-ui/
  *
- * Copyright 2014 Contributors
+ *
+ * Copyright 2014 Contributorss
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
-
 
 
 /*******************************
@@ -22,9 +21,9 @@
   outline: none;
   border: none;
   vertical-align: baseline;
-  background-color: #e0e0e0;
+  background-color: #f2f2f2;
   color: rgba(0, 0, 0, 0.6);
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   margin: 0em 0.25em 0em 0em;
   padding: 0.78571em 1.5em 0.78571em;
   text-transform: none;
@@ -36,7 +35,7 @@
   text-decoration: none;
   background-image: none;
   border-radius: 2px;
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -90,7 +89,7 @@
   background-color: #cccccc;
   background-image: '';
   color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 1px 4px 0px rgba(39, 41, 43, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset !important;
 }
 
 /*--------------
@@ -98,18 +97,18 @@
 ---------------*/
 
 .ui.active.button {
-  background-color: #d0d0d0;
+  background-color: #c6d0d9;
   background-image: none;
   box-shadow: 0px 0px 0px 1px transparent inset;
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.active.button:hover {
-  background-color: #d0d0d0;
+  background-color: #c6d0d9;
   background-image: none;
   color: rgba(0, 0, 0, 0.8);
 }
 .ui.active.button:active {
-  background-color: #d0d0d0;
+  background-color: #c6d0d9;
   background-image: none;
 }
 
@@ -195,10 +194,11 @@
 
 .ui.buttons .disabled.button,
 .ui.disabled.button,
+.ui.button:disabled,
 .ui.disabled.button:hover,
 .ui.disabled.active.button {
   cursor: default;
-  background-color: #dcddde !important;
+  background-color: #c6d0d9 !important;
   color: rgba(0, 0, 0, 0.4) !important;
   opacity: 0.3 !important;
   background-image: none !important;
@@ -208,7 +208,7 @@
 
 /* Basic Group With Disabled */
 .ui.basic.buttons .ui.disabled.button {
-  border-color: rgba(39, 41, 43, 0.5);
+  border-color: #f2f2f2;
 }
 
 
@@ -373,7 +373,7 @@
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.facebook.button:hover {
   background-color: #3f5da8;
@@ -392,7 +392,7 @@
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.twitter.button:hover {
   background-color: #4c99cf;
@@ -411,7 +411,7 @@
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.google.plus.button:hover {
   background-color: #d65343;
@@ -447,7 +447,7 @@
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.youtube.button:hover {
   background-color: #da1a20;
@@ -466,7 +466,7 @@
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.instagram.button:hover {
   background-color: #4e7ea6;
@@ -485,7 +485,7 @@
   color: #ffffff;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.pinterest.button:hover {
   background-color: #00b7fc;
@@ -503,7 +503,7 @@
   background-color: #4D7198;
   color: #ffffff;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.vk.button:hover {
   background-color: #5279a2;
@@ -643,10 +643,10 @@
   border-radius: 2px;
   text-transform: none;
   text-shadow: none !important;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.basic.buttons {
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
 }
 .ui.basic.buttons .button {
@@ -656,20 +656,20 @@
 .ui.basic.button:hover {
   background: #fafafa !important;
   color: rgba(0, 0, 0, 0.8) !important;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset, 0px 0px 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 0px 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.basic.buttons .button:active,
 .ui.basic.button:active {
   background: #f8f8f8 !important;
   color: rgba(0, 0, 0, 0.8) !important;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.basic.buttons .active.button,
 .ui.basic.active.button {
   background: rgba(0, 0, 0, 0.05) !important;
   box-shadow: '' !important;
   color: rgba(0, 0, 0, 0.8);
-  box-shadow: rgba(39, 41, 43, 0.3);
+  box-shadow: $blue;
 }
 .ui.basic.buttons .active.button:hover,
 .ui.basic.active.button:hover {
@@ -678,13 +678,13 @@
 
 /* Vertical */
 .ui.basic.buttons .button:hover {
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15) inset, 0px 0px 0px 0px rgba(39, 41, 43, 0.15) inset inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset, 0px 0px 0px 0px rgba(0, 0, 0, 0.1) inset inset;
 }
 .ui.basic.buttons .button:active {
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(39, 41, 43, 0.15) inset inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset inset;
 }
 .ui.basic.buttons .active.button {
-  box-shadow: rgba(39, 41, 43, 0.3) inset;
+  box-shadow: $blue inset;
 }
 
 /* Standard Basic Inverted */
@@ -720,7 +720,7 @@
 
 /* Basic Group */
 .ui.basic.buttons .button {
-  border-left: 1px solid rgba(39, 41, 43, 0.15);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: none;
 }
 .ui.basic.vertical.buttons .button {
@@ -728,7 +728,7 @@
 }
 .ui.basic.vertical.buttons .button {
   border-left-width: 0px;
-  border-top: 1px solid rgba(39, 41, 43, 0.15);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 .ui.basic.vertical.buttons .button:first-child {
   border-top-width: 0px;
@@ -824,13 +824,13 @@
 .ui.toggle.buttons .active.button,
 .ui.buttons .button.toggle.active,
 .ui.button.toggle.active {
-  background-color: #4caf50 !important;
+  background-color: #9ae26d !important;
   box-shadow: none !important;
   text-shadow: none;
   color: #ffffff !important;
 }
 .ui.button.toggle.active:hover {
-  background-color: #55b559 !important;
+  background-color: #a3e57a !important;
   text-shadow: none;
   color: #ffffff !important;
 }
@@ -854,7 +854,7 @@
 .ui.attached.button {
   display: block;
   margin: 0em;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15) !important;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) !important;
   border-radius: 0em;
 }
 .ui.attached.top.button {
@@ -1148,23 +1148,23 @@
 
 .ui.black.buttons .button,
 .ui.black.button {
-  background-color: #1b1c1d;
+  background-color: #576573;
   color: #ffffff;
   text-shadow: none;
   background-image: none;
 }
 .ui.black.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.black.buttons .button:hover,
 .ui.black.button:hover {
-  background-color: #1b1c1d;
+  background-color: #576573;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.black.buttons .button:active,
 .ui.black.button:active {
-  background-color: #0a0a0b;
+  background-color: #48535f;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1172,7 +1172,7 @@
 .ui.black.buttons .active.button:active,
 .ui.black.active.button,
 .ui.black.button .active.button:active {
-  background-color: #0f0f10;
+  background-color: #4c5864;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1180,25 +1180,25 @@
 /* Basic */
 .ui.basic.black.buttons .button,
 .ui.basic.black.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.1) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.black.buttons .button:hover,
 .ui.basic.black.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #1b1c1d inset !important;
-  color: #1b1c1d !important;
+  box-shadow: 0px 0px 0px 2px #576573 inset !important;
+  color: #576573 !important;
 }
 .ui.basic.black.buttons .button:active,
 .ui.basic.black.button:active {
-  box-shadow: 0px 0px 0px 2px #0a0a0b inset !important;
-  color: #0a0a0b !important;
+  box-shadow: 0px 0px 0px 2px #48535f inset !important;
+  color: #48535f !important;
 }
 .ui.basic.black.buttons .active.button,
 .ui.basic.black.active.button {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #0a0a0b inset !important;
-  color: #0a0a0b !important;
+  box-shadow: 0px 0px 0px 2px #48535f inset !important;
+  color: #48535f !important;
 }
 .ui.buttons > .basic.black.button:not(:first-child) {
   margin-left: -2px;
@@ -1208,7 +1208,7 @@
 .ui.inverted.black.buttons .button,
 .ui.inverted.black.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px #d4d4d5 inset !important;
+  box-shadow: 0px 0px 0px 2px #f2f2f2 inset !important;
   color: #ffffff;
 }
 .ui.inverted.black.buttons .button:hover,
@@ -1261,23 +1261,23 @@
 
 .ui.blue.buttons .button,
 .ui.blue.button {
-  background-color: #2196f3;
+  background-color: #51bdf3;
   color: #ffffff;
   text-shadow: none;
   background-image: none;
 }
 .ui.blue.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.blue.buttons .button:hover,
 .ui.blue.button:hover {
-  background-color: #309df4;
+  background-color: #5fc2f4;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.blue.buttons .button:active,
 .ui.blue.button:active {
-  background-color: #0c84e4;
+  background-color: #30b0f1;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1285,7 +1285,7 @@
 .ui.blue.buttons .active.button:active,
 .ui.blue.active.button,
 .ui.blue.button .active.button:active {
-  background-color: #0d8aee;
+  background-color: #39b4f1;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1293,25 +1293,25 @@
 /* Basic */
 .ui.basic.blue.buttons .button,
 .ui.basic.blue.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.1) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.blue.buttons .button:hover,
 .ui.basic.blue.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #309df4 inset !important;
-  color: #309df4 !important;
+  box-shadow: 0px 0px 0px 2px #5fc2f4 inset !important;
+  color: #5fc2f4 !important;
 }
 .ui.basic.blue.buttons .button:active,
 .ui.basic.blue.button:active {
-  box-shadow: 0px 0px 0px 2px #0c84e4 inset !important;
-  color: #0c84e4 !important;
+  box-shadow: 0px 0px 0px 2px #30b0f1 inset !important;
+  color: #30b0f1 !important;
 }
 .ui.basic.blue.buttons .active.button,
 .ui.basic.blue.active.button {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #0c84e4 inset !important;
-  color: #0c84e4 !important;
+  box-shadow: 0px 0px 0px 2px #30b0f1 inset !important;
+  color: #30b0f1 !important;
 }
 .ui.buttons > .basic.blue.button:not(:first-child) {
   margin-left: -2px;
@@ -1374,23 +1374,23 @@
 
 .ui.green.buttons .button,
 .ui.green.button {
-  background-color: #4caf50;
+  background-color: #9ae26d;
   color: #ffffff;
   text-shadow: none;
   background-image: none;
 }
 .ui.green.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.green.buttons .button:hover,
 .ui.green.button:hover {
-  background-color: #55b559;
+  background-color: #a3e57a;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.green.buttons .button:active,
 .ui.green.button:active {
-  background-color: #419645;
+  background-color: #85dc4f;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1398,7 +1398,7 @@
 .ui.green.buttons .active.button:active,
 .ui.green.active.button,
 .ui.green.button .active.button:active {
-  background-color: #449d48;
+  background-color: #8bde58;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1406,25 +1406,25 @@
 /* Basic */
 .ui.basic.green.buttons .button,
 .ui.basic.green.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.1) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.green.buttons .button:hover,
 .ui.basic.green.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #55b559 inset !important;
-  color: #55b559 !important;
+  box-shadow: 0px 0px 0px 2px #a3e57a inset !important;
+  color: #a3e57a !important;
 }
 .ui.basic.green.buttons .button:active,
 .ui.basic.green.button:active {
-  box-shadow: 0px 0px 0px 2px #419645 inset !important;
-  color: #419645 !important;
+  box-shadow: 0px 0px 0px 2px #85dc4f inset !important;
+  color: #85dc4f !important;
 }
 .ui.basic.green.buttons .active.button,
 .ui.basic.green.active.button {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #419645 inset !important;
-  color: #419645 !important;
+  box-shadow: 0px 0px 0px 2px #85dc4f inset !important;
+  color: #85dc4f !important;
 }
 .ui.buttons > .basic.green.button:not(:first-child) {
   margin-left: -2px;
@@ -1493,7 +1493,7 @@
   background-image: none;
 }
 .ui.orange.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.orange.buttons .button:hover,
 .ui.orange.button:hover {
@@ -1519,7 +1519,7 @@
 /* Basic */
 .ui.basic.orange.buttons .button,
 .ui.basic.orange.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.1) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.orange.buttons .button:hover,
@@ -1606,7 +1606,7 @@
   background-image: none;
 }
 .ui.pink.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.pink.buttons .button:hover,
 .ui.pink.button:hover {
@@ -1632,7 +1632,7 @@
 /* Basic */
 .ui.basic.pink.buttons .button,
 .ui.basic.pink.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.1) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.pink.buttons .button:hover,
@@ -1719,7 +1719,7 @@
   background-image: none;
 }
 .ui.purple.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.purple.buttons .button:hover,
 .ui.purple.button:hover {
@@ -1745,7 +1745,7 @@
 /* Basic */
 .ui.basic.purple.buttons .button,
 .ui.basic.purple.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.1) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.purple.buttons .button:hover,
@@ -1780,19 +1780,19 @@
 .ui.inverted.purple.button:hover {
   box-shadow: 0px 0px 0px 2px #d500f9 inset !important;
   background-color: #d500f9;
-  color: #1b1c1d;
+  color: #576573;
 }
 .ui.inverted.purple.buttons .active.button,
 .ui.inverted.purple.active.button {
   box-shadow: 0px 0px 0px 2px #d500f9 inset !important;
   background-color: #d500f9;
-  color: #1b1c1d;
+  color: #576573;
 }
 .ui.inverted.purple.buttons .button:active,
 .ui.inverted.purple.button:active {
   box-shadow: 0px 0px 0px 2px #b600d5 inset !important;
   background-color: #b600d5;
-  color: #1b1c1d;
+  color: #576573;
 }
 
 /* Inverted Basic */
@@ -1826,23 +1826,23 @@
 
 .ui.red.buttons .button,
 .ui.red.button {
-  background-color: #f44336;
+  background-color: #f86769;
   color: #ffffff;
   text-shadow: none;
   background-image: none;
 }
 .ui.red.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.red.buttons .button:hover,
 .ui.red.button:hover {
-  background-color: #f55145;
+  background-color: #f97677;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.red.buttons .button:active,
 .ui.red.button:active {
-  background-color: #f22314;
+  background-color: #f64547;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1850,7 +1850,7 @@
 .ui.red.buttons .active.button:active,
 .ui.red.active.button,
 .ui.red.button .active.button:active {
-  background-color: #f32c1e;
+  background-color: #f74f51;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1858,25 +1858,25 @@
 /* Basic */
 .ui.basic.red.buttons .button,
 .ui.basic.red.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.1) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.red.buttons .button:hover,
 .ui.basic.red.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #f55145 inset !important;
-  color: #f55145 !important;
+  box-shadow: 0px 0px 0px 2px #f97677 inset !important;
+  color: #f97677 !important;
 }
 .ui.basic.red.buttons .button:active,
 .ui.basic.red.button:active {
-  box-shadow: 0px 0px 0px 2px #f22314 inset !important;
-  color: #f22314 !important;
+  box-shadow: 0px 0px 0px 2px #f64547 inset !important;
+  color: #f64547 !important;
 }
 .ui.basic.red.buttons .active.button,
 .ui.basic.red.active.button {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #f22314 inset !important;
-  color: #f22314 !important;
+  box-shadow: 0px 0px 0px 2px #f64547 inset !important;
+  color: #f64547 !important;
 }
 .ui.buttons > .basic.red.button:not(:first-child) {
   margin-left: -2px;
@@ -1945,7 +1945,7 @@
   background-image: none;
 }
 .ui.teal.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.teal.buttons .button:hover,
 .ui.teal.button:hover {
@@ -1971,7 +1971,7 @@
 /* Basic */
 .ui.basic.teal.buttons .button,
 .ui.basic.teal.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.1) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.teal.buttons .button:hover,
@@ -2006,19 +2006,19 @@
 .ui.inverted.teal.button:hover {
   box-shadow: 0px 0px 0px 2px #1de9b6 inset !important;
   background-color: #1de9b6;
-  color: #1b1c1d;
+  color: #576573;
 }
 .ui.inverted.teal.buttons .active.button,
 .ui.inverted.teal.active.button {
   box-shadow: 0px 0px 0px 2px #1de9b6 inset !important;
   background-color: #1de9b6;
-  color: #1b1c1d;
+  color: #576573;
 }
 .ui.inverted.teal.buttons .button:active,
 .ui.inverted.teal.button:active {
   box-shadow: 0px 0px 0px 2px #14cea0 inset !important;
   background-color: #14cea0;
-  color: #1b1c1d;
+  color: #576573;
 }
 
 /* Inverted Basic */
@@ -2052,23 +2052,23 @@
 
 .ui.yellow.buttons .button,
 .ui.yellow.button {
-  background-color: #ffeb3b;
+  background-color: #fbee73;
   color: #ffffff;
   text-shadow: none;
   background-image: none;
 }
 .ui.yellow.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.yellow.buttons .button:hover,
 .ui.yellow.button:hover {
-  background-color: #ffed4a;
+  background-color: #fbf082;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.yellow.buttons .button:active,
 .ui.yellow.button:active {
-  background-color: #ffe717;
+  background-color: #faea50;
   color: #ffffff;
   text-shadow: none;
 }
@@ -2076,7 +2076,7 @@
 .ui.yellow.buttons .active.button:active,
 .ui.yellow.active.button,
 .ui.yellow.button .active.button:active {
-  background-color: #ffe821;
+  background-color: #faeb5a;
   color: #ffffff;
   text-shadow: none;
 }
@@ -2084,25 +2084,25 @@
 /* Basic */
 .ui.basic.yellow.buttons .button,
 .ui.basic.yellow.button {
-  box-shadow: 0px 0px 0px 2px rgba(39, 41, 43, 0.15) inset !important;
+  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.1) inset !important;
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .ui.basic.yellow.buttons .button:hover,
 .ui.basic.yellow.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #ffed4a inset !important;
-  color: #ffed4a !important;
+  box-shadow: 0px 0px 0px 2px #fbf082 inset !important;
+  color: #fbf082 !important;
 }
 .ui.basic.yellow.buttons .button:active,
 .ui.basic.yellow.button:active {
-  box-shadow: 0px 0px 0px 2px #ffe717 inset !important;
-  color: #ffe717 !important;
+  box-shadow: 0px 0px 0px 2px #faea50 inset !important;
+  color: #faea50 !important;
 }
 .ui.basic.yellow.buttons .active.button,
 .ui.basic.yellow.active.button {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #ffe717 inset !important;
-  color: #ffe717 !important;
+  box-shadow: 0px 0px 0px 2px #faea50 inset !important;
+  color: #faea50 !important;
 }
 .ui.buttons > .basic.yellow.button:not(:first-child) {
   margin-left: -2px;
@@ -2119,19 +2119,19 @@
 .ui.inverted.yellow.button:hover {
   box-shadow: 0px 0px 0px 2px #ffea00 inset !important;
   background-color: #ffea00;
-  color: #1b1c1d;
+  color: #576573;
 }
 .ui.inverted.yellow.buttons .active.button,
 .ui.inverted.yellow.active.button {
   box-shadow: 0px 0px 0px 2px #ffea00 inset !important;
   background-color: #ffea00;
-  color: #1b1c1d;
+  color: #576573;
 }
 .ui.inverted.yellow.buttons .button:active,
 .ui.inverted.yellow.button:active {
   box-shadow: 0px 0px 0px 2px #dbc900 inset !important;
   background-color: #dbc900;
-  color: #1b1c1d;
+  color: #576573;
 }
 
 /* Inverted Basic */
@@ -2167,29 +2167,29 @@
 
 .ui.primary.buttons .button,
 .ui.primary.button {
-  background-color: #2196f3;
+  background-color: #51bdf3;
   color: #ffffff;
   text-shadow: none;
   background-image: none;
 }
 .ui.primary.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
-  background-color: #309df4;
+  background-color: #5fc2f4;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.primary.buttons .button:active,
 .ui.primary.button:active {
-  background-color: #0c84e4;
+  background-color: #30b0f1;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.primary.buttons .active.button,
 .ui.primary.active.button {
-  background-color: #0d8aee;
+  background-color: #39b4f1;
   color: #ffffff;
   text-shadow: none;
 }
@@ -2206,7 +2206,7 @@
   background-image: none;
 }
 .ui.secondary.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
@@ -2233,25 +2233,25 @@
 
 .ui.positive.buttons .button,
 .ui.positive.button {
-  background-color: #4caf50 !important;
+  background-color: #9ae26d !important;
   color: #ffffff;
   text-shadow: none;
   background-image: none;
 }
 .ui.positive.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.positive.buttons .button:hover,
 .ui.positive.button:hover,
 .ui.positive.buttons .active.button,
 .ui.positive.active.button {
-  background-color: #55b559 !important;
+  background-color: #a3e57a !important;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.positive.buttons .button:active,
 .ui.positive.button:active {
-  background-color: #419645 !important;
+  background-color: #85dc4f !important;
   color: #ffffff;
   text-shadow: none;
 }
@@ -2259,7 +2259,7 @@
 .ui.positive.buttons .active.button:active,
 .ui.positive.active.button,
 .ui.positive.button .active.button:active {
-  background-color: #449d48;
+  background-color: #8bde58;
   color: #ffffff;
   text-shadow: none;
 }
@@ -2270,25 +2270,25 @@
 
 .ui.negative.buttons .button,
 .ui.negative.button {
-  background-color: #f44336 !important;
+  background-color: #f86769 !important;
   color: #ffffff;
   text-shadow: none;
   background-image: none;
 }
 .ui.negative.button {
-  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.negative.buttons .button:hover,
 .ui.negative.button:hover,
 .ui.negative.buttons .active.button,
 .ui.negative.active.button {
-  background-color: #f55145 !important;
+  background-color: #f97677 !important;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.negative.buttons .button:active,
 .ui.negative.button:active {
-  background-color: #f22314 !important;
+  background-color: #f64547 !important;
   color: #ffffff;
   text-shadow: none;
 }
@@ -2296,7 +2296,7 @@
 .ui.negative.buttons .active.button:active,
 .ui.negative.active.button,
 .ui.negative.button .active.button:active {
-  background-color: #f32c1e;
+  background-color: #f74f51;
   color: #ffffff;
   text-shadow: none;
 }
@@ -2330,7 +2330,7 @@
 }
 .ui.buttons > .ui.button:not(.basic):not(.inverted),
 .ui.buttons:not(.basic):not(.inverted) > .button {
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
 }
 .ui.buttons .button {
   margin: 0em;
@@ -2355,6 +2355,7 @@
 .ui.vertical.buttons .button {
   display: block;
   float: none;
+  width: 100%;
   margin: 0px 0px 0px 0px;
   box-shadow: none;
 }

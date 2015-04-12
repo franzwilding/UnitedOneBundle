@@ -1,14 +1,13 @@
- /*
- * # Semantic UI - 1.11.4
- * https://github.com/Semantic-Org/Semantic-UI
- * http://www.semantic-ui.com/
+/*!
+ * # Semantic UI 1.11.6 - Icon
+ * http://github.com/semantic-org/semantic-ui/
+ *
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
-
 
 
 /*******************************
@@ -197,13 +196,13 @@ i.white.icon {
   color: #ffffff !important;
 }
 i.black.icon {
-  color: #1b1c1d !important;
+  color: #576573 !important;
 }
 i.blue.icon {
-  color: #2196f3 !important;
+  color: #51bdf3 !important;
 }
 i.green.icon {
-  color: #4caf50 !important;
+  color: #9ae26d !important;
 }
 i.orange.icon {
   color: #ff9800 !important;
@@ -215,13 +214,13 @@ i.purple.icon {
   color: #9c27b0 !important;
 }
 i.red.icon {
-  color: #f44336 !important;
+  color: #f86769 !important;
 }
 i.teal.icon {
   color: #1de9b6 !important;
 }
 i.yellow.icon {
-  color: #ffeb3b !important;
+  color: #fbee73 !important;
 }
 
 /*-------------------
@@ -267,17 +266,17 @@ i.inverted.circular.icon {
 }
 i.inverted.bordered.black.icon,
 i.inverted.circular.black.icon {
-  background-color: #1b1c1d !important;
+  background-color: #576573 !important;
   color: #FFFFFF !important;
 }
 i.inverted.bordered.blue.icon,
 i.inverted.circular.blue.icon {
-  background-color: #2196f3 !important;
+  background-color: #51bdf3 !important;
   color: #FFFFFF !important;
 }
 i.inverted.bordered.green.icon,
 i.inverted.circular.green.icon {
-  background-color: #4caf50 !important;
+  background-color: #9ae26d !important;
   color: #FFFFFF !important;
 }
 i.inverted.bordered.orange.icon,
@@ -297,7 +296,7 @@ i.inverted.circular.purple.icon {
 }
 i.inverted.bordered.red.icon,
 i.inverted.circular.red.icon {
-  background-color: #f44336 !important;
+  background-color: #f86769 !important;
   color: #FFFFFF !important;
 }
 i.inverted.bordered.teal.icon,
@@ -307,7 +306,7 @@ i.inverted.circular.teal.icon {
 }
 i.inverted.bordered.yellow.icon,
 i.inverted.circular.yellow.icon {
-  background-color: #ffeb3b !important;
+  background-color: #fbee73 !important;
   color: #FFFFFF !important;
 }
 
@@ -337,16 +336,6 @@ i.massive.icon {
   font-size: 8em;
   vertical-align: middle;
 }
-/*
- * # Semantic - Icon
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Copyright 2014 Contributor
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
 /*
  * Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
  * License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -2035,9 +2024,6 @@ i.icon.time:before {
 }
 i.icon.play.circle.outline:before {
   content: "\f01d";
-}
-i.icon.clockwise:before {
-  content: "\f01e";
 }
 i.icon.headphone:before {
   content: "\f025";

@@ -1,14 +1,13 @@
- /*
- * # Semantic UI - 1.11.4
- * https://github.com/Semantic-Org/Semantic-UI
- * http://www.semantic-ui.com/
+/*!
+ * # Semantic UI 1.11.6 - Menu
+ * http://github.com/semantic-org/semantic-ui/
+ *
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
-
 
 
 /*******************************
@@ -25,7 +24,7 @@
   background: #ffffff;
   font-size: 0em;
   font-weight: normal;
-  box-shadow: 0px 0px 0px 1px rgba(39, 41, 43, 0.15), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
   border-radius: 2px;
 }
 .ui.menu:after {
@@ -55,7 +54,7 @@
 
 /* Text Color */
 .ui.menu .item {
-  color: #212121;
+  color: #666666;
 }
 .ui.menu .item .item {
   color: rgba(0, 0, 0, 0.5);
@@ -138,7 +137,7 @@
       -ms-user-select: text;
           user-select: text;
   line-height: 1.3;
-  color: #212121;
+  color: #666666;
 }
 .ui.menu .item > p:first-child {
   margin-top: 0;
@@ -321,7 +320,7 @@
 .ui.menu .menu > a.item:hover {
   cursor: pointer;
   background: rgba(0, 0, 0, 0.03);
-  color: #212121;
+  color: #666666;
 }
 
 /*--------------
@@ -524,8 +523,8 @@
 /* Sub Menu */
 .ui.tiered.menu .sub.menu {
   background-color: #fcfcfc;
-  border-radius: 0em;
-  border-top: 1px solid rgba(39, 41, 43, 0.15);
+  border-radius: 0em 0em 2px 2px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: none;
 }
 .ui.tiered.menu > .sub.menu > .item {
@@ -597,7 +596,7 @@
   background-color: transparent;
   border-radius: 0em;
   box-shadow: none !important;
-  border-bottom: 1px solid #d4d4d5;
+  border-bottom: 1px solid #f2f2f2;
 }
 .ui.tabular.fluid.menu {
   width: -webkit-calc(100% +  2px ) !important;
@@ -610,7 +609,7 @@
   border-top: 1px solid transparent;
   padding-left: 1.4em;
   padding-right: 1.4em;
-  color: #212121;
+  color: #666666;
 }
 .ui.tabular.menu .item:before {
   display: none;
@@ -629,7 +628,7 @@
   vertical-align: bottom;
   background-color: #ffffff;
   color: rgba(0, 0, 0, 0.8);
-  border-color: #d4d4d5;
+  border-color: #f2f2f2;
   font-weight: bold;
   margin-bottom: -1px;
   box-shadow: none;
@@ -837,7 +836,7 @@
 .ui.secondary.pointing.menu > .menu > a.item:hover,
 .ui.secondary.pointing.menu > a.item:hover {
   background-color: transparent;
-  color: #212121;
+  color: #666666;
 }
 
 /* Pressed */
@@ -1017,13 +1016,13 @@
 .ui.icon.menu > .item {
   height: auto;
   text-align: center;
-  color: rgba(60, 60, 60, 0.7);
+  color: rgba(0, 0, 0, 0.6);
 }
 .ui.icon.menu > .item > .icon {
   display: block;
   float: none !important;
-  opacity: 1;
   margin: 0em auto !important;
+  opacity: 1;
 }
 .ui.icon.menu .icon:before {
   opacity: 1;
@@ -1080,13 +1079,13 @@
 
 .ui.menu .blue.active.item,
 .ui.blue.menu .active.item {
-  border-color: #2196f3 !important;
-  color: #2196f3 !important;
+  border-color: #51bdf3 !important;
+  color: #51bdf3 !important;
 }
 .ui.menu .green.active.item,
 .ui.green.menu .active.item {
-  border-color: #4caf50 !important;
-  color: #4caf50 !important;
+  border-color: #9ae26d !important;
+  color: #9ae26d !important;
 }
 .ui.menu .orange.active.item,
 .ui.orange.menu .active.item {
@@ -1105,8 +1104,8 @@
 }
 .ui.menu .red.active.item,
 .ui.red.menu .active.item {
-  border-color: #f44336 !important;
-  color: #f44336 !important;
+  border-color: #f86769 !important;
+  color: #f86769 !important;
 }
 .ui.menu .teal.active.item,
 .ui.teal.menu .active.item {
@@ -1115,8 +1114,8 @@
 }
 .ui.menu .yellow.active.item,
 .ui.yellow.menu .active.item {
-  border-color: #ffeb3b !important;
-  color: #ffeb3b !important;
+  border-color: #fbee73 !important;
+  color: #fbee73 !important;
 }
 
 /*--------------
@@ -1124,7 +1123,7 @@
 ---------------*/
 
 .ui.inverted.menu {
-  background: #1b1c1d;
+  background: #576573;
   box-shadow: none;
 }
 .ui.inverted.menu .header.item {
@@ -1144,7 +1143,13 @@
   color: rgba(255, 255, 255, 0.5);
 }
 .ui.inverted.menu .dropdown .menu .item {
-  color: #212121 !important;
+  color: #666666 !important;
+  -webkit-transition: none;
+          transition: none;
+}
+.ui.inverted.menu .dropdown .menu .item:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: rgba(0, 0, 0, 0.85) !important;
 }
 .ui.inverted.menu .item.disabled,
 .ui.inverted.menu .item.disabled:hover {
@@ -1261,18 +1266,18 @@
 
 /* Blue */
 .ui.inverted.blue.menu {
-  background-color: #2196f3;
+  background-color: #51bdf3;
 }
 .ui.inverted.blue.pointing.menu .active.item:after {
-  background-color: #2196f3;
+  background-color: #51bdf3;
 }
 
 /* Green */
 .ui.inverted.green.menu {
-  background-color: #4caf50;
+  background-color: #9ae26d;
 }
 .ui.inverted.green.pointing.menu .active.item:after {
-  background-color: #4caf50;
+  background-color: #9ae26d;
 }
 
 /* Orange */
@@ -1301,10 +1306,10 @@
 
 /* Red */
 .ui.inverted.red.menu {
-  background-color: #f44336;
+  background-color: #f86769;
 }
 .ui.inverted.red.pointing.menu .active.item:after {
-  background-color: #f44336;
+  background-color: #f86769;
 }
 
 /* Teal */
@@ -1317,10 +1322,10 @@
 
 /* Yellow */
 .ui.inverted.yellow.menu {
-  background-color: #ffeb3b;
+  background-color: #fbee73;
 }
 .ui.inverted.yellow.pointing.menu .active.item:after {
-  background-color: #ffeb3b;
+  background-color: #fbee73;
 }
 
 /*--------------
@@ -1489,13 +1494,13 @@
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
       -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
           transform: translateX(-50%) translateY(-50%) rotate(45deg);
-  margin: 1px 0em 0em 0em;
+  margin: 0em;
   background: none;
   width: 0.6em;
   height: 0.6em;
   border: none;
-  border-bottom: 1px solid #d4d4d5;
-  border-right: 1px solid #d4d4d5;
+  border-bottom: 1px solid #f2f2f2;
+  border-right: 1px solid #f2f2f2;
   z-index: 11;
   -webkit-transition: background 0.2s ease;
           transition: background 0.2s ease;
@@ -1516,8 +1521,8 @@
           transform: translateX(50%) translateY(-50%) rotate(45deg);
   margin: 0em -1px 0em 0em;
   border: none;
-  border-top: 1px solid #d4d4d5;
-  border-right: 1px solid #d4d4d5;
+  border-top: 1px solid #f2f2f2;
+  border-right: 1px solid #f2f2f2;
 }
 
 /* Colors */
@@ -1532,6 +1537,9 @@
 }
 .ui.vertical.pointing.menu .active.item:after {
   background-color: #f7f7f7;
+}
+.ui.vertical.pointing.menu .menu .active.item:after {
+  background-color: #ffffff;
 }
 
 /*--------------

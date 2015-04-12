@@ -1,14 +1,13 @@
- /*
- * # Semantic UI - 1.11.4
- * https://github.com/Semantic-Org/Semantic-UI
- * http://www.semantic-ui.com/
+/*!
+ * # Semantic UI 1.11.6 - Input
+ * http://github.com/semantic-org/semantic-ui/
+ *
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
-
 
 
 /*******************************
@@ -22,21 +21,27 @@
 
 .ui.input {
   position: relative;
-  display: inline-block;
-  color: #212121;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  color: #666666;
 }
 .ui.input input {
   margin: 0em;
-  width: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: left;
   line-height: 1.2142em;
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   padding: 0.67861em 1em;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  color: #212121;
+  color: #666666;
   border-radius: 2px;
   -webkit-transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
           transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -70,7 +75,7 @@
 .ui.input.down input {
   border-color: rgba(0, 0, 0, 0.3);
   background: #fafafa;
-  color: #212121;
+  color: #666666;
   box-shadow: none;
 }
 
@@ -114,18 +119,18 @@
 
 .ui.input.focus input,
 .ui.input input:focus {
-  border-color: rgba(39, 41, 43, 0.3);
+  border-color: $blue;
   background: #ffffff;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
 }
 .ui.input.focus input input::-webkit-input-placeholder,
 .ui.input input:focus input::-webkit-input-placeholder {
-  color: #212121;
+  color: #666666;
 }
 .ui.input.focus input input::-moz-placeholder,
 .ui.input input:focus input::-moz-placeholder {
-  color: #212121;
+  color: #666666;
 }
 
 /*--------------------
@@ -135,7 +140,7 @@
 .ui.input.error input {
   background-color: #fff0f0;
   border-color: #dbb1b1;
-  color: #f44336;
+  color: #f86769;
   box-shadow: none;
 }
 
@@ -266,10 +271,10 @@
   display: inline-flex;
 }
 .ui.labeled.input > .label {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
   margin: 0;
   font-size: 1em;
 }
@@ -339,10 +344,10 @@
 }
 .ui.action.input > .button,
 .ui.action.input > .buttons {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
 }
 .ui.action.input > .button,
 .ui.action.input > .buttons > .button {
