@@ -44,10 +44,15 @@ class CRUDBaseControllerMock extends CRUDBaseController
      */
     protected function getTemplateForAction($action)
     {
-        if($action == 'index') {
-            return 'UnitedCoreBundle:Tests:DumpContext.html.twig';
+        if($action != 'index') {
+            return 'UnitedCoreBundle:Tests:Form.html.twig';
         }
-        return 'UnitedCoreBundle:Tests:Form.html.twig';
+        return parent::getTemplateForAction($action);
+    }
+
+    protected function templateForIndexAction()
+    {
+        return 'UnitedCoreBundle:Tests:DumpContext.html.twig';
     }
 
     /**
