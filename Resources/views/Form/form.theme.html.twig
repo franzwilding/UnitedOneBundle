@@ -88,6 +88,11 @@
     </div>
 {%- endblock choice_widget_expanded -%}
 
+{%- block choice_widget_collapsed -%}
+    {% set attr = attr|merge({'class': (attr.class|default('') ~ ' ui dropdown')|trim}) %}
+    {{ parent() }}
+{%- endblock -%}
+
 {%- block united_tags_widget -%}
     {{- form_label(form) -}}
     <div class="ui segment united-tags"{% if form.vars.prototype is defined %} data-full-name="{{ form.vars.full_name }}"{% endif %}>
