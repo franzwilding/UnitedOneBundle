@@ -67,7 +67,11 @@ class TagsType extends CollectionType
             );
         }
 
-        $options['type'] = new TagType($options['tag_data_class']);
+        if (!$options['type']) {
+            throw new Exception(
+              'united_tags attribute: "type" can\'t be null!'
+            );
+        }
 
         parent::buildForm($builder, $options);
         $builder->addEventSubscriber(
@@ -88,6 +92,7 @@ class TagsType extends CollectionType
             'allow_delete' => true,
             'by_reference' => true,
             'select_options' => null,
+            'type' => null,
             'tag_data_class' => null,
           )
         );

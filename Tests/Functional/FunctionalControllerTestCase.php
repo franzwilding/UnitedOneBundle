@@ -28,6 +28,8 @@ class FunctionalControllerTestCase extends WebTestCase
         $schemaTool = new SchemaTool($em);
         $metadata = array(
           $em->getClassMetadata('United\OneBundle\Tests\tests\Entities\Mock'),
+          $em->getClassMetadata('United\OneBundle\Tests\tests\Entities\TagsMock'),
+          $em->getClassMetadata('United\OneBundle\Tests\tests\Entities\TagMock'),
         );
 
         // Drop and recreate tables for all entities

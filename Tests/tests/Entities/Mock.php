@@ -6,8 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 use United\CoreBundle\Model\EntityInterface;
 
 /**
- * Category
- *
  * @ORM\Table()
  * @ORM\Entity
  */

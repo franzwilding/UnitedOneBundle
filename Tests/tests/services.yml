@@ -103,3 +103,14 @@ services:
         class: United\OneBundle\Tests\Mock\TableControllerMock
         tags:
             - { name: united.controller, parent: 'united.functional.auth.collectioncontrollertest', path: 'c1', namespace: 'functional.auth' }
+
+
+    united.functional.anon.tagscontrollertest:
+        class: United\OneBundle\Tests\Mock\TagsControllerMock
+        tags:
+            - { name: united.controller, path: 'tagscontrollertest', namespace: 'functional.anon' }
+
+    united.functional.auth.tagscontrollertest:
+        class: United\OneBundle\Tests\Mock\TagsControllerMock
+        tags:
+            - { name: united.controller, path: 'tagscontrollertest', namespace: 'functional.auth' }
