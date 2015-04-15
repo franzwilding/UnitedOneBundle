@@ -89,8 +89,9 @@
 {%- endblock choice_widget_expanded -%}
 
 {%- block choice_widget_collapsed -%}
-    {% set attr = attr|merge({'class': (attr.class|default('') ~ ' ui dropdown')|trim}) %}
-    {{ parent() }}
+    {{- form_label(form) -}}
+    {%- set attr = attr|merge({'class': 'ui dropdown'}) -%}
+    {{- parent() -}}
 {%- endblock -%}
 
 {%- block united_tags_widget -%}
