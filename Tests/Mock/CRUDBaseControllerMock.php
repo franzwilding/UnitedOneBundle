@@ -56,18 +56,20 @@ class CRUDBaseControllerMock extends CRUDBaseController
     }
 
     /**
-     * Returns the form the given action. For the base implementation,
-     * $action can be: index|create|update|delete.
-     *
-     * @param string $action
      * @param null|object $entity
-     * @return string|Form
+     * @return Form
      */
-    protected function getFormForAction($action, $entity = null)
+    protected function formForCreateAction($entity)
     {
-        if($action != 'delete') {
-            return $this->createFormBuilder()->add($action, 'text')->getForm();
-        }
-        return parent::getFormForAction($action, $entity);
+        return $this->createFormBuilder()->add('update', 'text')->getForm();
+    }
+
+    /**
+     * @param null|object $entity
+     * @return Form
+     */
+    protected function formForUpdateAction($entity)
+    {
+        return $this->createFormBuilder()->add('update', 'text')->getForm();
     }
 }

@@ -41,7 +41,7 @@ class PlainBaseControllerTest extends UnitedControllerTestCase
         $this->checkControllerRoutes(array(
 
             // index route
-            $this->getClassPrefix() . '.united_one_tests_mock_plainbasecontrollermock_index' => array(
+            $this->getClassPrefix() . '.index' => array(
                 'path' => '/United_OneBundle_Tests_Controller_PlainBaseControllerTest/',
                 'defaults' => array(
                     '_controller' => 'United\OneBundle\Tests\Mock\PlainBaseControllerMock::indexAction',
@@ -53,7 +53,7 @@ class PlainBaseControllerTest extends UnitedControllerTestCase
                 'path' => '/',
                 'defaults' => array(
                     '_controller' => 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController::redirectAction',
-                    'route' => $this->getClassPrefix() . '.united_one_tests_mock_plainbasecontrollermock_index',
+                    'route' => $this->getClassPrefix() . '.index',
                     'permanent' => true,
                 ),
             ),

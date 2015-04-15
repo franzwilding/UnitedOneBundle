@@ -33,7 +33,7 @@ class CRUDBaseControllerTest extends UnitedControllerTestCase
         $this->checkControllerRoutes(array(
 
             // index route
-            $this->getClassPrefix() . '.united_one_tests_mock_crudbasecontrollermock_index' => array(
+            $this->getClassPrefix() . '.index' => array(
                 'path' => '/United_OneBundle_Tests_Controller_CRUDBaseControllerTest/',
                 'defaults' => array(
                     '_controller' => 'United\OneBundle\Tests\Mock\CRUDBaseControllerMock::indexAction',
@@ -41,7 +41,7 @@ class CRUDBaseControllerTest extends UnitedControllerTestCase
             ),
 
             // create route
-            $this->getClassPrefix() . '.united_one_tests_mock_crudbasecontrollermock_create' => array(
+            $this->getClassPrefix() . '.create' => array(
                 'path' => '/United_OneBundle_Tests_Controller_CRUDBaseControllerTest/create',
                 'defaults' => array(
                     '_controller' => 'United\OneBundle\Tests\Mock\CRUDBaseControllerMock::createAction',
@@ -49,7 +49,7 @@ class CRUDBaseControllerTest extends UnitedControllerTestCase
             ),
 
             // update route
-            $this->getClassPrefix() . '.united_one_tests_mock_crudbasecontrollermock_update' => array(
+            $this->getClassPrefix() . '.update' => array(
                 'path' => '/United_OneBundle_Tests_Controller_CRUDBaseControllerTest/{id}/update',
                 'defaults' => array(
                     '_controller' => 'United\OneBundle\Tests\Mock\CRUDBaseControllerMock::updateAction',
@@ -57,7 +57,7 @@ class CRUDBaseControllerTest extends UnitedControllerTestCase
             ),
 
             // delete route
-            $this->getClassPrefix() . '.united_one_tests_mock_crudbasecontrollermock_delete' => array(
+            $this->getClassPrefix() . '.delete' => array(
                 'path' => '/United_OneBundle_Tests_Controller_CRUDBaseControllerTest/{id}/delete',
                 'defaults' => array(
                     '_controller' => 'United\OneBundle\Tests\Mock\CRUDBaseControllerMock::deleteAction',
@@ -69,7 +69,7 @@ class CRUDBaseControllerTest extends UnitedControllerTestCase
                 'path' => '/',
                 'defaults' => array(
                     '_controller' => 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController::redirectAction',
-                    'route' => $this->getClassPrefix() . '.united_one_tests_mock_crudbasecontrollermock_index',
+                    'route' => $this->getClassPrefix() . '.index',
                     'permanent' => true,
                 ),
             ),

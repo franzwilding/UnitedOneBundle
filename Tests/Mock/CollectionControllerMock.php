@@ -30,25 +30,6 @@ class CollectionControllerMock extends CollectionBaseController
     }
 
     /**
-     * Returns the form the given action. For the base implementation,
-     * $action can be: index|create|update|delete.
-     *
-     * @param string $action
-     * @param null|object $entity
-     * @return string|Form
-     */
-    protected function getFormForAction($action, $entity = null)
-    {
-        if($action == 'create' || $action == 'update') {
-            return $this->createFormBuilder($entity)
-                ->add('title')
-                ->add('save', 'submit_or_delete')
-                ->getForm();
-        }
-        return parent::getFormForAction($action);
-    }
-
-    /**
      * This method can alter the context for each action, that is passed to the
      * twig template.
      *
@@ -72,5 +53,29 @@ class CollectionControllerMock extends CollectionBaseController
     public function getM($name, $parameters = array())
     {
         return call_user_func_array(array($this, $name), $parameters);
+    }
+
+    /**
+     * @param null|object $entity
+     * @return Form
+     */
+    protected function formForCreateAction($entity)
+    {
+        return $this->createFormBuilder($entity)
+          ->add('title')
+          ->add('save', 'submit_or_delete')
+          ->getForm();
+    }
+
+    /**
+     * @param null|object $entity
+     * @return Form
+     */
+    protected function formForUpdateAction($entity)
+    {
+        return $this->createFormBuilder($entity)
+          ->add('title')
+          ->add('save', 'submit_or_delete')
+          ->getForm();
     }
 }
