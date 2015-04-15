@@ -33,8 +33,14 @@ class SectionControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function testTemplates()
     {
-        $this->assertEquals('UnitedOneBundle:Section:index.html.twig', $this->controller->getM('getTemplateForAction', array('index')));
-        $this->assertEquals('UnitedOneBundle:Section:section.html.twig', $this->controller->getM('getTemplateForAction', array('section')));
+        $this->assertEquals(
+          'UnitedOneBundle:Section:index.html.twig',
+          $this->controller->getM('getTemplateForAction', array('index'))
+        );
+        $this->assertEquals(
+          'UnitedOneBundle:Section:section.html.twig',
+          $this->controller->getM('getTemplateForAction', array('section'))
+        );
     }
 
     /**
@@ -43,8 +49,14 @@ class SectionControllerTest extends \PHPUnit_Framework_TestCase
     public function testContext()
     {
         $context = array();
-        $this->controller->getM('alterContextForAction', array('index', &$context));
+        $this->controller->getM(
+          'alterContextForAction',
+          array('index', &$context)
+        );
         $this->assertArrayHasKey('sectionTemplate', $context);
-        $this->assertEquals('UnitedOneBundle:Section:section.html.twig', $context['sectionTemplate']);
+        $this->assertEquals(
+          'UnitedOneBundle:Section:section.html.twig',
+          $context['sectionTemplate']
+        );
     }
 }

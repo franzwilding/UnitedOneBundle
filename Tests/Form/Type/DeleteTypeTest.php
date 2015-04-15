@@ -26,8 +26,8 @@ class DeleteTypeTest extends KernelTestCase
     public function testSubmitOrDeleteCanBeAddedToForm()
     {
         $form = $this->container->get('form.factory')
-            ->createBuilder('form')
-            ->getForm();
+          ->createBuilder('form')
+          ->getForm();
 
         $this->assertSame($form, $form->add('send', 'delete'));
     }

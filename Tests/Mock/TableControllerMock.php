@@ -17,7 +17,9 @@ class TableControllerMock extends TableController
      */
     protected function getEntityRepository()
     {
-        return $this->getDoctrine()->getManager()->getRepository('UnitedOneBundle:Mock');
+        return $this->getDoctrine()->getManager()->getRepository(
+          'UnitedOneBundle:Mock'
+        );
     }
 
     /**

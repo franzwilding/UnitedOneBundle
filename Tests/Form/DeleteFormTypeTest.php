@@ -17,7 +17,9 @@ class DeleteFormTypeTest extends KernelTestCase
     public function testCreateSubmitOrDeleteButtonInstances()
     {
         $class = 'Symfony\Component\Form\Form';
-        $form = $this->container->get('form.factory')->create(new DeleteFormType());
+        $form = $this->container->get('form.factory')->create(
+          new DeleteFormType()
+        );
         $this->assertInstanceOf($class, $form);
 
         $this->assertEquals('united_one_delete_form', $form->getName());

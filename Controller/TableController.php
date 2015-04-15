@@ -43,7 +43,9 @@ abstract class TableController extends CRUDBaseController
 
         if ($action == 'index') {
             $context['rowTemplate'] = $this->getTemplateForAction('row');
-            $context['descriptionTemplate'] = $this->getTemplateForAction('description');
+            $context['descriptionTemplate'] = $this->getTemplateForAction(
+              'description'
+            );
         }
     }
 }

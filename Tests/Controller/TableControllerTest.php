@@ -33,11 +33,26 @@ class TableControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function testTemplates()
     {
-        $this->assertEquals('UnitedOneBundle:Table:index.html.twig', $this->controller->getM('getTemplateForAction', array('index')));
-        $this->assertEquals('UnitedOneBundle:Table:row.html.twig', $this->controller->getM('getTemplateForAction', array('row')));
-        $this->assertEquals('UnitedOneBundle:Form:form.html.twig', $this->controller->getM('getTemplateForAction', array('create')));
-        $this->assertEquals('UnitedOneBundle:Form:form.html.twig', $this->controller->getM('getTemplateForAction', array('update')));
-        $this->assertEquals('UnitedOneBundle:Form:form.html.twig', $this->controller->getM('getTemplateForAction', array('delete')));
+        $this->assertEquals(
+          'UnitedOneBundle:Table:index.html.twig',
+          $this->controller->getM('getTemplateForAction', array('index'))
+        );
+        $this->assertEquals(
+          'UnitedOneBundle:Table:row.html.twig',
+          $this->controller->getM('getTemplateForAction', array('row'))
+        );
+        $this->assertEquals(
+          'UnitedOneBundle:Form:form.html.twig',
+          $this->controller->getM('getTemplateForAction', array('create'))
+        );
+        $this->assertEquals(
+          'UnitedOneBundle:Form:form.html.twig',
+          $this->controller->getM('getTemplateForAction', array('update'))
+        );
+        $this->assertEquals(
+          'UnitedOneBundle:Form:form.html.twig',
+          $this->controller->getM('getTemplateForAction', array('delete'))
+        );
     }
 
     /**
@@ -46,8 +61,14 @@ class TableControllerTest extends \PHPUnit_Framework_TestCase
     public function testContext()
     {
         $context = array();
-        $this->controller->getM('alterContextForAction', array('index', &$context));
+        $this->controller->getM(
+          'alterContextForAction',
+          array('index', &$context)
+        );
         $this->assertArrayHasKey('rowTemplate', $context);
-        $this->assertEquals('UnitedOneBundle:Table:row.html.twig', $context['rowTemplate']);
+        $this->assertEquals(
+          'UnitedOneBundle:Table:row.html.twig',
+          $context['rowTemplate']
+        );
     }
 }

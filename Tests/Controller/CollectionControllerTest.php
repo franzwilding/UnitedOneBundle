@@ -33,12 +33,30 @@ class CollectionControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function testTemplates()
     {
-        $this->assertEquals('UnitedOneBundle:Collection:index.html.twig', $this->controller->getM('getTemplateForAction', array('index')));
-        $this->assertEquals('UnitedOneBundle:Collection:view.html.twig', $this->controller->getM('getTemplateForAction', array('view')));
-        $this->assertEquals('UnitedOneBundle:Collection:item.html.twig', $this->controller->getM('getTemplateForAction', array('item')));
-        $this->assertEquals('UnitedOneBundle:Form:form.html.twig', $this->controller->getM('getTemplateForAction', array('create')));
-        $this->assertEquals('UnitedOneBundle:Form:form.html.twig', $this->controller->getM('getTemplateForAction', array('update')));
-        $this->assertEquals('UnitedOneBundle:Form:form.html.twig', $this->controller->getM('getTemplateForAction', array('delete')));
+        $this->assertEquals(
+          'UnitedOneBundle:Collection:index.html.twig',
+          $this->controller->getM('getTemplateForAction', array('index'))
+        );
+        $this->assertEquals(
+          'UnitedOneBundle:Collection:view.html.twig',
+          $this->controller->getM('getTemplateForAction', array('view'))
+        );
+        $this->assertEquals(
+          'UnitedOneBundle:Collection:item.html.twig',
+          $this->controller->getM('getTemplateForAction', array('item'))
+        );
+        $this->assertEquals(
+          'UnitedOneBundle:Form:form.html.twig',
+          $this->controller->getM('getTemplateForAction', array('create'))
+        );
+        $this->assertEquals(
+          'UnitedOneBundle:Form:form.html.twig',
+          $this->controller->getM('getTemplateForAction', array('update'))
+        );
+        $this->assertEquals(
+          'UnitedOneBundle:Form:form.html.twig',
+          $this->controller->getM('getTemplateForAction', array('delete'))
+        );
     }
 
     /**
@@ -47,8 +65,14 @@ class CollectionControllerTest extends \PHPUnit_Framework_TestCase
     public function testContext()
     {
         $context = array();
-        $this->controller->getM('alterContextForAction', array('view', &$context));
+        $this->controller->getM(
+          'alterContextForAction',
+          array('view', &$context)
+        );
         $this->assertArrayHasKey('itemTemplate', $context);
-        $this->assertEquals('UnitedOneBundle:Collection:item.html.twig', $context['itemTemplate']);
+        $this->assertEquals(
+          'UnitedOneBundle:Collection:item.html.twig',
+          $context['itemTemplate']
+        );
     }
 }

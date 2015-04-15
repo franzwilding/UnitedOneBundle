@@ -105,13 +105,13 @@
         </select>
 
         <div class="labels">
-        {% for child in form.children %}
-            <div class="ui label">
-                <input type="hidden" name="{{ child.vars.full_name }}[name]" value="{{ child.vars.data }}" />
-                {{ child.vars.data }}
-                <i class="delete icon"></i>
-            </div>
-        {% endfor %}
+            {% for child in form.children %}
+                <div class="ui label">
+                    <input type="hidden" name="{{ child.vars.full_name }}[name]" value="{{ child.vars.data }}"/>
+                    {{ child.vars.data }}
+                    <i class="delete icon"></i>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {%- endblock -%}

@@ -16,8 +16,11 @@ class CardControllerMock extends CardController
      *
      * @return EntityRepository
      */
-    protected function getEntityRepository() {
-        return $this->getDoctrine()->getManager()->getRepository('UnitedOneBundle:Mock');
+    protected function getEntityRepository()
+    {
+        return $this->getDoctrine()->getManager()->getRepository(
+          'UnitedOneBundle:Mock'
+        );
     }
 
     /**
@@ -25,7 +28,8 @@ class CardControllerMock extends CardController
      *
      * @return Mock
      */
-    protected function createNewEntity() {
+    protected function createNewEntity()
+    {
         return new Mock();
     }
 

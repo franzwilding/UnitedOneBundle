@@ -35,19 +35,23 @@ class TagsType extends CollectionType
      */
     public function getAllSelectOptions($options)
     {
-        if($options['select_options']) {
+        if ($options['select_options']) {
             return $options['select_options'];
         }
 
         $em = $this->registry->getManagerForClass($options['tag_data_class']);
+
         return $em->getRepository($options['tag_data_class'])->findAll();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function buildView(FormView $view, FormInterface $form, array $options)
-    {
+    public function buildView(
+      FormView $view,
+      FormInterface $form,
+      array $options
+    ) {
         parent::buildView($view, $form, $options);
         $view->vars['select_options'] = $this->getAllSelectOptions($options);
     }
@@ -57,14 +61,18 @@ class TagsType extends CollectionType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        if(!$options['tag_data_class']) {
-            throw new Exception('united_tags attribute: "tag_data_class" can\'t be null!');
+        if (!$options['tag_data_class']) {
+            throw new Exception(
+              'united_tags attribute: "tag_data_class" can\'t be null!'
+            );
         }
 
         $options['type'] = new TagType($options['tag_data_class']);
 
         parent::buildForm($builder, $options);
-        $builder->addEventSubscriber(new ExistingTagsEventListener($this->getAllSelectOptions($options)));
+        $builder->addEventSubscriber(
+          new ExistingTagsEventListener($this->getAllSelectOptions($options))
+        );
     }
 
     /**
@@ -74,13 +82,15 @@ class TagsType extends CollectionType
     {
         parent::setDefaultOptions($resolver);
 
-        $resolver->setDefaults(array(
-            'allow_add'         => true,
-            'allow_delete'      => true,
-            'by_reference'      => true,
-            'select_options'    => null,
-            'tag_data_class'    => null,
-        ));
+        $resolver->setDefaults(
+          array(
+            'allow_add' => true,
+            'allow_delete' => true,
+            'by_reference' => true,
+            'select_options' => null,
+            'tag_data_class' => null,
+          )
+        );
     }
 
     /**

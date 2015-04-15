@@ -44,9 +44,10 @@ class CRUDBaseControllerMock extends CRUDBaseController
      */
     protected function getTemplateForAction($action)
     {
-        if($action != 'index') {
+        if ($action != 'index') {
             return 'UnitedCoreBundle:Tests:Form.html.twig';
         }
+
         return parent::getTemplateForAction($action);
     }
 

@@ -23,17 +23,26 @@ class TagsTypeTest extends KernelTestCase
         // try to create an united_tags form without tag_data_class option
         $msg = '';
         try {
-            $form = $this->container->get('form.factory')->create('united_tags');
-        } catch(\Exception $e) {
+            $form = $this->container->get('form.factory')->create(
+              'united_tags'
+            );
+        } catch (\Exception $e) {
             $msg = $e->getMessage();
         }
 
-        $this->assertEquals('united_tags attribute: "tag_data_class" can\'t be null!', $msg);
+        $this->assertEquals(
+          'united_tags attribute: "tag_data_class" can\'t be null!',
+          $msg
+        );
 
 
-        $form = $this->container->get('form.factory')->create('united_tags', null, array(
+        $form = $this->container->get('form.factory')->create(
+          'united_tags',
+          null,
+          array(
             'tag_data_class' => 'United\OneBundle\Tests\tests\Entities\Mock'
-        ));
+          )
+        );
 
         $this->assertEquals('united_tags', $form->getName());
     }
@@ -41,21 +50,32 @@ class TagsTypeTest extends KernelTestCase
     public function testTagsCanBeAddedToForm()
     {
         $form = $this->container->get('form.factory')
-            ->createBuilder('form')
-            ->getForm();
+          ->createBuilder('form')
+          ->getForm();
 
-        $this->assertSame($form, $form->add('tags', 'united_tags', array(
-            'tag_data_class' => 'United\OneBundle\Tests\tests\Entities\Mock'
-        )));
+        $this->assertSame(
+          $form,
+          $form->add(
+            'tags',
+            'united_tags',
+            array(
+              'tag_data_class' => 'United\OneBundle\Tests\tests\Entities\Mock'
+            )
+          )
+        );
     }
 
     public function testFormType()
     {
 
         $type = new TagsType($this->container->get('doctrine'));
-        $form = $this->container->get('form.factory')->create($type, null, array(
+        $form = $this->container->get('form.factory')->create(
+          $type,
+          null,
+          array(
             'tag_data_class' => 'United\OneBundle\Tests\tests\Entities\Mock'
-        ));
+          )
+        );
         $this->assertTrue($form->isSynchronized());
 
     }
@@ -67,7 +87,7 @@ class TagsTypeTest extends KernelTestCase
         $em = static::$kernel->getContainer()->get('doctrine')->getManager();
         $schemaTool = new SchemaTool($em);
         $metadata = array(
-            $em->getClassMetadata('United\OneBundle\Tests\tests\Entities\Mock'),
+          $em->getClassMetadata('United\OneBundle\Tests\tests\Entities\Mock'),
         );
 
         // Drop and recreate tables for Mock entity

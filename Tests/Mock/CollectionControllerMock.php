@@ -16,8 +16,11 @@ class CollectionControllerMock extends CollectionBaseController
      *
      * @return EntityRepository
      */
-    protected function getEntityRepository() {
-        return $this->getDoctrine()->getManager()->getRepository('UnitedOneBundle:Mock');
+    protected function getEntityRepository()
+    {
+        return $this->getDoctrine()->getManager()->getRepository(
+          'UnitedOneBundle:Mock'
+        );
     }
 
     /**
@@ -25,7 +28,8 @@ class CollectionControllerMock extends CollectionBaseController
      *
      * @return Mock
      */
-    protected function createNewEntity() {
+    protected function createNewEntity()
+    {
         return new Mock();
     }
 

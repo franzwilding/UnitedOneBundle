@@ -33,11 +33,26 @@ class CardControllerTest extends \PHPUnit_Framework_TestCase
      */
     public function testTemplates()
     {
-        $this->assertEquals('UnitedOneBundle:Card:index.html.twig', $this->controller->getM('getTemplateForAction', array('index')));
-        $this->assertEquals('UnitedOneBundle:Card:card.html.twig', $this->controller->getM('getTemplateForAction', array('card')));
-        $this->assertEquals('UnitedOneBundle:Form:form.html.twig', $this->controller->getM('getTemplateForAction', array('create')));
-        $this->assertEquals('UnitedOneBundle:Form:form.html.twig', $this->controller->getM('getTemplateForAction', array('update')));
-        $this->assertEquals('UnitedOneBundle:Form:form.html.twig', $this->controller->getM('getTemplateForAction', array('delete')));
+        $this->assertEquals(
+          'UnitedOneBundle:Card:index.html.twig',
+          $this->controller->getM('getTemplateForAction', array('index'))
+        );
+        $this->assertEquals(
+          'UnitedOneBundle:Card:card.html.twig',
+          $this->controller->getM('getTemplateForAction', array('card'))
+        );
+        $this->assertEquals(
+          'UnitedOneBundle:Form:form.html.twig',
+          $this->controller->getM('getTemplateForAction', array('create'))
+        );
+        $this->assertEquals(
+          'UnitedOneBundle:Form:form.html.twig',
+          $this->controller->getM('getTemplateForAction', array('update'))
+        );
+        $this->assertEquals(
+          'UnitedOneBundle:Form:form.html.twig',
+          $this->controller->getM('getTemplateForAction', array('delete'))
+        );
     }
 
     /**
@@ -46,8 +61,14 @@ class CardControllerTest extends \PHPUnit_Framework_TestCase
     public function testContext()
     {
         $context = array();
-        $this->controller->getM('alterContextForAction', array('index', &$context));
+        $this->controller->getM(
+          'alterContextForAction',
+          array('index', &$context)
+        );
         $this->assertArrayHasKey('cardTemplate', $context);
-        $this->assertEquals('UnitedOneBundle:Card:card.html.twig', $context['cardTemplate']);
+        $this->assertEquals(
+          'UnitedOneBundle:Card:card.html.twig',
+          $context['cardTemplate']
+        );
     }
 }

@@ -17,7 +17,9 @@ class SubmitOrDeleteTypeTest extends KernelTestCase
     public function testCreateSubmitOrDeleteButtonInstances()
     {
         $class = 'Symfony\Component\Form\SubmitButton';
-        $form = $this->container->get('form.factory')->create('submit_or_delete');
+        $form = $this->container->get('form.factory')->create(
+          'submit_or_delete'
+        );
         $this->assertInstanceOf($class, $form);
 
         $this->assertEquals('submit_or_delete', $form->getName());
@@ -26,8 +28,8 @@ class SubmitOrDeleteTypeTest extends KernelTestCase
     public function testSubmitOrDeleteCanBeAddedToForm()
     {
         $form = $this->container->get('form.factory')
-            ->createBuilder('form')
-            ->getForm();
+          ->createBuilder('form')
+          ->getForm();
 
         $this->assertSame($form, $form->add('send', 'submit_or_delete'));
     }

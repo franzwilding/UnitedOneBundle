@@ -31,9 +31,11 @@ class TagType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults(
+          array(
             'data_class' => $this->data_class,
-        ));
+          )
+        );
     }
 
     /**

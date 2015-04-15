@@ -6,17 +6,18 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;
 use Symfony\Component\Security\Core\Role\Role;
 
-class TestVoter implements VoterInterface {
+class TestVoter implements VoterInterface
+{
 
     private $attributes = array(
-        'access',
-        'update',
-        'view',
-        'delete',
+      'access',
+      'update',
+      'view',
+      'delete',
     );
     private $classes = array(
-        'United\CoreBundle\Model\EntityInterface',
-        'United\CoreBundle\Util\UnitedStructureItem',
+      'United\CoreBundle\Model\EntityInterface',
+      'United\CoreBundle\Util\UnitedStructureItem',
     );
 
     /**
@@ -40,8 +41,8 @@ class TestVoter implements VoterInterface {
      */
     public function supportsClass($class)
     {
-        foreach($this->classes as $supported) {
-            if($class == $supported || is_subclass_of($class, $supported)) {
+        foreach ($this->classes as $supported) {
+            if ($class == $supported || is_subclass_of($class, $supported)) {
                 return true;
             }
         }
@@ -63,15 +64,15 @@ class TestVoter implements VoterInterface {
      */
     public function vote(TokenInterface $token, $object, array $attributes)
     {
-        if(!$this->supportsClass(get_class($object))) {
+        if (!$this->supportsClass(get_class($object))) {
             return self::ACCESS_ABSTAIN;
         }
 
-        if(!$this->supportsAttribute($attributes[0])) {
+        if (!$this->supportsAttribute($attributes[0])) {
             return self::ACCESS_ABSTAIN;
         }
 
-        if(in_array( new Role('ROLE_ADMIN'), $token->getRoles())) {
+        if (in_array(new Role('ROLE_ADMIN'), $token->getRoles())) {
             return self::ACCESS_GRANTED;
         } else {
             return self::ACCESS_DENIED;

@@ -11,8 +11,11 @@ use Symfony\Bridge\Doctrine\Form\ChoiceList\ORMQueryBuilderLoader;
 class EntityBrowserType extends DoctrineType
 {
 
-    public function buildView(FormView $view, FormInterface $form, array $options)
-    {
+    public function buildView(
+      FormView $view,
+      FormInterface $form,
+      array $options
+    ) {
         parent::buildView($view, $form, $options);
     }
 
@@ -20,17 +23,17 @@ class EntityBrowserType extends DoctrineType
      * Return the default loader object.
      *
      * @param ObjectManager $manager
-     * @param mixed         $queryBuilder
-     * @param string        $class
+     * @param mixed $queryBuilder
+     * @param string $class
      *
      * @return ORMQueryBuilderLoader
      */
     public function getLoader(ObjectManager $manager, $queryBuilder, $class)
     {
         return new ORMQueryBuilderLoader(
-            $queryBuilder,
-            $manager,
-            $class
+          $queryBuilder,
+          $manager,
+          $class
         );
     }
 

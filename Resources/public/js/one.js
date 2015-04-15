@@ -52,7 +52,7 @@ UnitedOne.modules.toggleSidebar = {
     /**
      * Returns semantic-ui sidebar settings
      */
-    settings: function(){
+    settings: function () {
         var t = this;
         return {
             transition: 'push',
@@ -125,7 +125,7 @@ UnitedOne.modules.editor = {
     /**
      * @returns {{}} - editor options.
      */
-    editorOptions: function(){
+    editorOptions: function () {
         return {
             imageDragging: false
         }
@@ -136,15 +136,15 @@ UnitedOne.modules.editor = {
      * @param textarea - jQuery DOM Element
      * @param container - jQuery DOM Element
      */
-    onInput: function(textarea, container){
+    onInput: function (textarea, container) {
         textarea.val(container.html());
     },
 
-    ready: function() {
+    ready: function () {
 
         var t = this;
 
-        $('.united-editor').each(function(){
+        $('.united-editor').each(function () {
             var textarea = $(this);
             var container = $('<div />', {class: 'united-editor-container ui textarea'});
             container.html(textarea.val());
@@ -152,7 +152,7 @@ UnitedOne.modules.editor = {
             textarea.hide();
             var editor = new MediumEditor(container, t.editorOptions());
 
-            container.on('input', function() {
+            container.on('input', function () {
                 t.onInput(textarea, container);
             });
         });
@@ -176,7 +176,7 @@ UnitedOne.modules.tags = {
      * @param full_name
      * @param labels
      */
-    onChange: function(value, text, $choice, select, full_name, labels){
+    onChange: function (value, text, $choice, select, full_name, labels) {
         this.lastItem = {
             value: value,
             text: text,
@@ -184,14 +184,24 @@ UnitedOne.modules.tags = {
         };
 
         var $label = $('<div />', {class: 'ui label', text: this.lastItem.text});
-        $label.append($('<input />', {type: 'hidden', name: full_name + '[' + labels.children().length + '][id]', value: this.lastItem.value}));
-        $label.append($('<input />', {type: 'hidden', name: full_name + '[' + labels.children().length + '][name]', value: this.lastItem.text}));
+        $label.append($('<input />', {
+            type: 'hidden',
+            name: full_name + '[' + labels.children().length + '][id]',
+            value: this.lastItem.value
+        }));
+        $label.append($('<input />', {
+            type: 'hidden',
+            name: full_name + '[' + labels.children().length + '][name]',
+            value: this.lastItem.text
+        }));
         var $del = $('<i />', {class: 'delete icon'});
         $label.append($del);
         labels.append($label);
 
         // add label delete event
-        $del.on('click', function(){ $label.remove(); });
+        $del.on('click', function () {
+            $label.remove();
+        });
 
         // clear
         this.lastItem = null;
@@ -206,22 +216,28 @@ UnitedOne.modules.tags = {
      * @param full_name
      * @param value
      */
-    createElement: function(select, labels, full_name, value){
+    createElement: function (select, labels, full_name, value) {
 
         // if we create an new element
-        if(this.lastItem == null) {
+        if (this.lastItem == null) {
 
             // if prototype is defined for this tags field
-            if(full_name && value.length > 0) {
+            if (full_name && value.length > 0) {
 
                 var $label = $('<div />', {class: 'ui label', text: value});
-                $label.append($('<input />', {type: 'hidden', name: full_name + '[' + labels.children().length + '][name]', value: value}));
+                $label.append($('<input />', {
+                    type: 'hidden',
+                    name: full_name + '[' + labels.children().length + '][name]',
+                    value: value
+                }));
                 var $del = $('<i />', {class: 'delete icon'});
                 $label.append($del);
                 labels.append($label);
 
                 // add label delete event
-                $del.on('click', function(){ $label.remove(); });
+                $del.on('click', function () {
+                    $label.remove();
+                });
             }
         }
 
@@ -232,11 +248,11 @@ UnitedOne.modules.tags = {
 
     },
 
-    ready: function(){
+    ready: function () {
 
         var t = this;
 
-        $('.united-tags').each(function(){
+        $('.united-tags').each(function () {
 
             var full_name = $(this).data('full-name');
             var select = $('> select', $(this));
@@ -245,17 +261,17 @@ UnitedOne.modules.tags = {
             // init dropdown
             select.dropdown({
                 forceSelection: false,
-                onChange:       function(value, text, $choice){
+                onChange: function (value, text, $choice) {
                     t.onChange(value, text, $choice, select, full_name, labels);
                 }
             });
 
             // init labels delete
-            labels.find('i.delete.icon').on('click', function(){
+            labels.find('i.delete.icon').on('click', function () {
                 $(this).parent().remove();
             });
 
-            $('input.search', select.parent()).keypress(function(e){
+            $('input.search', select.parent()).keypress(function (e) {
                 if (e.which == 13) {
                     t.createElement(select, labels, full_name, $(this).val());
                     return false;
@@ -270,15 +286,15 @@ UnitedOne.modules.tags = {
  */
 UnitedOne.modules.collectionPrototype = {
 
-    onAdd: function($container, prototype){
+    onAdd: function ($container, prototype) {
         $container.append(prototype);
     },
 
-    ready: function(){
+    ready: function () {
 
         var t = this;
 
-        $('.united-prototype-widget').each(function(){
+        $('.united-prototype-widget').each(function () {
             var $button = $('<button />', {class: 'ui positive button', text: 'Add'});
             var $container = $('<div />');
             var prototype = $(this).data('prototype');
@@ -286,7 +302,7 @@ UnitedOne.modules.collectionPrototype = {
             $(this).prepend($button);
             $(this).append($container);
 
-            $button.click(function(){
+            $button.click(function () {
                 t.onAdd($container, prototype);
                 return false;
             });
@@ -295,53 +311,53 @@ UnitedOne.modules.collectionPrototype = {
 };
 
 /*UnitedOne.modules.entityBrowser = {
-    ready: function() {
-        $('.united-entity-browser').each(function(){
+ ready: function() {
+ $('.united-entity-browser').each(function(){
 
-            var container = $(this);
+ var container = $(this);
 
-            // add modal dom element
-            var modal       = $('<div />', {class: 'ui fullscreen modal'});
-            modal.append($('<i />', {class: 'close icon'}));
-            modal.append($('<div />', {class: 'header', text: 'Select Entity'}));
+ // add modal dom element
+ var modal       = $('<div />', {class: 'ui fullscreen modal'});
+ modal.append($('<i />', {class: 'close icon'}));
+ modal.append($('<div />', {class: 'header', text: 'Select Entity'}));
 
-            var m_content   = $('<div />', {class: 'content'});
-            modal.append(m_content);
+ var m_content   = $('<div />', {class: 'content'});
+ modal.append(m_content);
 
-            var m_actions   = $('<div />', {class: 'actions'});
-            m_actions.append($('<button />', {class: 'ui cancel button', text: 'Cancel'}));
-            m_actions.append($('<button />', {class: 'ui positive button', text: 'Ok'}));
-            modal.append(m_actions);
+ var m_actions   = $('<div />', {class: 'actions'});
+ m_actions.append($('<button />', {class: 'ui cancel button', text: 'Cancel'}));
+ m_actions.append($('<button />', {class: 'ui positive button', text: 'Ok'}));
+ modal.append(m_actions);
 
-            // remove item action
-            $('.ui.label .delete', container).click(function(){
-                $(this).parent().remove();
-            });
+ // remove item action
+ $('.ui.label .delete', container).click(function(){
+ $(this).parent().remove();
+ });
 
-            // open select browser action
-            $('.select-entity', container).click(function(){
-                container.addClass('loading');
+ // open select browser action
+ $('.select-entity', container).click(function(){
+ container.addClass('loading');
 
-                // TODO: get browser via ajax request
-                $.get('http://food.local/app_dev.php/admin/categories/?select=true', function(data){
-                    container.removeClass('loading');
-                    m_content.html(data);
+ // TODO: get browser via ajax request
+ $.get('http://food.local/app_dev.php/admin/categories/?select=true', function(data){
+ container.removeClass('loading');
+ m_content.html(data);
 
-                    modal.modal({
-                        onDeny    : function(){
+ modal.modal({
+ onDeny    : function(){
 
-                            // do nothing, since we don't want to save the changes.
+ // do nothing, since we don't want to save the changes.
 
-                        },
-                        onApprove : function() {
+ },
+ onApprove : function() {
 
-                            // TODO: render the selected entities as hidden input fields
-                        }
-                    }).modal('show');
-                });
+ // TODO: render the selected entities as hidden input fields
+ }
+ }).modal('show');
+ });
 
-                return false;
-            });
-        });
-    }
-};*/
+ return false;
+ });
+ });
+ }
+ };*/

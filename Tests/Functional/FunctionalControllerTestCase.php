@@ -27,7 +27,7 @@ class FunctionalControllerTestCase extends WebTestCase
         $em = static::$kernel->getContainer()->get('doctrine')->getManager();
         $schemaTool = new SchemaTool($em);
         $metadata = array(
-            $em->getClassMetadata('United\OneBundle\Tests\tests\Entities\Mock'),
+          $em->getClassMetadata('United\OneBundle\Tests\tests\Entities\Mock'),
         );
 
         // Drop and recreate tables for all entities
@@ -35,33 +35,37 @@ class FunctionalControllerTestCase extends WebTestCase
         $schemaTool->createSchema($metadata);
 
         $this->anonClient = static::createClient();
-        $this->adminClient = static::createClient(array(), array(
+        $this->adminClient = static::createClient(
+          array(),
+          array(
             'PHP_AUTH_USER' => 'admin',
-            'PHP_AUTH_PW'   => 'admin',
-        ));
+            'PHP_AUTH_PW' => 'admin',
+          )
+        );
     }
 
     protected function p($path)
     {
-        return 'http://' . $this->anonClient->getRequest()->getHost() . $path;
+        return 'http://'.$this->anonClient->getRequest()->getHost().$path;
     }
 
     protected function pa($path)
     {
-        return 'http://' . $this->adminClient->getRequest()->getHost() . $path;
+        return 'http://'.$this->adminClient->getRequest()->getHost().$path;
     }
 
     protected function u($path = '', $auth = false)
     {
         $str = '/functional/';
 
-        if($auth) {
+        if ($auth) {
             $str .= 'auth';
         } else {
             $str .= 'anon';
         }
 
         $str .= $path;
+
         return $str;
     }
 
@@ -77,6 +81,7 @@ class FunctionalControllerTestCase extends WebTestCase
     protected static function getKernelClass()
     {
         require_once '../tests/AppKernel.php';
+
         return 'AppKernel';
     }
 }

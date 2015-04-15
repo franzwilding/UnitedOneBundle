@@ -38,26 +38,27 @@ class PlainBaseControllerTest extends UnitedControllerTestCase
         $this->assertEquals('layout-embed.html.twig', $context['layout']);
 
         // Check controller routes
-        $this->checkControllerRoutes(array(
+        $this->checkControllerRoutes(
+          array(
 
-            // index route
-            $this->getClassPrefix() . '.index' => array(
-                'path' => '/United_OneBundle_Tests_Controller_PlainBaseControllerTest/',
-                'defaults' => array(
-                    '_controller' => 'United\OneBundle\Tests\Mock\PlainBaseControllerMock::indexAction',
-                ),
+              // index route
+            $this->getClassPrefix().'.index' => array(
+              'path' => '/United_OneBundle_Tests_Controller_PlainBaseControllerTest/',
+              'defaults' => array(
+                '_controller' => 'United\OneBundle\Tests\Mock\PlainBaseControllerMock::indexAction',
+              ),
             ),
-
-            // root redirect route
-            'united.' . $this->getClassPrefix() => array(
-                'path' => '/',
-                'defaults' => array(
-                    '_controller' => 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController::redirectAction',
-                    'route' => $this->getClassPrefix() . '.index',
-                    'permanent' => true,
-                ),
+              // root redirect route
+            'united.'.$this->getClassPrefix() => array(
+              'path' => '/',
+              'defaults' => array(
+                '_controller' => 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController::redirectAction',
+                'route' => $this->getClassPrefix().'.index',
+                'permanent' => true,
+              ),
             ),
-        ));
+          )
+        );
     }
 
     /**
