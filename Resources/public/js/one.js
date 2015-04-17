@@ -166,6 +166,7 @@ UnitedOne.modules.tags = {
 
     lastItem: null,
     startIndex: 0,
+    currentItemIndex: 0,
 
     /**
      * Callback, when an user selects a tag. Creates a tag element with hidden input for id and name.
@@ -178,6 +179,9 @@ UnitedOne.modules.tags = {
      * @param labels
      */
     onChange: function (value, text, $choice, select, full_name, labels) {
+
+        var t = this;
+
         this.lastItem = {
             value: value,
             text: text,
@@ -187,12 +191,12 @@ UnitedOne.modules.tags = {
         var $label = $('<div />', {class: 'ui label', text: this.lastItem.text});
         $label.append($('<input />', {
             type: 'hidden',
-            name: full_name + '[' + (this.startIndex + labels.children().length) + '][id]',
+            name: full_name + '[' + ( this.startIndex + this.currentItemIndex ) + '][id]',
             value: this.lastItem.value
         }));
         $label.append($('<input />', {
             type: 'hidden',
-            name: full_name + '[' + (this.startIndex + labels.children().length) + '][name]',
+            name: full_name + '[' + ( this.startIndex + this.currentItemIndex ) + '][name]',
             value: this.lastItem.text
         }));
         var $del = $('<i />', {class: 'delete icon'});
@@ -202,7 +206,10 @@ UnitedOne.modules.tags = {
         // add label delete event
         $del.on('click', function () {
             $label.remove();
+            t.currentItemIndex = t.currentItemIndex - 1;
         });
+
+        this.currentItemIndex = this.currentItemIndex + 1;
 
         // clear
         this.lastItem = null;
@@ -219,6 +226,8 @@ UnitedOne.modules.tags = {
      */
     createElement: function (select, labels, full_name, value) {
 
+        var t = this;
+
         // if we create an new element
         if (this.lastItem == null) {
 
@@ -228,7 +237,7 @@ UnitedOne.modules.tags = {
                 var $label = $('<div />', {class: 'ui label', text: value});
                 $label.append($('<input />', {
                     type: 'hidden',
-                    name: full_name + '[' + (this.startIndex + labels.children().length) + '][name]',
+                    name: full_name + '[' + ( this.startIndex + this.currentItemIndex ) + '][name]',
                     value: value
                 }));
                 var $del = $('<i />', {class: 'delete icon'});
@@ -238,7 +247,10 @@ UnitedOne.modules.tags = {
                 // add label delete event
                 $del.on('click', function () {
                     $label.remove();
+                    t.currentItemIndex = t.currentItemIndex - 1;
                 });
+
+                this.currentItemIndex = this.currentItemIndex + 1;
             }
         }
 
