@@ -4,12 +4,13 @@ namespace United\OneBundle\Tests\tests\Entities;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use United\CoreBundle\Model\EntityInterface;
 
 /**
  * @ORM\Table()
  * @ORM\Entity
  */
-class TagsMock extends Mock
+class TagsMock implements EntityInterface
 {
 
     /**
@@ -26,7 +27,7 @@ class TagsMock extends Mock
      *
      * @ORM\Column(name="title", type="string", length=255)
      */
-    private $title;
+    protected $title;
 
     /**
      * @var ArrayCollection
@@ -41,6 +42,31 @@ class TagsMock extends Mock
         $this->children = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->title;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
     /**
      * @return ArrayCollection
      */
@@ -50,7 +76,7 @@ class TagsMock extends Mock
     }
 
     /**
-     * @param ArrayCollection $categories
+     * @param ArrayCollection $children
      * @return TagsMock
      */
     public function setChildren($children)

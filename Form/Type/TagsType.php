@@ -88,12 +88,12 @@ class TagsType extends CollectionType
 
         $resolver->setDefaults(
           array(
-            'allow_add' => true,
-            'allow_delete' => true,
-            'by_reference' => true,
-            'select_options' => null,
-            'type' => null,
-            'tag_data_class' => null,
+            'allow_add'         => true,
+            'allow_delete'      => true,
+            'by_reference'      => true,
+            'select_options'    => null,
+            'type'              => null,
+            'tag_data_class'    => null,
           )
         );
     }

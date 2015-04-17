@@ -25,7 +25,7 @@ class Mock implements EntityInterface
      *
      * @ORM\Column(name="title", type="string", length=255)
      */
-    private $title;
+    protected $title;
 
 
     public function __toString()

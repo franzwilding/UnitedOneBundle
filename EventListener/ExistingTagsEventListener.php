@@ -42,7 +42,7 @@ class ExistingTagsEventListener implements EventSubscriberInterface
         $collection = $event->getData();
 
         /**
-         * To avoid creating of the same entity again, we need to replace the new entity with an existing one.
+         * To avoid creating the same entity again, we need to replace the new entity with an existing one.
          */
         foreach ($collection as $key => $item) {
             if (array_key_exists($key, $this->existing_ids)) {

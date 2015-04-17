@@ -4,12 +4,13 @@ namespace United\OneBundle\Tests\tests\Entities;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Tests\Fixtures\EntityInterface;
 
 /**
  * @ORM\Table()
  * @ORM\Entity
  */
-class TagMock extends Mock
+class TagMock implements EntityInterface
 {
 
     /**
@@ -26,7 +27,7 @@ class TagMock extends Mock
      *
      * @ORM\Column(name="title", type="string", length=255)
      */
-    private $title;
+    protected $title;
 
     /**
      * @var ArrayCollection
@@ -38,6 +39,31 @@ class TagMock extends Mock
     public function __construct()
     {
         $this->tags = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->title;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
     }
 
     /**
@@ -65,6 +91,16 @@ class TagMock extends Mock
     {
         $this->tags->add($tag);
         return $this;
+    }
+
+    public function getName()
+    {
+        return $this->title;
+    }
+
+    public function setName($name)
+    {
+        $this->title = $name;
     }
 
 }

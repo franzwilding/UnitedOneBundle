@@ -165,6 +165,7 @@ UnitedOne.modules.editor = {
 UnitedOne.modules.tags = {
 
     lastItem: null,
+    startIndex: 0,
 
     /**
      * Callback, when an user selects a tag. Creates a tag element with hidden input for id and name.
@@ -186,12 +187,12 @@ UnitedOne.modules.tags = {
         var $label = $('<div />', {class: 'ui label', text: this.lastItem.text});
         $label.append($('<input />', {
             type: 'hidden',
-            name: full_name + '[' + labels.children().length + '][id]',
+            name: full_name + '[' + (this.startIndex + labels.children().length) + '][id]',
             value: this.lastItem.value
         }));
         $label.append($('<input />', {
             type: 'hidden',
-            name: full_name + '[' + labels.children().length + '][name]',
+            name: full_name + '[' + (this.startIndex + labels.children().length) + '][name]',
             value: this.lastItem.text
         }));
         var $del = $('<i />', {class: 'delete icon'});
@@ -227,7 +228,7 @@ UnitedOne.modules.tags = {
                 var $label = $('<div />', {class: 'ui label', text: value});
                 $label.append($('<input />', {
                     type: 'hidden',
-                    name: full_name + '[' + labels.children().length + '][name]',
+                    name: full_name + '[' + (this.startIndex + labels.children().length) + '][name]',
                     value: value
                 }));
                 var $del = $('<i />', {class: 'delete icon'});
@@ -257,6 +258,7 @@ UnitedOne.modules.tags = {
             var full_name = $(this).data('full-name');
             var select = $('> select', $(this));
             var labels = $('> .labels', $(this));
+            t.startIndex = labels.length;
 
             // init dropdown
             select.dropdown({

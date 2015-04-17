@@ -2,6 +2,7 @@
 
 namespace United\OneBundle\Tests\Functional;
 
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\SchemaTool;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Bundle\FrameworkBundle\Client;
@@ -19,17 +20,22 @@ class FunctionalControllerTestCase extends WebTestCase
      */
     protected $adminClient;
 
+    /**
+     * @var EntityManager $em
+     */
+    protected $em;
+
     public function setUp()
     {
         parent::setUp();
 
         static::$kernel->boot();
-        $em = static::$kernel->getContainer()->get('doctrine')->getManager();
-        $schemaTool = new SchemaTool($em);
+        $this->em = static::$kernel->getContainer()->get('doctrine')->getManager();
+        $schemaTool = new SchemaTool($this->em);
         $metadata = array(
-          $em->getClassMetadata('United\OneBundle\Tests\tests\Entities\Mock'),
-          $em->getClassMetadata('United\OneBundle\Tests\tests\Entities\TagsMock'),
-          $em->getClassMetadata('United\OneBundle\Tests\tests\Entities\TagMock'),
+          $this->em->getClassMetadata('United\OneBundle\Tests\tests\Entities\Mock'),
+          $this->em->getClassMetadata('United\OneBundle\Tests\tests\Entities\TagsMock'),
+          $this->em->getClassMetadata('United\OneBundle\Tests\tests\Entities\TagMock'),
         );
 
         // Drop and recreate tables for all entities
