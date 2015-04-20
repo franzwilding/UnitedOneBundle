@@ -1,0 +1,10 @@
+composer.lock
+.DS_Store
+/vendor/*
+/Tests/tests/cache/*
+/Tests/tests/log/*
+/Tests/tests/*.db
+Resources/public/css/scss/.sass-cache/*
+Resources/public/vendor/semantic-ui/*.*
+Resources/public/vendor/semantic-ui/*/*
+!Resources/public/vendor/semantic-ui/dist/*
