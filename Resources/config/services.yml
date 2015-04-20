@@ -1,0 +1,42 @@
+services:
+
+    # Enable twig text extensions
+    twig.extension.text:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }
+
+    # Custom form type: Render a delete submit button
+    united.one.form.type.delete:
+        class: United\OneBundle\Form\Type\DeleteType
+        tags:
+            - { name: form.type, alias: delete }
+
+    # Custom form type: Render a delete button next to the submit button
+    united.one.form.type.submit_or_delete:
+        class: United\OneBundle\Form\Type\SubmitOrDeleteType
+        tags:
+            - { name: form.type, alias: submit_or_delete }
+
+    # Custom form type: Render jquery medium wysiwyg editor
+    united.one.form.type.united_editor:
+        class: United\OneBundle\Form\Type\EditorType
+        tags:
+            - { name: form.type, alias: united_editor }
+
+    united.one.form.type.united_sort:
+        class: United\OneBundle\Form\Type\SortType
+        tags:
+            - { name: form.type, alias: united_sort }
+
+    united.one.form.type.united_tags:
+        class: United\OneBundle\Form\Type\TagsType
+        arguments: [ @doctrine ]
+        tags:
+            - { name: form.type, alias: united_tags }
+
+    united.one.form.type.united_entity_browser:
+        class: United\OneBundle\Form\Type\EntityBrowserType
+        arguments: [ @doctrine ]
+        tags:
+            - { name: form.type, alias: united_entity_browser }

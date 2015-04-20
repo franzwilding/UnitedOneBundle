@@ -1,0 +1,36 @@
+{% extends united.theme(layout) %}
+
+{% block breadcrumb_item %}{{ entity }}{% endblock breadcrumb_item %}
+{% block content %}
+
+    <div class="united-one-collection-container">
+        <div class="ui left rail">
+            <div class="ui vertical sticky menu">
+                {% for child in entities %}
+                    {% include itemTemplate with { entity: child, current: entity, itemTemplate: itemTemplate } %}
+                {% endfor %}
+                <a href="{{ united.url('create') }}" class="item">
+                    <i class="icon add"></i> {% trans %}Add collection{% endtrans %}
+                </a>
+            </div>
+        </div>
+
+        <h2>{{ entity }}
+            <a href="{{ united.url('update', null, { id: entity.id }) }}"
+               class="ui black basic small labled icon button">
+                <i class="pencil icon"></i>
+                {% trans %}Edit{% endtrans %}
+            </a>
+        </h2>
+
+        <div class="ui divider"></div>
+
+        {% for child in united.item.children %}
+            {{ render(url(child.route, {
+                (united.item.paramName): entity.id,
+                embed:true
+            })) }}
+        {% endfor %}
+    </div>
+
+{% endblock %}

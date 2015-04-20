@@ -1,0 +1,69 @@
+imports:
+    - { resource: "@UnitedOneBundle/Tests/tests/services.yml" }
+
+framework:
+    router:
+        resource: "%kernel.root_dir%/routing.yml"
+        strict_requirements: true
+    profiler: { only_exceptions: false }
+    test: ~
+    session:
+        storage_id: session.storage.mock_file
+    profiler:
+        collect: false
+    translator:      { fallbacks: [en] }
+    secret:          "ThisIsNoSecret"
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  en
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    fragments:       ~
+    http_method_override: true
+
+doctrine:
+    dbal:
+        driver:   pdo_sqlite
+        path:     "%kernel.root_dir%/sqlite.db"
+        charset:  UTF8
+    orm:
+        auto_generate_proxy_classes: true
+        auto_mapping: true
+        mappings:
+            UnitedOneBundle:
+                type: annotation
+                prefix: United\OneBundle\Tests\tests\Entities
+                dir: Tests/tests/Entities/cache
+
+
+united_core:
+  config:
+    functional.auth: { theme: @UnitedOne, secure: true }
+    functional.anon: { theme: @UnitedOne, secure: false }
+
+security:
+
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+
+    providers:
+        in_memory:
+            memory:
+                users:
+                    admin:
+                        password: admin
+                        roles: 'ROLE_ADMIN'
+
+    firewalls:
+
+        united_one_secure_area_test:
+            pattern:      ^/functional/auth
+            anonymous:    ~
+            http_basic:   ~
+
+        default:
+            anonymous: ~

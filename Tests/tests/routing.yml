@@ -1,0 +1,3 @@
+
+united_one_bundle:
+  resource: "@UnitedOneBundle/Tests/tests/test_routes.yml"

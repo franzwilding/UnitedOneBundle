@@ -1,0 +1,28 @@
+
+.united-one-collection-container {
+  position: relative;
+
+  > .ui.left.rail {
+    margin: 0 0 2rem;
+    padding: 0;
+    width: 100%;
+    position: static;
+
+    > .ui.vertical.menu {
+      width: auto;
+    }
+  }
+
+  @media all and (min-width: 768px) {
+    margin-left: 250px;
+
+    > .ui.left.rail {
+      width: 250px;
+      position: absolute;
+
+      > .ui.vertical.menu {
+        margin-right: 2rem;
+      }
+    }
+  }
+}

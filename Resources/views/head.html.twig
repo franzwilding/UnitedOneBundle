@@ -1,0 +1,14 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{# You can override, extend or modify the stylesheets block. #}
+{% block stylesheets %}
+    {{ include('@UnitedOne/head.stylesheets.html.twig') }}
+{% endblock %}
+
+{# You can override, extend or modify the javasvripts_head block. #}
+{% block javascripts_head %}
+    {{ include('@UnitedOne/head.javascripts.html.twig') }}
+{% endblock %}

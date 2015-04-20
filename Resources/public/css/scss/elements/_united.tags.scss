@@ -1,0 +1,18 @@
+
+.united-tags {
+  .search.ui.dropdown,
+  .labels {
+    display: inline-block;
+  }
+
+  .search.ui.dropdown {
+    margin-right: 10px;
+    margin-bottom: 4px;
+  }
+
+  .labels {
+    .ui.label {
+      margin-top: 6px;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<tr>
+    <td>{{ entity }}</td>
+    <td class="right aligned">
+        <a href="{{ united.url('update', null, { id: entity.id }) }}" class="ui black basic small labled icon button">
+            <i class="pencil icon"></i>
+            {% trans %}Edit{% endtrans %}
+        </a>
+    </td>
+</tr>

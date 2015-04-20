@@ -1,0 +1,116 @@
+
+services:
+
+    security.access.united.functional.test.voter:
+        class:  United\OneBundle\Tests\tests\TestVoter
+        public: false
+        tags:
+            - { name: security.voter }
+
+    united.functional.anon.plaincontrollertest:
+        class: United\OneBundle\Tests\Mock\PlainBaseControllerMock
+        tags:
+            - { name: united.controller, path: 'plancontrollertest', namespace: 'functional.anon' }
+
+    united.functional.auth.plaincontrollertest:
+        class: United\OneBundle\Tests\Mock\PlainBaseControllerMock
+        tags:
+            - { name: united.controller, path: 'plancontrollertest', namespace: 'functional.auth' }
+
+    united.functional.anon.cardcontrollertest:
+        class: United\OneBundle\Tests\Mock\CardControllerMock
+        tags:
+            - { name: united.controller, path: 'cardcontrollertest', namespace: 'functional.anon' }
+
+    united.functional.auth.cardcontrollertest:
+        class: United\OneBundle\Tests\Mock\CardControllerMock
+        tags:
+            - { name: united.controller, path: 'cardcontrollertest', namespace: 'functional.auth' }
+
+    united.functional.anon.tablecontrollertest:
+            class: United\OneBundle\Tests\Mock\TableControllerMock
+            tags:
+                - { name: united.controller, path: 'tablecontrollertest', namespace: 'functional.anon' }
+
+    united.functional.auth.tablecontrollertest:
+        class: United\OneBundle\Tests\Mock\TableControllerMock
+        tags:
+            - { name: united.controller, path: 'tablecontrollertest', namespace: 'functional.auth' }
+
+
+
+    united.functional.anon.sectioncontrollertest:
+        class: United\OneBundle\Tests\Mock\SectionControllerMock
+        tags:
+            - { name: united.controller, path: 'sectioncontrollertest', namespace: 'functional.anon' }
+
+    united.functional.anon.sectioncontrollertest.sub1:
+        class: United\OneBundle\Tests\Mock\SectionControllerMock
+        tags:
+            - { name: united.controller, parent: 'united.functional.anon.sectioncontrollertest', path: 'sub1', namespace: 'functional.anon' }
+
+    united.functional.anon.sectioncontrollertest.sub1.sub1:
+        class: United\OneBundle\Tests\Mock\PlainBaseControllerMock
+        tags:
+            - { name: united.controller, parent: 'united.functional.anon.sectioncontrollertest.sub1', path: 'sub1', namespace: 'functional.anon' }
+
+    united.functional.anon.sectioncontrollertest.sub2:
+        class: United\OneBundle\Tests\Mock\PlainBaseControllerMock
+        tags:
+            - { name: united.controller, parent: 'united.functional.anon.sectioncontrollertest', path: 'sub2', namespace: 'functional.anon' }
+
+
+
+    united.functional.auth.sectioncontrollertest:
+        class: United\OneBundle\Tests\Mock\SectionControllerMock
+        tags:
+            - { name: united.controller, path: 'sectioncontrollertest', namespace: 'functional.auth' }
+
+    united.functional.auth.sectioncontrollertest.sub1:
+        class: United\OneBundle\Tests\Mock\SectionControllerMock
+        tags:
+            - { name: united.controller, parent: 'united.functional.auth.sectioncontrollertest', path: 'sub1', namespace: 'functional.auth' }
+
+    united.functional.auth.sectioncontrollertest.sub1.sub1:
+        class: United\OneBundle\Tests\Mock\PlainBaseControllerMock
+        tags:
+            - { name: united.controller, parent: 'united.functional.auth.sectioncontrollertest.sub1', path: 'sub1', namespace: 'functional.auth' }
+
+    united.functional.auth.sectioncontrollertest.sub2:
+        class: United\OneBundle\Tests\Mock\PlainBaseControllerMock
+        tags:
+            - { name: united.controller, parent: 'united.functional.auth.sectioncontrollertest', path: 'sub2', namespace: 'functional.auth' }
+
+
+    united.functional.anon.collectioncontrollertest:
+        class: United\OneBundle\Tests\Mock\CollectionControllerMock
+        tags:
+            - { name: united.controller, path: 'collectioncontrollertest', namespace: 'functional.anon' }
+
+    united.functional.anon.collectioncontrollertest.c1:
+        class: United\OneBundle\Tests\Mock\TableControllerMock
+        tags:
+            - { name: united.controller, parent: 'united.functional.anon.collectioncontrollertest', path: 'c1', namespace: 'functional.anon' }
+
+
+
+    united.functional.auth.collectioncontrollertest:
+        class: United\OneBundle\Tests\Mock\CollectionControllerMock
+        tags:
+            - { name: united.controller, path: 'collectioncontrollertest', namespace: 'functional.auth' }
+
+    united.functional.auth.collectioncontrollertest.c1:
+        class: United\OneBundle\Tests\Mock\TableControllerMock
+        tags:
+            - { name: united.controller, parent: 'united.functional.auth.collectioncontrollertest', path: 'c1', namespace: 'functional.auth' }
+
+
+    united.functional.anon.tagscontrollertest:
+        class: United\OneBundle\Tests\Mock\TagsControllerMock
+        tags:
+            - { name: united.controller, path: 'tagscontrollertest', namespace: 'functional.anon' }
+
+    united.functional.auth.tagscontrollertest:
+        class: United\OneBundle\Tests\Mock\TagsControllerMock
+        tags:
+            - { name: united.controller, path: 'tagscontrollertest', namespace: 'functional.auth' }

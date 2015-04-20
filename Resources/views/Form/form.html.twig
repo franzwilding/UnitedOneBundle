@@ -1,0 +1,27 @@
+{% extends united.theme(layout) %}
+{% form_theme form 'UnitedOneBundle:Form:form.theme.html.twig' %}
+
+{% block breadcrumb_item %}
+    {% if entity and entity.__toString %}
+        {{ united.item.subRouteName|trans({'%entity%': entity}) }}
+    {% else %}
+        {{ united.item.subRouteName|trans }}
+    {% endif %}
+{% endblock breadcrumb_item %}
+{% block content %}
+
+    <div class="ui segment">
+        <h1>
+            {% if entity and entity.__toString %}
+                {{ united.item.subRouteName|trans({'%entity%': entity}) }}
+            {% else %}
+                {{ united.item.subRouteName|trans }}
+            {% endif %}
+        </h1>
+
+        <div class="ui divider"></div>
+
+        {{ form(form) }}
+    </div>
+
+{% endblock %}
