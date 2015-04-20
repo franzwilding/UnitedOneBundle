@@ -314,6 +314,18 @@ UnitedOne.modules.collectionPrototype = {
             var $container = $('<div />');
             var prototype = $(this).data('prototype');
 
+            // add delete buttons
+            $(this).children('.field').each(function(){
+                var field = $(this);
+                var $del_button = $('<button />', {class: 'united-collection-delete-button circular ui red basic icon button'});
+                var $del_icon = $('<i />', {class: 'delete icon'});
+                $del_button.append($del_icon);
+                $del_button.click(function(){
+                    field.remove();
+                });
+                $(this).append($del_button);
+            });
+
             $(this).prepend($button);
             $(this).append($container);
 
@@ -321,6 +333,58 @@ UnitedOne.modules.collectionPrototype = {
                 t.onAdd($container, prototype);
                 return false;
             });
+        });
+    }
+};
+
+/**
+ * Transforms united-sort fields into drag&drop sort components.
+ */
+UnitedOne.modules.sort = {
+
+    items: [],
+
+    updateIndex: function(field){
+        var row = field.parent().closest('.field');
+        field.find('input').val(row.index());
+        console.log(field);
+        console.log(row.index());
+    },
+
+    onChange: function(e, ui) {
+        var t = this;
+        setTimeout(function(){
+            $.each(t.items, function(id, item){
+                t.updateIndex(item);
+            });
+        }, 10);
+    },
+
+    ready: function(){
+
+        var t = this;
+
+        $('.united-sort').each(function(){
+
+            // update index
+            t.updateIndex($(this));
+            t.items.push($(this));
+
+            // enable sortable
+            var list = $(this).parent().parent().parent();
+            if(!list.data('sortable-initialized')) {
+
+                list.sortable({
+                    items: '> .field',
+                    handle: '.united-sort-handler',
+                    placeholder: 'field united-sort-placeholder',
+                    forcePlaceholderSize: true
+                }).on('sortable:update', function(e, ui){
+                    t.onChange(e, ui);
+                });
+
+                list.data('sortable-initialized', true);
+            }
         });
     }
 };

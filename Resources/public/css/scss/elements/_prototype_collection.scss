@@ -1,0 +1,17 @@
+
+.united-prototype-widget {
+  > .positive.button {
+    margin-bottom: 20px;
+  }
+
+  > .field {
+    position: relative;
+
+    .united-collection-delete-button {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      margin-top: -18px;
+    }
+  }
+}
