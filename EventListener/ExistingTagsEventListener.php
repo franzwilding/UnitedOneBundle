@@ -40,11 +40,22 @@ class ExistingTagsEventListener implements EventSubscriberInterface
          * @var PersistentCollection $collection
          */
         $collection = $event->getData();
+        $used_tags = array();
 
         /**
-         * To avoid creating the same entity again, we need to replace the new entity with an existing one.
+         * To avoid creating the same entity again, we need to replace the new
+         * entity with an existing one. We also check for duplicates and remove
+         * theme.
          */
         foreach ($collection as $key => $item) {
+
+            if(!in_array($item->getName(), $used_tags)) {
+                $used_tags[] = $item->getName();
+            } else {
+                $collection->remove($key);
+                continue;
+            }
+
             if (array_key_exists($key, $this->existing_ids)) {
                 $collection->remove($key);
                 $collection->add($this->options[$this->existing_ids[$key]]);

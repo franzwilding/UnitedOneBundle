@@ -270,7 +270,8 @@ UnitedOne.modules.tags = {
             var full_name = $(this).data('full-name');
             var select = $('> select', $(this));
             var labels = $('> .labels', $(this));
-            t.startIndex = labels.length;
+            t.startIndex = labels.children().length;
+            t.currentItemIndex = 1;
 
             // init dropdown
             select.dropdown({
