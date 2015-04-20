@@ -43,6 +43,7 @@ doctrine:
 united_core:
   config:
     functional.auth: { theme: @UnitedOne, secure: true }
+    functional.anon: { theme: @UnitedOne, secure: false }
 
 security:
 
