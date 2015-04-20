@@ -302,7 +302,27 @@ UnitedOne.modules.tags = {
 UnitedOne.modules.collectionPrototype = {
 
     onAdd: function ($container, prototype) {
-        $container.append(prototype);
+        var item = $(prototype);
+        $container.append(item);
+
+        // add delete button
+        this.addDeleteButtonToField(item);
+
+        // if there is a united sort field, we need to register the field
+        if(item.find('.united-sort').length > 0) {
+            UnitedOne.modules.sort.items.push(item.find('.united-sort'));
+            UnitedOne.modules.sort.updateAll();
+        }
+    },
+
+    addDeleteButtonToField: function(field) {
+        var $del_button = $('<button />', {class: 'united-collection-delete-button circular ui red basic icon button'});
+        var $del_icon = $('<i />', {class: 'delete icon'});
+        $del_button.append($del_icon);
+        $del_button.click(function(){
+            field.remove();
+        });
+        field.append($del_button);
     },
 
     ready: function () {
@@ -311,24 +331,19 @@ UnitedOne.modules.collectionPrototype = {
 
         $('.united-prototype-widget').each(function () {
             var $button = $('<button />', {class: 'ui positive button', text: 'Add'});
-            var $container = $('<div />');
+            var $container = $(this);
             var prototype = $(this).data('prototype');
 
             // add delete buttons
             $(this).children('.field').each(function(){
-                var field = $(this);
-                var $del_button = $('<button />', {class: 'united-collection-delete-button circular ui red basic icon button'});
-                var $del_icon = $('<i />', {class: 'delete icon'});
-                $del_button.append($del_icon);
-                $del_button.click(function(){
-                    field.remove();
-                });
-                $(this).append($del_button);
+                t.addDeleteButtonToField($(this));
             });
 
             $(this).prepend($button);
             $(this).append($container);
 
+
+            // on add
             $button.click(function () {
                 t.onAdd($container, prototype);
                 return false;
@@ -344,19 +359,23 @@ UnitedOne.modules.sort = {
 
     items: [],
 
+    updateAll: function() {
+        var t = this;
+        console.log(t.items);
+        $.each(t.items, function(id, item){
+            t.updateIndex(item);
+        });
+    },
+
     updateIndex: function(field){
         var row = field.parent().closest('.field');
         field.find('input').val(row.index());
-        console.log(field);
-        console.log(row.index());
     },
 
     onChange: function(e, ui) {
         var t = this;
         setTimeout(function(){
-            $.each(t.items, function(id, item){
-                t.updateIndex(item);
-            });
+            t.updateAll();
         }, 10);
     },
 
