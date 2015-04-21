@@ -14,31 +14,35 @@
   }
 
   .toggle-sidebar {
-    margin: 0;
+    margin: 0 5px 0 0;
     padding: 0;
     border: none;
     background: none;
-    width: $space;
-    height: $space;
-    line-height: $space;
     position: relative;
     z-index: 50;
+    outline: none;
 
     svg {
+      margin: 9px 8px;
       vertical-align: middle;
+      -webkit-transition: all $animation-fast ease-out, transform $animation-slow ease-out;
+
+      rect {
+        fill: white;
+      }
 
       rect.rect-1 {
-        transform-origin: 8px 12px;
+        -webkit-transform-origin: 50% 50%;
         -webkit-transition: transform $animation-slow, fill $animation-fast ease-out;
       }
 
-      rect.rect-2 {
+      rect.rect-2, rect.rect-2b {
         -webkit-transform-origin: 50% 50%;
         -webkit-transition: transform $animation-fast/2 ease-in-out;
       }
 
       rect.rect-3 {
-        transform-origin: 8px 18px;
+        -webkit-transform-origin: 50% 50%;
         -webkit-transition: transform $animation-slow, fill $animation-fast ease-out;
       }
     }
@@ -57,27 +61,39 @@
   .breadcrumb {
     margin: 0;
     vertical-align: middle;
+
+    .section:last-child:not(:first-child) {
+      color: #BFB3A4;
+    }
   }
 
   &.open {
-    left: 200px;
+    left: 210px;
     position: fixed;
 
     .toggle-sidebar {
       svg {
 
-        rect.rect-1 {
-          -webkit-transform: rotate(45deg);
-          fill: #FE6760;
-        }
+        -webkit-transform: rotate(-45deg);
+        width: 16px;
+        height: 16px;
+        margin: 8px;
 
-        rect.rect-2 {
+        rect.rect-1 {
           -webkit-transform: scale(0, 0);
         }
 
-        rect.rect-3 {
-          -webkit-transform: rotate(-45deg);
+        rect.rect-2 {
           fill: #FE6760;
+        }
+
+        rect.rect-2b {
+          -webkit-transform: rotate(-90deg);
+          fill: #FE6760;
+        }
+
+        rect.rect-3 {
+          -webkit-transform: scale(0, 0);
         }
       }
     }

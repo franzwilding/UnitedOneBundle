@@ -1,4 +1,9 @@
 
 .united-editor-container {
   overflow: auto;
+
+  &:after {
+    left: 1em;
+    top: 1em;
+  }
 }

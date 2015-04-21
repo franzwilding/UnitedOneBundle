@@ -16,20 +16,21 @@
 {% block header %}
     <section class="united-one-header">
         {% block menu_toggle %}
-            <button class="toggle-sidebar">
-                <svg width="30px" height="30px" viewBox="0 0 30 30">
-                    <g fill="#737373">
-                        <rect class="rect-1" x="5" y="8" width="20" height="2"></rect>
-                        <rect class="rect-2" x="5" y="14" width="20" height="2"></rect>
-                        <rect class="rect-3" x="5" y="20" width="20" height="2"></rect>
+            <div class="ui circular black button toggle-sidebar">
+                <svg width="9px" height="7px" viewBox="0 0 9 7">
+                    <g>
+                        <rect fill="white" class="rect-1" x="0" y="0" width="9" height="1"></rect>
+                        <rect fill="white" class="rect-2" x="0" y="3" width="9" height="1"></rect>
+                        <rect fill="white" class="rect-2b" x="0" y="3" width="9" height="1"></rect>
+                        <rect fill="white" class="rect-3" x="0" y="6" width="9" height="1"></rect>
                     </g>
                 </svg>
                 <span class="text">Navigation</span>
-            </button>
+            </div>
         {% endblock menu_toggle %}
 
         {% block breadcrumb %}
-            <p class="ui large breadcrumb">
+            <p class="ui huge breadcrumb">
                 {% for parent in united.item.parents %}
                     <a class="section"
                        href="{{ united.url('', parent) }}">{{ (parent ~ '.index')|trans }}</a>
@@ -61,7 +62,7 @@
 
 {# You can override or remove the navigation block in a controller. #}
 {% block navigation %}
-    <section class="united-one-navigation ui sidebar">
+    <section class="united-one-navigation ui inverted black segment sidebar">
         <nav>
             <ul class="ui large inverted vertical text menu">
                 {% for item in united.tree %}

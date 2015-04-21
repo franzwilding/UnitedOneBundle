@@ -172,7 +172,7 @@ ol.ui.list ol,
 }
 .ui.list .list > a.item:hover,
 .ui.list > a.item:hover {
-  color: #69c6f5;
+  color: #51bdf3;
 }
 
 /* Linked Item Icons */
@@ -187,7 +187,7 @@ ol.ui.list ol,
   color: #666666 !important;
 }
 .ui.list .item a:hover {
-  color: #69c6f5 !important;
+  color: #51bdf3 !important;
 }
 
 /* Header */
@@ -352,7 +352,7 @@ ol.ui.list ol,
 }
 .ui.inverted.list .list > a.item:hover,
 .ui.inverted.list > a.item:hover {
-  color: #69c6f5;
+  color: #51bdf3;
 }
 
 /* Linking Content */
@@ -361,7 +361,7 @@ ol.ui.list ol,
   color: #ffffff !important;
 }
 .ui.inverted.list .item a:hover {
-  color: #69c6f5 !important;
+  color: #51bdf3 !important;
 }
 
 /*-------------------

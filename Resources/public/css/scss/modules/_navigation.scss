@@ -2,7 +2,12 @@
  * Main Navigation.
  */
 .united-one-navigation {
-  position: relative;
-  padding-top: $space * 2;
-  background: $color-bg;
+
+  nav {
+    margin-top: $space;
+
+    ul {
+      padding-left: $space/2;
+    }
+  }
 }
