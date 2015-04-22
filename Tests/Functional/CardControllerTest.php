@@ -87,12 +87,12 @@ class CardControllerTest extends FunctionalControllerTestCase
         // Check that there is an add button on the page
         $this->assertGreaterThan(
           0,
-          $crawler->filter('a:contains("Add")')->count()
+          $crawler->filter('a.single.button.card')->count()
         );
 
         // Click on the create link
         $crawler = $this->adminClient->click(
-          $crawler->filter('a:contains("Add")')->first()->link()
+          $crawler->filter('a.single.button.card')->first()->link()
         );
         $this->assertEquals(
           200,
@@ -137,7 +137,7 @@ class CardControllerTest extends FunctionalControllerTestCase
         // Now we should see an add button and a card item for our new entity
         $this->assertGreaterThan(
           0,
-          $crawler->filter('a:contains("Add")')->count()
+          $crawler->filter('a.single.button.card')->count()
         );
         $this->assertGreaterThan(
           0,
@@ -216,7 +216,7 @@ class CardControllerTest extends FunctionalControllerTestCase
         // Now we should see an add button and a card item for our updated entity
         $this->assertGreaterThan(
           0,
-          $crawler->filter('a:contains("Add")')->count()
+          $crawler->filter('a.single.button.card')->count()
         );
         $this->assertGreaterThan(
           0,
