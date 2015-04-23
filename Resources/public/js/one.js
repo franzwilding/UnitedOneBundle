@@ -302,7 +302,8 @@ UnitedOne.modules.tags = {
 UnitedOne.modules.collectionPrototype = {
 
     onAdd: function ($container, prototype) {
-        var item = $(prototype);
+        var item = $(prototype.replace(/__name__/g, $container.data('child-count')));
+        $container.data('child-count', $container.data('child-count') + 1);
         $container.append(item);
 
         // add delete button
@@ -310,16 +311,25 @@ UnitedOne.modules.collectionPrototype = {
 
         // if there is a united sort field, we need to register the field
         if(item.find('.united-sort').length > 0) {
-            UnitedOne.modules.sort.items.push(item.find('.united-sort'));
-            UnitedOne.modules.sort.updateAll();
+
+            if ($container.data('sortable-initialized')) {
+                var items = $container.data('sort-items');
+                items.push(item.find('.united-sort'));
+                $container.data('sort-items', items);
+                UnitedOne.modules.sort.updateAllForList($container);
+            } else {
+                UnitedOne.modules.sort.initializeList($container);
+                UnitedOne.modules.sort.updateIndex(item.find('.united-sort'));
+            }
         }
     },
 
-    addDeleteButtonToField: function(field) {
+    addDeleteButtonToField: function(field, $container) {
         var $del_button = $('<button />', {class: 'united-collection-delete-button circular ui red basic icon button'});
         var $del_icon = $('<i />', {class: 'delete icon'});
         $del_button.append($del_icon);
         $del_button.click(function(){
+            //$container.data('child-count', $container.data('child-count') - 1);
             field.remove();
         });
         field.append($del_button);
@@ -333,10 +343,11 @@ UnitedOne.modules.collectionPrototype = {
             var $button = $('<button />', {class: 'ui positive button', text: 'Add'});
             var $container = $(this);
             var prototype = $(this).data('prototype');
+            $container.data('child-count', $(this).children('.field').length);
 
             // add delete buttons
             $(this).children('.field').each(function(){
-                t.addDeleteButtonToField($(this));
+                t.addDeleteButtonToField($(this), $container);
             });
 
             $(this).prepend($button);
@@ -357,12 +368,9 @@ UnitedOne.modules.collectionPrototype = {
  */
 UnitedOne.modules.sort = {
 
-    items: [],
-
-    updateAll: function() {
+    updateAllForList: function(list) {
         var t = this;
-        console.log(t.items);
-        $.each(t.items, function(id, item){
+        $.each(list.data('sort-items'), function(id, item){
             t.updateIndex(item);
         });
     },
@@ -372,11 +380,33 @@ UnitedOne.modules.sort = {
         field.find('input').val(row.index());
     },
 
-    onChange: function(e, ui) {
+    onChange: function(e, ui, list) {
         var t = this;
         setTimeout(function(){
-            t.updateAll();
+            t.updateAllForList(list);
         }, 10);
+    },
+
+    initializeList: function(list) {
+
+        var t = this;
+
+        // enable sortable
+        if(!list.data('sortable-initialized')) {
+
+            list.sortable({
+                items: '> .field',
+                handle: '.united-sort-handler',
+                placeholder: 'field united-sort-placeholder',
+                forcePlaceholderSize: true
+            }).on('sortable:update', function(e, ui){
+                t.onChange(e, ui, list);
+            });
+
+            list.data('sort-items', []);
+            list.data('sortable-initialized', true);
+            list.addClass('with-sort-fields');
+        }
     },
 
     ready: function(){
@@ -385,25 +415,16 @@ UnitedOne.modules.sort = {
 
         $('.united-sort').each(function(){
 
-            // update index
-            t.updateIndex($(this));
-            t.items.push($(this));
-
-            // enable sortable
             var list = $(this).parent().parent().parent();
-            if(!list.data('sortable-initialized')) {
 
-                list.sortable({
-                    items: '> .field',
-                    handle: '.united-sort-handler',
-                    placeholder: 'field united-sort-placeholder',
-                    forcePlaceholderSize: true
-                }).on('sortable:update', function(e, ui){
-                    t.onChange(e, ui);
-                });
+            // init list
+            t.initializeList(list);
 
-                list.data('sortable-initialized', true);
-            }
+            // update index
+            var items = list.data('sort-items');
+            items.push($(this));
+            list.data('sort-items', items);
+            t.updateIndex($(this));
         });
     }
 };

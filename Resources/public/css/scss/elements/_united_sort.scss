@@ -5,7 +5,10 @@
   padding-top: 17px;
 }
 
-.united-sort-placeholder {
+.field.united-sort-placeholder {
   border: 1px dashed #ccc;
   border-radius: 5px;
+  padding-top: 0.40em !important;
+  padding-bottom: 0.45em !important;
+  width: auto !important;
 }

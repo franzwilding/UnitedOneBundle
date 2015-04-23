@@ -1,17 +1,36 @@
 
-.united-prototype-widget {
-  > .positive.button {
-    margin-bottom: 20px;
-  }
+.ui.form {
+  .united-prototype-widget {
+    > .positive.button {
+      margin-bottom: 20px;
+    }
 
-  > .field {
-    position: relative;
+    &.with-sort-fields {
+      > .field {
+        padding-left: 45px;
+      }
+    }
 
-    .united-collection-delete-button {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      margin-top: -18px;
+    > .field {
+      position: relative;
+      padding-right: 55px;
+
+      .field.united-sort {
+        padding: 0;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -18px;
+        margin-bottom: 0;
+      }
+
+      .united-collection-delete-button {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin-top: -18px;
+        margin-bottom: 0;
+      }
     }
   }
 }
