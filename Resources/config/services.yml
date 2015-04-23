@@ -6,6 +6,12 @@ services:
         tags:
             - { name: twig.extension }
 
+    # Form extension to add semantic-ui grid classes to the form and form fields
+    united.one.form.extension.grid:
+        class: United\OneBundle\Form\Extension\FormTypeGridExtension
+        tags:
+            - { name: form.type_extension, alias: form }
+
     # Custom form type: Render a delete submit button
     united.one.form.type.delete:
         class: United\OneBundle\Form\Type\DeleteType

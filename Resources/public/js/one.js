@@ -346,7 +346,9 @@ UnitedOne.modules.collectionPrototype = {
             $container.data('child-count', $(this).children('.field').length);
 
             // add delete buttons
+            console.log($(this));
             $(this).children('.field').each(function(){
+                console.log($(this));
                 t.addDeleteButtonToField($(this), $container);
             });
 

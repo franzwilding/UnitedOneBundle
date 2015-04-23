@@ -6,22 +6,27 @@
 {%- endblock form_start %}
 
 {%- block form_row -%}
-    {% set field_class = '' %}
-    {% if attr.field_class is defined %}
-        {% set field_class = ' ' ~ attr.field_class %}
-    {% endif %}
-    <div class="field{{ field_class }}">
+    <div class="{{ form.vars.field_classes|merge(['field'])|join(' ') }}">
         {{- form_errors(form) -}}
         {{- form_widget(form) -}}
     </div>
 {%- endblock form_row -%}
 
-{%- block united_sort_widget -%}
-    {% set field_class = '' %}
-    {% if attr.field_class is defined %}
-        {% set field_class = ' ' ~ attr.field_class %}
+{%- block button_row -%}
+    <div class="sixteen wide field">
+        {{- form_widget(form) -}}
+    </div>
+{%- endblock button_row -%}
+
+{%- block form_widget_compound -%}
+    {% if form.parent is null %}
+        {% set attr = attr|merge({class: (attr.class|default('') ~ form.vars.field_classes|merge(['field'])|join(' '))|trim}) %}
     {% endif %}
-    <div class="field united-sort{{ field_class }}">
+    {{- parent() -}}
+{%- endblock form_widget_compound -%}
+
+{%- block united_sort_widget -%}
+    <div class="united-sort">
         <div class="united-sort-handler circular ui icon button"><i class="icon sort"></i></div>
         {{- form_errors(form) -}}
         {{- form_widget(form) -}}
