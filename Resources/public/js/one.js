@@ -96,6 +96,85 @@ UnitedOne.modules.checkbox = {
 };
 
 /**
+ * Handles modals.
+ */
+UnitedOne.modules.modal = {
+    open: function(header, content, ok_cb, cancel_cb) {
+
+        // add modal dom element
+        var modal = $('<div />', {class: 'ui fullscreen modal'});
+        modal.append($('<i />', {class: 'close icon'}));
+        modal.append($('<div />', {class: 'header', text: header}));
+
+        var m_content = $('<div />', {class: 'content'});
+        modal.append(m_content);
+
+        var m_actions = $('<div />', {class: 'actions'});
+
+        if (cancel_cb != undefined) {
+            m_actions.append($('<button />', {class: 'ui cancel button', text: 'Cancel'}));
+        }
+
+        if (ok_cb != undefined) {
+            m_actions.append($('<button />', {class: 'ui positive button', text: 'Ok'}));
+        }
+
+        modal.append(m_actions);
+
+        // add content
+        if(typeof(content) == "function") {
+
+            var dimmer = $('<div />', {class: 'ui active inverted dimmer'});
+            dimmer.append($('<div />', {class: 'ui loader'}));
+            m_content.append(dimmer);
+
+            content(function(data){
+                m_content.html(data);
+            });
+        } else {
+            m_content.html(content);
+        }
+
+        modal.modal({
+            onDeny    : cancel_cb,
+            onApprove : ok_cb
+        }).modal('show');
+    }
+};
+
+/**
+ * Connect form preview buttons.
+ */
+UnitedOne.modules.preview = {
+    ready: function() {
+        $('form button.preview.button').click(function(){
+
+            var embed = $(this).data('preview-embed');
+            var url = $(this).data('preview-url');
+            var data = $(this).closest('form').serialize();
+
+            // Show the preview as embedded in a modal.
+            if(embed) {
+                UnitedOne.modules.modal.open('Preview', function (success) {
+                    $.post(url + '?embed=true', data, success);
+
+                }, function (modal) {
+                });
+
+            // Show the preview as full html in a new window.
+            } else {
+                $.post(url, data, function(result){
+                    var preview_window = window.open("", "Preview","menubar=1,resizable=1,width=1200,height=800");
+                    preview_window.document.write(result);
+                });
+            }
+
+            return false;
+        });
+    }
+};
+
+/**
  * Create dimmer functionality for image cards.
  */
 UnitedOne.modules.cards = {

@@ -63,6 +63,10 @@
 {%- block submit_or_delete_widget -%}
     {{ block('submit_widget') }}
 
+    {% if form.vars.render_preview and united_controller_preview(united.item) %}
+        <button data-preview-embed="{{ form.vars.preview_embed }}" data-preview-url="{{ united.url('preview') }}/{{ united.item.action }}/preview" class="ui preview button">{% trans %}Preview{% endtrans %}</button>
+    {% endif %}
+
     {% if form.parent.vars.data.id %}
         <a class="red ui button" href="{{ united.url('delete') }}">{% trans %}Delete{% endtrans %}</a>
     {% endif %}

@@ -72,4 +72,13 @@ abstract class CRUDBaseController extends CRUDController
     {
         return 'UnitedOneBundle:Form:form.html.twig';
     }
+
+    /**
+     * Returns the template for the error action.
+     * @return string the twig template to render
+     */
+    protected function templateForErrorAction()
+    {
+        return 'UnitedOneBundle:Error:error.html.twig';
+    }
 }

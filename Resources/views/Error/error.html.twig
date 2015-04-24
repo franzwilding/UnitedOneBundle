@@ -1,0 +1,23 @@
+{% extends united.theme(layout) %}
+
+{% block content %}
+
+    <div class="ui segment">
+        <h1>
+            {% if entity and entity.__toString %}
+                Für {{ united.item.subRouteName|trans({'%entity%': entity}) }} ist ein Fehler aufgetreten!
+            {% else %}
+                Es ist ein Fehler aufgetreten!
+            {% endif %}
+        </h1>
+
+        <div class="ui divider"></div>
+
+        {% if error is defined %}
+            <div class="ui error message">
+                <p>{{ error }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %}
