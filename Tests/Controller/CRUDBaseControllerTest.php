@@ -54,6 +54,15 @@ class CRUDBaseControllerTest extends UnitedControllerTestCase
                 '_controller' => 'United\OneBundle\Tests\Mock\CRUDBaseControllerMock::updateAction',
               ),
             ),
+              // preview route
+            $this->getClassPrefix().'.preview' => array(
+              'path' => '/United_OneBundle_Tests_Controller_CRUDBaseControllerTest/preview/{action}/{template}',
+              'defaults' => array(
+                'action' => 'create',
+                'template' => '',
+                '_controller' => 'United\OneBundle\Tests\Mock\CRUDBaseControllerMock::previewAction',
+              ),
+            ),
               // delete route
             $this->getClassPrefix().'.delete' => array(
               'path' => '/United_OneBundle_Tests_Controller_CRUDBaseControllerTest/{id}/delete',
