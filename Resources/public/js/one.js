@@ -22,10 +22,10 @@ var UnitedOne = {
     /**
      * Call ready functions on all modules.
      */
-    ready: function () {
+    ready: function (document) {
         for (var module in this.modules) {
             if (this.modules[module].hasOwnProperty('ready')) {
-                this.modules[module].ready();
+                this.modules[module].ready(document);
             }
         }
     }
@@ -36,7 +36,7 @@ UnitedOne.init();
 
 // Call ready function
 $(document).ready(function () {
-    UnitedOne.ready();
+    UnitedOne.ready(document);
 });
 
 
@@ -77,19 +77,19 @@ UnitedOne.modules.toggleSidebar = {
  * Transforms all .ui.dropdown elements.
  */
 UnitedOne.modules.select = {
-    ready: function () {
-        $('.ui.dropdown')
+    ready: function (context) {
+        $('.ui.dropdown', context)
             .dropdown()
         ;
     }
 };
 
 /**
- * Transforms all checkbox elements.
+ * Transforms all checkbox and radio elements.
  */
 UnitedOne.modules.checkbox = {
-    ready: function () {
-        $('.ui.checkbox').
+    ready: function (context) {
+        $('.ui.checkbox', context).
             checkbox()
         ;
     }
@@ -146,8 +146,8 @@ UnitedOne.modules.modal = {
  * Connect form preview buttons.
  */
 UnitedOne.modules.preview = {
-    ready: function() {
-        $('form button.preview.button').click(function(){
+    ready: function(context) {
+        $('form button.preview.button', context).click(function(){
 
             var embed = $(this).data('preview-embed');
             var url = $(this).data('preview-url');
@@ -178,8 +178,8 @@ UnitedOne.modules.preview = {
  * Create dimmer functionality for image cards.
  */
 UnitedOne.modules.cards = {
-    ready: function () {
-        $('.card .dimmable.image').dimmer({
+    ready: function (context) {
+        $('.card .dimmable.image', context).dimmer({
             on: 'hover'
         });
     }
@@ -189,8 +189,8 @@ UnitedOne.modules.cards = {
  * Make collection container sticky.
  */
 UnitedOne.modules.stickyCollections = {
-    ready: function () {
-        $('.united-one-collection-container').each(function () {
+    ready: function (context) {
+        $('.united-one-collection-container', context).each(function () {
             $('.ui.sticky', $(this)).sticky({context: $(this)});
         });
     }
@@ -219,11 +219,11 @@ UnitedOne.modules.editor = {
         textarea.val(container.html());
     },
 
-    ready: function () {
+    ready: function (context) {
 
         var t = this;
 
-        $('.united-editor').each(function () {
+        $('.united-editor', context).each(function () {
             var textarea = $(this);
             var container = $('<div />', {class: 'united-editor-container ui textarea'});
             container.html(textarea.val());
@@ -340,11 +340,11 @@ UnitedOne.modules.tags = {
 
     },
 
-    ready: function () {
+    ready: function (context) {
 
         var t = this;
 
-        $('.united-tags').each(function () {
+        $('.united-tags', context).each(function () {
 
             var full_name = $(this).data('full-name');
             var select = $('> select', $(this));
@@ -401,6 +401,9 @@ UnitedOne.modules.collectionPrototype = {
                 UnitedOne.modules.sort.updateIndex(item.find('.united-sort'));
             }
         }
+
+        // transform checkbox & radio buttons
+        UnitedOne.ready(item);
     },
 
     addDeleteButtonToField: function(field, $container) {
@@ -414,20 +417,18 @@ UnitedOne.modules.collectionPrototype = {
         field.append($del_button);
     },
 
-    ready: function () {
+    ready: function (context) {
 
         var t = this;
 
-        $('.united-prototype-widget').each(function () {
+        $('.united-prototype-widget', context).each(function () {
             var $button = $('<button />', {class: 'ui positive button', text: 'Add'});
             var $container = $(this);
             var prototype = $(this).data('prototype');
             $container.data('child-count', $(this).children('.field').length);
 
             // add delete buttons
-            console.log($(this));
             $(this).children('.field').each(function(){
-                console.log($(this));
                 t.addDeleteButtonToField($(this), $container);
             });
 
@@ -490,11 +491,11 @@ UnitedOne.modules.sort = {
         }
     },
 
-    ready: function(){
+    ready: function(context){
 
         var t = this;
 
-        $('.united-sort').each(function(){
+        $('.united-sort', context).each(function(){
 
             var list = $(this).parent().parent().parent();
 
