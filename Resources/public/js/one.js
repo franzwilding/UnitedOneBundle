@@ -432,8 +432,7 @@ UnitedOne.modules.collectionPrototype = {
                 t.addDeleteButtonToField($(this), $container);
             });
 
-            $(this).prepend($button);
-            $(this).append($container);
+            $container.after($button);
 
 
             // on add

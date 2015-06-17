@@ -7,7 +7,14 @@
 
     &.with-sort-fields {
       > .field {
-        padding-left: 45px;
+        margin: 0;
+        padding: 20px 50px 7px;
+        min-height: 50px;
+        border-top: 1px solid #eee;
+
+        &:first-child {
+          border-top: none;
+        }
       }
     }
 

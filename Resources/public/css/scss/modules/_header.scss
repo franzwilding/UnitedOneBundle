@@ -7,10 +7,10 @@
   left: $padding + 5;
   z-index: 1000;
 
-  -webkit-transition: left $animation-fast;
+  transition: left $animation-fast;
 
   .breadcrumb {
-    -webkit-transition: margin-left $animation-fast, opacity $animation-slow ease-out;
+    transition: margin-left $animation-fast, opacity $animation-slow ease-out;
   }
 
   .toggle-sidebar {
@@ -25,7 +25,7 @@
     svg {
       margin: 9px 8px;
       vertical-align: middle;
-      -webkit-transition: all $animation-fast ease-out, transform $animation-slow ease-out;
+      transition: all $animation-fast ease-out, transform $animation-slow ease-out;
 
       rect {
         fill: white;
@@ -33,17 +33,23 @@
 
       rect.rect-1 {
         -webkit-transform-origin: 50% 50%;
-        -webkit-transition: transform $animation-slow, fill $animation-fast ease-out;
+        -ms-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        transition: transform $animation-slow, fill $animation-fast ease-out;
       }
 
       rect.rect-2, rect.rect-2b {
         -webkit-transform-origin: 50% 50%;
-        -webkit-transition: transform $animation-fast/2 ease-in-out;
+        -ms-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        transition: transform $animation-fast/2 ease-in-out;
       }
 
       rect.rect-3 {
         -webkit-transform-origin: 50% 50%;
-        -webkit-transition: transform $animation-slow, fill $animation-fast ease-out;
+        -ms-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        transition: transform $animation-slow, fill $animation-fast ease-out;
       }
     }
 
@@ -75,12 +81,16 @@
       svg {
 
         -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
         width: 16px;
         height: 16px;
         margin: 8px;
 
         rect.rect-1 {
           -webkit-transform: scale(0, 0);
+          -ms-transform: scale(0, 0);
+          transform: scale(0, 0);
         }
 
         rect.rect-2 {
@@ -89,11 +99,15 @@
 
         rect.rect-2b {
           -webkit-transform: rotate(-90deg);
+          -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
           fill: #FE6760;
         }
 
         rect.rect-3 {
           -webkit-transform: scale(0, 0);
+          -ms-transform: scale(0, 0);
+          transform: scale(0, 0);
         }
       }
     }
@@ -101,7 +115,7 @@
     .breadcrumb {
       margin-left: -300px;
       opacity: 0;
-      -webkit-transition: margin-left $animation-slow, opacity $animation-fast/2 ease-out;
+      transition: margin-left $animation-slow, opacity $animation-fast/2 ease-out;
     }
   }
 }
