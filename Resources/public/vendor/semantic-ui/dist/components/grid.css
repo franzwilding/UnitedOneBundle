@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Grid
+ * # Semantic UI 1.12.3 - Grid
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1322,6 +1322,7 @@
 -----------------------*/
 
 .ui.grid > .white.row,
+.ui.grid > .white.column,
 .ui.grid > .row > .white.column {
   background-color: #ffffff !important;
   color: #666666;
@@ -1333,6 +1334,7 @@
   padding-bottom: 1rem;
 }
 .ui.grid > .black.row,
+.ui.grid > .black.column,
 .ui.grid > .row > .black.column {
   background-color: #576573 !important;
   color: #ffffff;
@@ -1344,6 +1346,7 @@
   padding-bottom: 1rem;
 }
 .ui.grid > .blue.row,
+.ui.grid > .blue.column,
 .ui.grid > .row > .blue.column {
   background-color: #51bdf3 !important;
   color: #ffffff;
@@ -1355,6 +1358,7 @@
   padding-bottom: 1rem;
 }
 .ui.grid > .green.row,
+.ui.grid > .green.column,
 .ui.grid > .row > .green.column {
   background-color: #9ae26d !important;
   color: #ffffff;
@@ -1366,6 +1370,7 @@
   padding-bottom: 1rem;
 }
 .ui.grid > .orange.row,
+.ui.grid > .orange.column,
 .ui.grid > .row > .orange.column {
   background-color: #ff9800 !important;
   color: #ffffff;
@@ -1388,6 +1393,7 @@
   padding-bottom: 1rem;
 }
 .ui.grid > .purple.row,
+.ui.grid > .purple.column,
 .ui.grid > .row > .purple.column {
   background-color: #9c27b0 !important;
   color: #ffffff;
@@ -1399,6 +1405,7 @@
   padding-bottom: 1rem;
 }
 .ui.grid > .red.row,
+.ui.grid > .red.column,
 .ui.grid > .row > .red.column {
   background-color: #f86769 !important;
   color: #ffffff;
@@ -1410,8 +1417,9 @@
   padding-bottom: 1rem;
 }
 .ui.grid > .teal.row,
+.ui.grid > .teal.column,
 .ui.grid > .row > .teal.column {
-  background-color: #1de9b6 !important;
+  background-color: #bfb3a4 !important;
   color: #ffffff;
 }
 .ui.grid > .row > .teal.column {
@@ -1421,6 +1429,7 @@
   padding-bottom: 1rem;
 }
 .ui.grid > .yellow.row,
+.ui.grid > .yellow.column,
 .ui.grid > .row > .yellow.column {
   background-color: #fbee73 !important;
   color: #ffffff;

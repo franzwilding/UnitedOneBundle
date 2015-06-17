@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Button
+ * # Semantic UI 1.12.3 - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1939,7 +1939,7 @@
 
 .ui.teal.buttons .button,
 .ui.teal.button {
-  background-color: #1de9b6;
+  background-color: #bfb3a4;
   color: #ffffff;
   text-shadow: none;
   background-image: none;
@@ -1949,13 +1949,13 @@
 }
 .ui.teal.buttons .button:hover,
 .ui.teal.button:hover {
-  background-color: #2beabb;
+  background-color: #c5bbad;
   color: #ffffff;
   text-shadow: none;
 }
 .ui.teal.buttons .button:active,
 .ui.teal.button:active {
-  background-color: #14cea0;
+  background-color: #b0a18f;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1963,7 +1963,7 @@
 .ui.teal.buttons .active.button:active,
 .ui.teal.active.button,
 .ui.teal.button .active.button:active {
-  background-color: #15d8a7;
+  background-color: #b4a695;
   color: #ffffff;
   text-shadow: none;
 }
@@ -1977,19 +1977,19 @@
 .ui.basic.teal.buttons .button:hover,
 .ui.basic.teal.button:hover {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #2beabb inset !important;
-  color: #2beabb !important;
+  box-shadow: 0px 0px 0px 2px #c5bbad inset !important;
+  color: #c5bbad !important;
 }
 .ui.basic.teal.buttons .button:active,
 .ui.basic.teal.button:active {
-  box-shadow: 0px 0px 0px 2px #14cea0 inset !important;
-  color: #14cea0 !important;
+  box-shadow: 0px 0px 0px 2px #b0a18f inset !important;
+  color: #b0a18f !important;
 }
 .ui.basic.teal.buttons .active.button,
 .ui.basic.teal.active.button {
   background: transparent !important;
-  box-shadow: 0px 0px 0px 2px #14cea0 inset !important;
-  color: #14cea0 !important;
+  box-shadow: 0px 0px 0px 2px #b0a18f inset !important;
+  color: #b0a18f !important;
 }
 .ui.buttons > .basic.teal.button:not(:first-child) {
   margin-left: -2px;

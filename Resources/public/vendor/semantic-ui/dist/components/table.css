@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Table
+ * # Semantic UI 1.12.3 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -573,7 +573,7 @@
   border-top: 0.2em solid #f86769;
 }
 .ui.teal.table {
-  border-top: 0.2em solid #1de9b6;
+  border-top: 0.2em solid #bfb3a4;
 }
 .ui.yellow.table {
   border-top: 0.2em solid #fbee73;
@@ -613,7 +613,7 @@
   color: #ffffff !important;
 }
 .ui.inverted.teal.table {
-  background-color: #1de9b6 !important;
+  background-color: #bfb3a4 !important;
   color: #ffffff !important;
 }
 .ui.inverted.yellow.table {

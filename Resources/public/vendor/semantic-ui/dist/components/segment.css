@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Segment
+ * # Semantic UI 1.12.3 - Segment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -370,7 +370,7 @@
   border-top: 2px solid #f86769;
 }
 .ui.teal.segment:not(.inverted) {
-  border-top: 2px solid #1de9b6;
+  border-top: 2px solid #bfb3a4;
 }
 .ui.yellow.segment:not(.inverted) {
   border-top: 2px solid #fbee73;
@@ -446,7 +446,7 @@
   color: #ffffff !important;
 }
 .ui.inverted.teal.segment {
-  background-color: #1de9b6 !important;
+  background-color: #bfb3a4 !important;
   color: #ffffff !important;
 }
 .ui.inverted.yellow.segment {

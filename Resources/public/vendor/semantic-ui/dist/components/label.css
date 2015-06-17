@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Label
+ * # Semantic UI 1.12.3 - Label
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -700,33 +700,33 @@ a.ui.red.label:hover:before {
 
 .ui.teal.labels .label,
 .ui.teal.label {
-  background-color: #1de9b6 !important;
-  border-color: #1de9b6 !important;
+  background-color: #bfb3a4 !important;
+  border-color: #bfb3a4 !important;
   color: #ffffff !important;
 }
 .ui.labels .teal.label:before,
 .ui.teal.labels .label:before,
 .ui.teal.label:before {
-  background-color: #1de9b6 !important;
+  background-color: #bfb3a4 !important;
 }
 a.ui.teal.labels .label:hover,
 .ui.teal.labels a.label:hover,
 a.ui.teal.label:hover {
-  background-color: #2beabb !important;
-  border-color: #2beabb !important;
+  background-color: #c5bbad !important;
+  border-color: #c5bbad !important;
   color: #ffffff !important;
 }
 .ui.labels a.teal.label:hover:before,
 .ui.teal.labels a.label:hover:before,
 a.ui.teal.label:hover:before {
-  background-color: #2beabb !important;
+  background-color: #c5bbad !important;
 }
 .ui.teal.corner.label,
 .ui.teal.corner.label:hover {
   background-color: transparent !important;
 }
 .ui.teal.ribbon.label {
-  border-color: #13c095 !important;
+  border-color: #aa9a86 !important;
 }
 
 /*--- Yellow ---*/

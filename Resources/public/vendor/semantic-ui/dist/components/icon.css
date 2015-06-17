@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.6 - Icon
+ * # Semantic UI 1.12.3 - Icon
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -217,7 +217,7 @@ i.red.icon {
   color: #f86769 !important;
 }
 i.teal.icon {
-  color: #1de9b6 !important;
+  color: #bfb3a4 !important;
 }
 i.yellow.icon {
   color: #fbee73 !important;
@@ -301,7 +301,7 @@ i.inverted.circular.red.icon {
 }
 i.inverted.bordered.teal.icon,
 i.inverted.circular.teal.icon {
-  background-color: #1de9b6 !important;
+  background-color: #bfb3a4 !important;
   color: #FFFFFF !important;
 }
 i.inverted.bordered.yellow.icon,
