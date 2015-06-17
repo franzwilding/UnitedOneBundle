@@ -12,6 +12,24 @@ services:
         tags:
             - { name: form.type_extension, alias: form }
 
+    # Form extension for adding inline text field labels
+    united.one.form.extension.labeled_input:
+        class: United\OneBundle\Form\Extension\LabeledInputExtension
+        tags:
+            - { name: form.type_extension, alias: form }
+
+    # Custom form type: Render a set of fields
+    united.one.form.type.fields:
+        class: United\OneBundle\Form\Type\FieldsType
+        tags:
+            - { name: form.type, alias: united_fields }
+
+    # Custom form type: Render a field
+    united.one.form.type.field:
+        class: United\OneBundle\Form\Type\FieldType
+        tags:
+            - { name: form.type, alias: united_field }
+
     # Custom form type: Render a delete submit button
     united.one.form.type.delete:
         class: United\OneBundle\Form\Type\DeleteType

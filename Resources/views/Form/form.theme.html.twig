@@ -18,6 +18,36 @@
     </div>
 {%- endblock button_row -%}
 
+{%- block united_fields_row -%}
+    {{- form_errors(form) -}}
+    {{- form_widget(form) -}}
+{%- endblock united_fields_row -%}
+
+{%- block united_field_row -%}
+    {{- form_errors(form) -}}
+    {{- form_widget(form) -}}
+{%- endblock united_field_row -%}
+
+{%- block united_fields_widget -%}
+    <div class="fields">
+        {%- if form.parent is empty -%}
+            {{ form_errors(form) }}
+        {%- endif -%}
+        {{- block('form_rows') -}}
+        {{- form_rest(form) -}}
+    </div>
+{%- endblock united_fields_widget -%}
+
+{%- block united_field_widget -%}
+    <div class="{{ form.vars.field_classes|merge(['field'])|join(' ')|trim }}">
+        {%- if form.parent is empty -%}
+            {{ form_errors(form) }}
+        {%- endif -%}
+        {{- block('form_rows') -}}
+        {{- form_rest(form) -}}
+    </div>
+{%- endblock united_field_widget -%}
+
 {%- block form_widget_compound -%}
     {% if form.parent is null %}
         {% set attr = attr|merge({class: (attr.class|default('') ~ form.vars.field_classes|merge(['field'])|join(' '))|trim}) %}
@@ -47,7 +77,15 @@
     {% if type != 'hidden' %}
         {{- form_label(form) -}}
     {% endif %}
-    <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+
+    {% if form.vars.field_label is defined %}
+        <div class="ui {{ form.vars.field_label_position }} labeled input">
+            <div class="ui label">{{ form.vars.field_label }}</div>
+    {% endif %}
+        <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+    {% if form.vars.field_label is defined %}
+        </div>
+    {% endif %}
 {%- endblock form_widget_simple -%}
 
 {%- block textarea_widget -%}

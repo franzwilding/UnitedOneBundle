@@ -15,33 +15,9 @@ class FormTypeGridExtension extends AbstractTypeExtension
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        // parent classes
-        if($view->parent) {
-            if(!array_key_exists('field_classes', $view->parent->vars)) {
-                $view->parent->vars['field_classes'] = array();
-            }
-        }
-
         // field classes
         if(!array_key_exists('field_classes', $view->vars)) {
             $view->vars['field_classes'] = array();
-        }
-
-        // display the parent of this field inline
-        if($options['group_inline']) {
-
-            if($view->parent) {
-                if(!in_array('inline', $view->parent->vars['field_classes'])) {
-                    $view->parent->vars['field_classes'][] = 'inline';
-                }
-
-                if(!in_array('fields', $view->parent->vars['field_classes'])) {
-                    $view->parent->vars['field_classes'][] = 'fields';
-                }
-            }
-
-            // no other classes are allowed, if the group should be displayed inline
-            return;
         }
 
         // display this field inline
@@ -74,12 +50,6 @@ class FormTypeGridExtension extends AbstractTypeExtension
             if($width) {
                 $view->vars['field_classes'][] = $width;
                 $view->vars['field_classes'][] = 'wide';
-
-                if($view->parent) {
-                    if(!in_array('fields', $view->parent->vars['field_classes'])) {
-                        $view->parent->vars['field_classes'][] = 'fields';
-                    }
-                }
             }
         }
     }
