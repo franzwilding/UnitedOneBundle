@@ -1,58 +1,111 @@
 /**
  * Main Header.
  */
-.united-one-header {
-  position: absolute;
-  top: $padding;
-  left: $padding + 5;
+.ui.menu.united-one-header {
+  padding: $padding / 1.5;
+  right: 0;
+  margin: 0;
+  width: auto;
   z-index: 1000;
-
   transition: left $animation-fast;
+  -webkit-transition: left $animation-fast;
+  -moz-transition: left $animation-fast;
+  -o-transition: left $animation-fast;
+  vertical-align: middle;
 
-  .breadcrumb {
-    transition: margin-left $animation-fast, opacity $animation-slow ease-out;
+  .item {
+    padding: 0 10px 0 35px;
+    display: block;
+    white-space: nowrap;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
   }
 
-  .toggle-sidebar {
-    margin: 0 5px 0 0;
+  .breadcrumb {
+    transition: margin-left $animation-fast;
+    -webkit-transition: margin-left $animation-fast;
+    -moz-transition: margin-left $animation-fast;
+    -o-transition: margin-left $animation-fast;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: auto;
+    margin: 0;
+    display: block;
+    width: 100%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  .right.menu {
+    background: white;
+    position: relative;
+    min-width: 50px;
+
+    &:before {
+      display: block;
+      content: "";
+      position: absolute;
+      left: -50px;
+      top: 0;
+      right: auto;
+      bottom: 0;
+      height: 100%;
+      width: 50px;
+      background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+      background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+      background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+      background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+      background-image: linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    }
+  }
+
+  .ui.button.toggle-sidebar {
+    margin: 0;
     padding: 0;
+    left: -3px;
+    top: -3px;
     border: none;
     background: none;
-    position: relative;
+    position: absolute;
+    vertical-align: middle;
     z-index: 50;
     outline: none;
+    transition: all $animation-slow;
+    -webkit-transition: all $animation-slow;
+    -moz-transition: all $animation-slow;
+    -o-transition: all $animation-slow;
 
-    svg {
-      margin: 9px 8px;
-      vertical-align: middle;
-      transition: all $animation-fast ease-out, transform $animation-slow ease-out;
+    .dynamic-navigation-icon {
+      width: 11px;
+      height: 11px;
+      display: block;
+      position: relative;
+      margin: 7px;
 
-      rect {
-        fill: white;
-      }
+      > span {
+        left: 0;
+        right: 0;
+        top: 1px;
+        height: 1px;
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        transition: all $animation-fast;
+        -webkit-transition: all $animation-fast;
+        -moz-transition: all $animation-fast;
+        -o-transition: all $animation-fast;
 
-      rect.rect-1 {
-        -webkit-transform-origin: 50% 50%;
-        -ms-transform-origin: 50% 50%;
-        transform-origin: 50% 50%;
-        transition: transform $animation-slow, fill $animation-fast ease-out;
-      }
+        &.rect2 {
+          top: 50%;
+          margin-top: -1px;
+        }
 
-      rect.rect-2, rect.rect-2b {
-        -webkit-transform-origin: 50% 50%;
-        -ms-transform-origin: 50% 50%;
-        transform-origin: 50% 50%;
-        transition: transform $animation-fast/2 ease-in-out;
-      }
-
-      rect.rect-3 {
-        -webkit-transform-origin: 50% 50%;
-        -ms-transform-origin: 50% 50%;
-        transform-origin: 50% 50%;
-        transition: transform $animation-slow, fill $animation-fast ease-out;
+        &.rect3 {
+          top: auto;
+          bottom: 1px;
+        }
       }
     }
-
     .text {
       position: absolute;
       left: -9999px;
@@ -64,58 +117,54 @@
     }
   }
 
-  .breadcrumb {
-    margin: 0;
-    vertical-align: middle;
-
-    .section:last-child:not(:first-child) {
-      color: #BFB3A4;
-    }
-  }
-
   &.open {
-    left: 210px;
+    left: 260px;
     position: fixed;
 
-    .toggle-sidebar {
-      svg {
-
-        -webkit-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-        transform: rotate(-45deg);
-        width: 16px;
-        height: 16px;
-        margin: 8px;
-
-        rect.rect-1 {
-          -webkit-transform: scale(0, 0);
-          -ms-transform: scale(0, 0);
-          transform: scale(0, 0);
-        }
-
-        rect.rect-2 {
-          fill: #FE6760;
-        }
-
-        rect.rect-2b {
-          -webkit-transform: rotate(-90deg);
-          -ms-transform: rotate(-90deg);
-          transform: rotate(-90deg);
-          fill: #FE6760;
-        }
-
-        rect.rect-3 {
-          -webkit-transform: scale(0, 0);
-          -ms-transform: scale(0, 0);
-          transform: scale(0, 0);
-        }
-      }
+    .breadcrumb {
+      margin-left: -30px;
     }
 
-    .breadcrumb {
-      margin-left: -300px;
-      opacity: 0;
-      transition: margin-left $animation-slow, opacity $animation-fast/2 ease-out;
+    .toggle-sidebar.ui.button {
+      border: 1px solid rgb(254, 103, 96);
+      transform: rotate(-135deg);
+      -webkit-transform: rotate(-135deg);
+      -moz-transform: rotate(-135deg);
+      -o-transform: rotate(-135deg);
+      left: -50px;
+
+      &:hover {
+        background: none !important;
+      }
+
+      .dynamic-navigation-icon {
+
+        margin-bottom: 6px;
+
+        > span {
+          background-color: rgb(254, 103, 96);
+
+          &.rect1 {
+            width: 1px;
+            height: auto;
+            top: -2px;
+            bottom: -2px;
+            left: 50%;
+            right: auto;
+            margin-left: -1px;
+          }
+
+          &.rect2 {
+            left: -2px;
+            right: -2px;
+          }
+
+          &.rect3 {
+            width: 0;
+          }
+
+        }
+      }
     }
   }
 }

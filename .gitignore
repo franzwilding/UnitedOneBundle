@@ -8,3 +8,4 @@ Resources/public/css/scss/.sass-cache/*
 Resources/public/vendor/semantic-ui/*.*
 Resources/public/vendor/semantic-ui/*/*
 !Resources/public/vendor/semantic-ui/dist/*
+Resources/public/vendor/node_modules/*

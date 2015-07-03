@@ -1,16 +1,26 @@
 /**
  * Main Content.
  */
+body {
+  background: #F8F8F8;
+}
 
 .pusher {
-  padding: $space + $padding $space - $padding $space - $padding;
+  background: #F8F8F8;
+  padding: 40px 0;
+}
+
+body.pushable {
+  background: #F8F8F8;
+
+  .pusher {
+    background: #F8F8F8;
+  }
 }
 
 .united-content {
   position: relative;
-  padding-top: $space;
   width: auto;
-  border-top: 1px solid #ccc;
 
   .united-content-inner {
     max-width: $max-width;
