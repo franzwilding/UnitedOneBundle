@@ -96,6 +96,23 @@ UnitedOne.modules.checkbox = {
 };
 
 /**
+ * Enable functionality for all tabs.
+ */
+UnitedOne.modules.tab = {
+    ready: function (context) {
+        $('.ui.tabular.menu .item', context).tab({
+            history : true
+        });
+    }
+};
+
+UnitedOne.modules.popup = {
+    ready: function (context) {
+        $('.popup-button', context).popup();
+    }
+};
+
+/**
  * Handles modals.
  */
 UnitedOne.modules.modal = {
@@ -225,6 +242,7 @@ UnitedOne.modules.editor = {
 
         $('.united-editor', context).each(function () {
             var textarea = $(this);
+            var min_height = textarea.data('min-height');
             var container = $('<div />', {class: 'united-editor-container ui textarea'});
             container.html(textarea.val());
             container.insertAfter(textarea);
@@ -234,6 +252,10 @@ UnitedOne.modules.editor = {
             container.on('input', function () {
                 t.onInput(textarea, container);
             });
+
+            if(min_height) {
+                container.css('min-height', min_height);
+            }
         });
     }
 };
@@ -506,6 +528,43 @@ UnitedOne.modules.sort = {
             items.push($(this));
             list.data('sort-items', items);
             t.updateIndex($(this));
+        });
+    }
+};
+
+UnitedOne.modules.listSort = {
+
+    init: function(list) {
+
+        var items       = list.data('items');
+        var handler     = list.data('handler');
+        var placeholder = list.data('placeholder');
+        var endpoint    = list.data('endpoint');
+
+        list.sortable({
+            items                   : items,
+            handle                  : handler,
+            placeholder             : placeholder,
+            forcePlaceholderSize    : true
+        }).on('sortable:update', function(e, ui){
+
+            list.css('opacity', 0.4);
+
+            $.get(endpoint, {id: ui.item.data('item-id'), index: ui.item.index()}, function(){
+                list.children().each(function(index){
+                    $(this).find('.sort-index').text(index + 1);
+                    list.css('opacity', 1);
+                });
+            });
+        });
+    },
+
+    ready: function(context) {
+        var t = this;
+
+        $('.united-list-sort', context).each(function(){
+            var list = $(this);
+            t.init(list);
         });
     }
 };

@@ -1,6 +1,10 @@
 
 .united-editor-container {
   overflow: auto;
+  min-height: 400px;
+  border: 1px solid rgba(34,36,38,.15);
+  border-radius: .28571429rem;
+  padding: 10px;
 
   &:after {
     left: 1em;

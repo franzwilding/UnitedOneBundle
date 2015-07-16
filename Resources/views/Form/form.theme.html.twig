@@ -7,25 +7,26 @@
 
 {%- block form_row -%}
     <div class="{{ form.vars.field_classes|merge(['field'])|join(' ') }}">
-        {{- form_errors(form) -}}
         {{- form_widget(form) -}}
+        {{- form_errors(form) -}}
     </div>
 {%- endblock form_row -%}
 
 {%- block button_row -%}
     <div class="sixteen wide field">
+        <div class="ui divider"></div>
         {{- form_widget(form) -}}
     </div>
 {%- endblock button_row -%}
 
 {%- block united_fields_row -%}
-    {{- form_errors(form) -}}
     {{- form_widget(form) -}}
+    {{- form_errors(form) -}}
 {%- endblock united_fields_row -%}
 
 {%- block united_field_row -%}
-    {{- form_errors(form) -}}
     {{- form_widget(form) -}}
+    {{- form_errors(form) -}}
 {%- endblock united_field_row -%}
 
 {%- block united_fields_widget -%}
@@ -106,9 +107,9 @@
     {% endif %}
 
     {% if form.parent.vars.data.id %}
-        <a class="red ui button" href="{{ united.url('delete') }}">{% trans %}Delete{% endtrans %}</a>
+        <a class="red ui button" href="{{ form.vars.delete_url is defined ? form.vars.delete_url : united.url('delete') }}">{% trans %}Delete{% endtrans %}</a>
     {% endif %}
-    <a class="basic ui button" href="{{ united.url }}">{% trans %}Cancel{% endtrans %}</a>
+    <a class="basic ui button" href="{{ form.vars.cancel_url is defined ? form.vars.cancel_url : united.url }}">{% trans %}Cancel{% endtrans %}</a>
 {%- endblock submit_or_delete_widget -%}
 
 {%- block delete_widget -%}
@@ -151,7 +152,7 @@
 
 {%- block choice_widget_collapsed -%}
     {{- form_label(form) -}}
-    {%- set attr = attr|merge({'class': 'ui dropdown'}) -%}
+    {%- set attr = attr|merge({'class': 'ui search dropdown'}) -%}
     {{- parent() -}}
 {%- endblock -%}
 
@@ -196,3 +197,24 @@
         {% endfor %}
     </div-->
 {%- endblock -%}
+
+
+
+
+{%- block datetime_widget -%}
+    {% if widget == 'single_text' %}
+        {{- block('form_widget_simple') -}}
+    {%- else -%}
+        {{- form_label(form) -}}
+        <div class="two fields">
+            <div class="field">
+                {{- form_widget(form.date) -}}
+            </div>
+            <div class="field">
+                {{- form_widget(form.time) -}}
+            </div>
+        </div>
+        {{- form_errors(form.date) -}}
+        {{- form_errors(form.time) -}}
+    {%- endif -%}
+{%- endblock datetime_widget -%}

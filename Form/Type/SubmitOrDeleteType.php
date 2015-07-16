@@ -16,6 +16,14 @@ class SubmitOrDeleteType extends SubmitType
         parent::buildView($view, $form, $options);
         $view->vars['render_preview'] = $options['render_preview'];
         $view->vars['preview_embed'] = $options['preview_embed'];
+
+        if($options['cancel_url']) {
+            $view->vars['cancel_url'] = $options['cancel_url'];
+        }
+
+        if($options['delete_url']) {
+            $view->vars['delete_url'] = $options['delete_url'];
+        }
     }
 
     /**
@@ -29,6 +37,8 @@ class SubmitOrDeleteType extends SubmitType
           array(
             'render_preview'    => true,
             'preview_embed'     => true,
+            'cancel_url'        => null,
+            'delete_url'        => null,
           )
         );
     }
