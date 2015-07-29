@@ -223,7 +223,12 @@ UnitedOne.modules.editor = {
      */
     editorOptions: function () {
         return {
-            imageDragging: false
+            imageDragging: false,
+            toolbar: {
+                buttons: ['bold', 'italic', 'anchor', 'h2', 'h3', 'orderedlist', 'unorderedlist'],
+                diffLeft: 25,
+                diffTop: 10
+            }
         }
     },
 
