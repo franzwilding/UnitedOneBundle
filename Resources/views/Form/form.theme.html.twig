@@ -116,7 +116,7 @@
     {%- set attr = attr|merge({'class': 'ui red button'}) -%}
     {%- set type = type|default('submit') -%}
     {{ block('button_widget') }}
-    <a class="basic ui button" href="{{ united.url }}">{% trans %}Cancel{% endtrans %}</a>
+    <a class="basic ui button" href="{{ form.vars.cancel_url is defined ? form.vars.cancel_url : united.url }}">{% trans %}Cancel{% endtrans %}</a>
 {%- endblock delete_widget -%}
 
 {%- block reset_widget -%}
