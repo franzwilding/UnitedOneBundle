@@ -106,7 +106,7 @@
         <button data-preview-embed="{{ form.vars.preview_embed }}" data-preview-url="{{ united.url('preview') }}/{{ united.item.action }}/preview" class="ui preview button">{% trans %}Preview{% endtrans %}</button>
     {% endif %}
 
-    {% if form.parent.vars.data.id %}
+    {% if form.parent.vars.data.id and form.vars.render_delete %}
         <a class="red ui button" href="{{ form.vars.delete_url is defined ? form.vars.delete_url : united.url('delete') }}">{% trans %}Delete{% endtrans %}</a>
     {% endif %}
     <a class="basic ui button" href="{{ form.vars.cancel_url is defined ? form.vars.cancel_url : united.url }}">{% trans %}Cancel{% endtrans %}</a>
@@ -126,15 +126,15 @@
 
 {%- block checkbox_widget -%}
     <div class="ui checkbox">
-        {{- form_label(form) -}}
         <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        {{- form_label(form) -}}
     </div>
 {%- endblock checkbox_widget -%}
 
 {%- block radio_widget -%}
     <div class="ui radio checkbox">
-        {{- form_label(form) -}}
         <input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        {{- form_label(form) -}}
     </div>
 {%- endblock radio_widget -%}
 

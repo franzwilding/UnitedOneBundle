@@ -78,22 +78,18 @@ UnitedOne.modules.toggleSidebar = {
  */
 UnitedOne.modules.select = {
     ready: function (context) {
-        $('.ui.dropdown', context)
-            .dropdown()
-        ;
+        $('.ui.dropdown', context).dropdown();
     }
 };
 
 /**
  * Transforms all checkbox and radio elements.
  */
-UnitedOne.modules.checkbox = {
+/*UnitedOne.modules.checkbox = {
     ready: function (context) {
-        $('.ui.checkbox', context).
-            checkbox()
-        ;
+        $('.ui.checkbox', context).checkbox();
     }
-};
+};*/
 
 /**
  * Enable functionality for all tabs.
