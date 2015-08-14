@@ -409,7 +409,12 @@ UnitedOne.modules.collectionPrototype = {
         $container.append(item);
 
         // add delete button
-        this.addDeleteButtonToField(item);
+        this.addDeleteButtonToField(item, $container);
+
+        if($container.data('child-count') > 0) {
+            $container.show();
+            $container.next().addClass('bottom attached');
+        }
 
         // if there is a united sort field, we need to register the field
         if(item.find('.united-sort').length > 0) {
@@ -434,8 +439,14 @@ UnitedOne.modules.collectionPrototype = {
         var $del_icon = $('<i />', {class: 'delete icon'});
         $del_button.append($del_icon);
         $del_button.click(function(){
-            //$container.data('child-count', $container.data('child-count') - 1);
+            $container.data('child-count', $container.data('child-count') - 1);
             field.remove();
+
+            if($container.data('child-count') == 0) {
+                $container.hide();
+                $container.next().removeClass('bottom attached');
+            }
+
         });
         field.append($del_button);
     },
@@ -446,16 +457,26 @@ UnitedOne.modules.collectionPrototype = {
 
         $('.united-prototype-widget', context).each(function () {
             var $button = $('<button />', {class: 'ui positive button', text: 'Add'});
+            var $buttonWrapper = $('<div />', {class: 'ui segment'});
+            $buttonWrapper.append($button);
             var $container = $(this);
             var prototype = $(this).data('prototype');
             $container.data('child-count', $(this).children('.field').length);
+
+            $container.hide();
+
+            if($(this).children('.field').length > 0) {
+                $container.show();
+                $buttonWrapper.addClass('bottom attached');
+            }
 
             // add delete buttons
             $(this).children('.field').each(function(){
                 t.addDeleteButtonToField($(this), $container);
             });
 
-            $container.after($button);
+            $container.after($buttonWrapper);
+            $container.addClass('top attached');
 
 
             // on add
