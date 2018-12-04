@@ -15,10 +15,6 @@
       "email": "franz@2robots.at"
     }
   ],
-  "require": {
-    "twig/extensions": "~1.0",
-    "franzwilding/united-core-bundle": "dev-master"
-  },
   "autoload": {
     "psr-4": {"United\\OneBundle\\": ""}
   }
